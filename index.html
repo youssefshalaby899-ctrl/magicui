@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0908">
+<meta name="color-scheme" content="dark">
+
+<title>MANKIND — Barber Room · One Golden Square, New Cairo</title>
+<meta name="description" content="MANKIND is a men's grooming room at One Golden Square, New Cairo. Precision fades, sculpted beards, hot-towel straight-razor shaves. Buzzed by the professionals.">
+<meta name="author" content="MANKIND Barber Room">
+<link rel="canonical" href="https://www.instagram.com/mankindegypt">
+
+<meta property="og:type" content="business.business">
+<meta property="og:site_name" content="MANKIND">
+<meta property="og:title" content="MANKIND — Barber Room, New Cairo">
+<meta property="og:description" content="Precision fades, sculpted beards and a straight-razor finish. One Golden Square, New Cairo.">
+<meta property="og:image" content="https://images.pexels.com/photos/7518689/pexels-photo-7518689.jpeg?auto=compress&cs=tinysrgb&w=1200">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  ─────────────────────────────────────────────────────────────────────────────
+  MANKIND · single-file site
+  Save this file anywhere and open it in a browser — no build step, no server.
+
+  Third-party code inlined in this file (both MIT, both unmodified except for a
+  single export shim so AutoAnimate can be used from an inline module):
+    · Lenis 1.3.26          — darkroomengineering/lenis        (smooth scroll)
+    · AutoAnimate 0.10.0    — formkit/auto-animate             (FLIP layout)
+  Everything else is hand-written vanilla CSS/JS, plus effect patterns ported
+  from magicuidesign/magicui and DavidHDev/react-bits (see SITE-NOTES.md).
+
+  ⚠ EDIT BEFORE LAUNCH — placeholder business data, all in one place:
+    · hours                → the table.hours rows
+    · prices               → the SERVICES ledger markup + select options
+    · phone / WhatsApp     → +20 11 48310107
+    · address              → One Golden Square, New Cairo, Cairo
+    · testimonials         → the QUOTES array in the JS
+    · crew / craft cards   → CRAFT section text
+    · photography          → Pexels CDN links; swap for real Mankind shots
+  ─────────────────────────────────────────────────────────────────────────────
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0908'/%3E%3Cpath d='M14 46V18l10 16 8-16 8 16 10-16v28' fill='none' stroke='%23C9A227' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "MANKIND",
+  "alternateName": "The Mankind Barber",
+  "description": "Men's grooming room — precision fades, beard sculpting and hot-towel straight-razor shaves.",
+  "slogan": "Buzzed by the professionals.",
+  "image": "https://images.pexels.com/photos/7518689/pexels-photo-7518689.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "url": "https://www.instagram.com/mankindegypt",
+  "telephone": "+201148310107",
+  "priceRange": "EGP 150 – 1200",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "One Golden Square",
+    "addressLocality": "New Cairo",
+    "addressRegion": "Cairo",
+    "addressCountry": "EG"
+  },
+  "sameAs": [
+    "https://www.instagram.com/mankindegypt",
+    "https://www.facebook.com/MankindGentsSalon/"
+  ]
+}
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   1 · TOKENS
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  --ink:#0A0908;
+  --ink-2:#100E0C;
+  --smoke:#171412;
+  --smoke-2:#1E1A17;
+  --line:rgba(233,222,200,.10);
+  --line-2:rgba(233,222,200,.18);
+  --bone:#EFE7D8;
+  --bone-2:#CFC4AE;
+  --bone-3:#948A78;
+  --brass:#C9A227;
+  --brass-2:#E7CE8B;
+  --brass-3:#8C6E1B;
+  --ember:#B4472C;
+
+  --foil:linear-gradient(102deg,#8C6E1B 0%,#E7CE8B 26%,#FFF6DC 42%,#C9A227 58%,#8C6E1B 82%,#D9BE72 100%);
+
+  --f-display:"Bodoni Moda","Didot","Bodoni MT",Georgia,"Times New Roman",serif;
+  --f-body:"Archivo","Helvetica Neue",Helvetica,system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --shell:min(1320px,100% - clamp(2rem,8vw,7rem));
+  --sec-y:clamp(5.5rem,13vh,10rem);
+  --nav-h:4.5rem;
+
+  --e-out:cubic-bezier(.16,1,.3,1);
+  --e-in-out:cubic-bezier(.65,0,.35,1);
+  --e-soft:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2 · RESET + BASE
+   ═══════════════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{
+  color-scheme:dark;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  scrollbar-color:var(--brass-3) var(--ink);
+  scrollbar-width:thin;
+}
+html.scroll-smooth{scroll-behavior:smooth}
+body{
+  min-height:100dvh;
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--f-body);
+  font-size:clamp(.975rem,.92rem + .22vw,1.0625rem);
+  line-height:1.65;
+  font-synthesis-weight:none;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:clip;
+  text-rendering:optimizeLegibility;
+}
+img,picture,svg,video{display:block;max-width:100%;height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer;padding:0;text-align:inherit}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none;padding:0}
+h1,h2,h3,h4{font-weight:500;text-wrap:balance;line-height:1}
+p{text-wrap:pretty}
+::selection{background:var(--brass);color:#120F06}
+:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px;border-radius:2px}
+
+/* Lenis required rules */
+html.lenis,html.lenis body{height:auto}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3 · TYPE PRIMITIVES
+   ═══════════════════════════════════════════════════════════════════ */
+.display{
+  font-family:var(--f-display);
+  font-weight:500;
+  line-height:.92;
+  letter-spacing:-.022em;
+}
+.display em{font-style:italic;font-weight:400}
+.d-1{font-size:clamp(3rem,11.5vw,9.5rem)}
+.d-2{font-size:clamp(2.4rem,6.4vw,5.4rem)}
+.d-3{font-size:clamp(1.85rem,3.6vw,3.15rem)}
+.d-4{font-size:clamp(1.4rem,2.2vw,1.95rem)}
+
+.foil{
+  background:var(--foil);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:.6875rem;
+  font-weight:500;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--bone-3);
+  display:flex;align-items:center;gap:.75rem;
+}
+.eyebrow::before{
+  content:"";width:clamp(1.5rem,4vw,3.25rem);height:1px;
+  background:linear-gradient(90deg,transparent,var(--brass));flex:none;
+}
+.eyebrow--center{justify-content:center}
+.eyebrow--center::after{
+  content:"";width:clamp(1.5rem,4vw,3.25rem);height:1px;
+  background:linear-gradient(90deg,var(--brass),transparent);flex:none;
+}
+
+.lede{
+  font-size:clamp(1.0625rem,.98rem + .5vw,1.3125rem);
+  line-height:1.58;color:var(--bone-2);max-width:56ch;
+}
+.body-dim{color:var(--bone-3)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.num{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;color:var(--brass)}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4 · LAYOUT + TEXTURE UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+.shell{width:var(--shell);margin-inline:auto}
+.sec{position:relative;padding-block:var(--sec-y)}
+.sec-head{display:grid;gap:clamp(1.25rem,3vw,2rem);margin-bottom:clamp(2.5rem,6vw,4.5rem)}
+@media(min-width:900px){
+  .sec-head{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);align-items:end;gap:3rem}
+}
+.hr-brass{height:1px;border:0;background:linear-gradient(90deg,transparent,var(--line-2) 12%,var(--brass) 50%,var(--line-2) 88%,transparent)}
+
+/* fixed film grain + vignette (React Bits “Noise” / MagicUI “noise-texture”) */
+.grain,.vignette{position:fixed;inset:0;pointer-events:none;z-index:60}
+.grain{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  opacity:.055;mix-blend-mode:overlay;
+  animation:grainShift 7s steps(6) infinite;
+}
+@keyframes grainShift{
+  0%{transform:translate3d(0,0,0)}16%{transform:translate3d(-3%,-2%,0)}
+  33%{transform:translate3d(2%,-4%,0)}50%{transform:translate3d(-2%,3%,0)}
+  66%{transform:translate3d(3%,2%,0)}83%{transform:translate3d(-4%,-1%,0)}
+  100%{transform:translate3d(0,0,0)}
+}
+.vignette{
+  background:radial-gradient(125% 95% at 50% 42%,transparent 42%,rgba(4,3,2,.55) 100%);
+  z-index:59;
+}
+
+/* Cairo-Deco arch mask, used on feature imagery */
+.arch{border-radius:52% 52% 6px 6px/26% 26% 6px 6px}
+
+/* deco fan motif */
+.deco-fan{position:absolute;pointer-events:none;opacity:.5;color:var(--brass-3)}
+
+/* image placeholders — art-directed fallback if a CDN photo fails */
+.ph{position:relative;background:
+  radial-gradient(120% 100% at 20% 10%,rgba(201,162,39,.20),transparent 60%),
+  linear-gradient(160deg,var(--smoke-2),var(--ink-2) 70%);
+  overflow:hidden}
+.ph.no-img::after{
+  content:"";position:absolute;inset:0;opacity:.3;
+  background-image:repeating-linear-gradient(52deg,rgba(231,206,139,.16) 0 1px,transparent 1px 13px);
+}
+.ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover}
+.ph.no-img img{visibility:hidden}
+.ph.no-img::before{
+  content:"MANKIND";position:absolute;inset:0;z-index:2;display:grid;place-content:center;
+  font-family:var(--f-display);font-size:clamp(.8rem,2vw,1.1rem);letter-spacing:.42em;
+  color:rgba(231,206,139,.5);text-align:center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   5 · REVEAL SYSTEM  (port of MagicUI blur-fade / text-animate,
+       React Bits AnimatedContent / ScrollReveal — IntersectionObserver)
+   ═══════════════════════════════════════════════════════════════════ */
+[data-reveal]{
+  opacity:0;
+  transform:translate3d(0,var(--ry,22px),0);
+  transition:opacity .95s var(--e-out) var(--d,0ms),transform 1.05s var(--e-out) var(--d,0ms);
+  transition-delay:var(--d,0ms);
+}
+[data-reveal="blur"]{filter:blur(9px);transition:opacity .9s var(--e-out) var(--d,0ms),transform 1s var(--e-out) var(--d,0ms),filter .9s var(--e-out) var(--d,0ms)}
+[data-reveal="left"]{--ry:0;transform:translate3d(calc(var(--rx,-28px)),0,0)}
+[data-reveal="right"]{--ry:0;transform:translate3d(var(--rx,28px),0,0)}
+[data-reveal="scale"]{--ry:0;transform:scale(.955)}
+[data-reveal].is-in{opacity:1;transform:none;filter:blur(0)}
+
+/* line-masked display reveal (GSAP SplitText / React Bits MaskedHeading pattern) */
+/* room for didone descenders, pulled back so the rhythm stays tight */
+.lines .line{display:block;overflow:hidden;padding-block:.05em .26em;margin-bottom:-.2em}
+.lines .line>span{
+  display:block;
+  transform:translate3d(0,112%,0) rotate(2.4deg);
+  transition:transform 1.15s var(--e-out);
+  transition-delay:calc(var(--i,0) * 92ms + var(--d,0ms));
+  will-change:transform;
+}
+.lines.is-in .line>span{transform:none}
+
+/* brass rule that draws itself in */
+.rule-draw{height:1px;background:linear-gradient(90deg,var(--brass),rgba(201,162,39,.06));transform:scaleX(0);transform-origin:0 50%;transition:transform 1.3s var(--e-out) var(--d,0ms)}
+.rule-draw.is-in{transform:scaleX(1)}
+
+/* ═══════════════════════════════════════════════════════════════════
+   6 · CURTAIN (premium intro wipe)
+   ═══════════════════════════════════════════════════════════════════ */
+.curtain{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:var(--ink);
+  /* failsafe: if the script never runs, the curtain still clears itself */
+  animation:curtainFailsafe .01s linear 2.6s forwards}
+@keyframes curtainFailsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
+.curtain__mark{display:flex;gap:.06em;font-family:var(--f-display);font-size:clamp(1.7rem,7vw,3.6rem);letter-spacing:.34em;color:var(--bone);padding-left:.34em}
+.curtain__mark span{display:block;opacity:0;transform:translate3d(0,.7em,0);transition:opacity .5s var(--e-out),transform .7s var(--e-out)}
+.curtain.is-lit .curtain__mark span{opacity:1;transform:none}
+.curtain__bar{position:absolute;left:0;right:0;height:1px;background:var(--foil);background-size:220% 100%;transform:scaleX(0);transform-origin:50% 50%;transition:transform 1s var(--e-in-out)}
+.curtain__bar--t{top:calc(50% - clamp(1.4rem,5vw,2.6rem))}
+.curtain__bar--b{top:calc(50% + clamp(1.4rem,5vw,2.6rem))}
+.curtain.is-lit .curtain__bar{transform:scaleX(1)}
+.curtain__panel{position:absolute;left:0;right:0;height:50.6%;background:var(--ink);transition:transform 1s var(--e-in-out)}
+.curtain__panel--t{top:0;transform-origin:50% 0}
+.curtain__panel--b{bottom:0;transform-origin:50% 100%}
+.curtain.is-open .curtain__panel--t{transform:scaleY(0)}
+.curtain.is-open .curtain__panel--b{transform:scaleY(0)}
+.curtain.is-gone{opacity:0;pointer-events:none;transition:opacity .45s linear .1s}
+body.curtained{overflow:hidden}
+
+/* ═══════════════════════════════════════════════════════════════════
+   7 · NAV
+   ═══════════════════════════════════════════════════════════════════ */
+.progress{position:fixed;inset:0 0 auto 0;height:2px;z-index:120;transform-origin:0 50%;transform:scaleX(0);background:var(--foil);background-size:220% 100%;will-change:transform}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:110;height:var(--nav-h);
+  display:flex;align-items:center;
+  transition:background .5s var(--e-out),backdrop-filter .5s,border-color .5s,height .45s var(--e-out);
+  border-bottom:1px solid transparent;
+}
+.nav.is-stuck{height:3.75rem;background:rgba(10,9,8,.93);border-bottom-color:var(--line)}
+/* backdrop-filter on a fixed full-width bar re-blurs on every scrolled frame —
+   only pay for it where it is actually noticed. */
+@media(pointer:fine){
+  .nav.is-stuck{
+    background:rgba(10,9,8,.72);
+    backdrop-filter:blur(16px) saturate(140%);
+    -webkit-backdrop-filter:blur(16px) saturate(140%);
+  }
+}
+.nav__in{width:var(--shell);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+
+.brand{display:flex;align-items:center;gap:.7rem;flex:none}
+.brand__glyph{width:2rem;height:2rem;flex:none;color:var(--brass)}
+.brand__txt{font-family:var(--f-display);font-size:1.14rem;letter-spacing:.34em;font-weight:500;line-height:1}
+.brand__sub{display:block;font-family:var(--f-mono);font-size:.5rem;letter-spacing:.3em;color:var(--bone-3);margin-top:.34em}
+
+.nav__links{display:none;align-items:center;gap:clamp(1.1rem,2.4vw,2.3rem)}
+@media(min-width:1000px){.nav__links{display:flex}}
+.nav__link{
+  position:relative;font-family:var(--f-mono);font-size:.6875rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--bone-2);
+  padding-block:.5rem;transition:color .35s var(--e-out);
+}
+.nav__link::after{
+  content:"";position:absolute;left:0;right:0;bottom:.15rem;height:1px;background:var(--brass);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .5s var(--e-out);
+}
+.nav__link:hover,.nav__link[aria-current="true"]{color:var(--bone)}
+.nav__link:hover::after,.nav__link[aria-current="true"]::after{transform:scaleX(1)}
+
+.nav__right{display:flex;align-items:center;gap:.6rem}
+
+/* buttons — MagicUI interactive-hover-button pattern */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 1.5rem;border-radius:2px;overflow:hidden;
+  font-family:var(--f-mono);font-size:.6875rem;font-weight:500;letter-spacing:.19em;text-transform:uppercase;
+  border:1px solid var(--line-2);color:var(--bone);
+  transition:color .45s var(--e-out),border-color .45s var(--e-out),transform .45s var(--e-out);
+  will-change:transform;
+}
+.btn__fill{position:absolute;inset:0;background:var(--foil);background-size:200% 100%;transform:translate3d(0,101%,0);transition:transform .58s var(--e-out);z-index:0}
+.btn__lbl{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.55rem;transition:transform .5s var(--e-out),color .4s}
+.btn svg{width:.85rem;height:.85rem;transition:transform .5s var(--e-out)}
+.btn:hover,.btn:focus-visible{border-color:transparent;color:#141006}
+.btn:hover .btn__fill,.btn:focus-visible .btn__fill{transform:none}
+.btn:hover svg{transform:translate3d(.22rem,0,0)}
+.btn:active{transform:scale(.985)}
+.btn--brass .btn__fill{transform:none}
+.btn--brass{color:#141006;border-color:transparent}
+.btn--brass:hover,.btn--brass:focus-visible{color:#141006}
+.btn--brass .btn__lbl{mix-blend-mode:normal}
+.btn--ghost{background:rgba(239,231,216,.03)}
+.btn--sm{padding:.65rem 1.1rem;font-size:.625rem}
+.btn--solid{background:var(--bone);color:#141006;border-color:transparent}
+.btn--solid .btn__fill{background:var(--brass)}
+
+.burger{
+  display:inline-grid;place-items:center;width:2.75rem;height:2.75rem;border:1px solid var(--line-2);border-radius:2px;
+  transition:border-color .4s,background .4s;
+}
+@media(min-width:1000px){.burger{display:none}}
+.burger:hover{border-color:var(--brass);background:rgba(201,162,39,.08)}
+.burger i{display:block;width:1.05rem;height:1px;background:var(--bone);transition:transform .45s var(--e-out),opacity .3s}
+.burger i+i{margin-top:.34rem}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0;transform:scaleX(.2)}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-3.5px) rotate(-45deg)}
+
+/* mobile sheet — StaggeredMenu / FlowingMenu pattern */
+.sheet{
+  position:fixed;inset:0;z-index:105;background:var(--ink-2);
+  display:flex;flex-direction:column;justify-content:center;gap:.25rem;
+  padding:calc(var(--nav-h) + 2rem) clamp(1.5rem,7vw,3.5rem) 3rem;
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path .8s var(--e-in-out),visibility .8s;
+  visibility:hidden;
+}
+.sheet::before{
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:radial-gradient(90% 60% at 80% 0%,rgba(201,162,39,.16),transparent 62%),
+             radial-gradient(70% 55% at 0% 100%,rgba(180,71,44,.14),transparent 60%);
+}
+.sheet.is-open{clip-path:inset(0 0 0 0);visibility:visible}
+.sheet__link{
+  position:relative;display:flex;align-items:baseline;gap:1rem;
+  font-family:var(--f-display);font-size:clamp(2rem,10.5vw,3.4rem);line-height:1.15;font-weight:500;
+  opacity:0;transform:translate3d(0,.55em,0);
+  transition:opacity .6s var(--e-out),transform .75s var(--e-out),color .3s;
+}
+.sheet.is-open .sheet__link{opacity:1;transform:none;transition-delay:calc(.24s + var(--i) * 68ms)}
+.sheet__link i{font-family:var(--f-mono);font-size:.625rem;font-style:normal;letter-spacing:.16em;color:var(--brass)}
+.sheet__link:active{color:var(--brass-2)}
+.sheet__foot{position:relative;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line);display:grid;gap:.9rem;opacity:0;transition:opacity .6s var(--e-out) .5s}
+.sheet.is-open .sheet__foot{opacity:1}
+
+.skip{position:fixed;top:.6rem;left:.6rem;z-index:300;padding:.7rem 1.1rem;background:var(--brass);color:#141006;font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;transform:translate3d(0,-160%,0);transition:transform .35s var(--e-out)}
+.skip:focus{transform:none}
+
+/* ═══════════════════════════════════════════════════════════════════
+   8 · HERO
+   ═══════════════════════════════════════════════════════════════════ */
+/* visually hidden but readable by assistive tech */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* razor-line wipe used on in-page navigation */
+.wipe{position:fixed;left:0;right:0;top:0;height:100svh;z-index:170;pointer-events:none;opacity:0}
+.wipe i{position:absolute;left:0;right:0;top:0;height:1px;background:var(--foil);background-size:220% 100%;transform:scaleX(0);transform-origin:0 50%}
+.wipe.go{animation:wipeFade .85s linear both}
+.wipe.go i{animation:wipeRun .85s var(--e-in-out) both}
+@keyframes wipeRun{0%{transform:scaleX(0);top:0}48%{transform:scaleX(1);top:0}52%{transform:scaleX(1);top:calc(100svh - 1px);transform-origin:100% 50%}100%{transform:scaleX(0);top:calc(100svh - 1px);transform-origin:100% 50%}}
+@keyframes wipeFade{0%,100%{opacity:0}6%,90%{opacity:1}}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:clip;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-3}
+.hero__bg .ph{position:absolute;inset:-2px}
+.hero__bg img{
+  width:100%;height:100%;object-fit:cover;object-position:52% 38%;
+  filter:grayscale(.42) contrast(1.12) brightness(.62) sepia(.16);
+  transform:scale(1.06);
+  animation:kenburns 30s var(--e-soft) infinite alternate;
+  will-change:transform;
+}
+@keyframes kenburns{
+  0%{transform:scale(1.06) translate3d(0,0,0)}
+  100%{transform:scale(1.17) translate3d(-1.6%,-2.1%,0)}
+}
+.hero__tone{
+  position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(to top,rgba(10,9,8,.97) 4%,rgba(10,9,8,.72) 34%,rgba(10,9,8,.28) 62%,rgba(10,9,8,.62) 100%),
+    radial-gradient(78% 58% at 76% 12%,rgba(201,162,39,.22),transparent 68%);
+}
+/* light-rays (MagicUI light-rays pattern, pure gradients — no blur filter) */
+.hero__rays{position:absolute;inset:-30% -10% auto -10%;height:130%;z-index:-2;pointer-events:none;opacity:.5;mix-blend-mode:screen}
+.hero__rays i{
+  position:absolute;top:-24%;width:clamp(2rem,7vw,7rem);height:150%;
+  background:linear-gradient(to bottom,rgba(231,206,139,.30),rgba(231,206,139,.05) 52%,transparent 78%);
+  transform-origin:50% 0;filter:none;
+  animation:rayDrift 15s ease-in-out infinite alternate;
+}
+.hero__rays i:nth-child(1){left:8%;transform:rotate(14deg)}
+.hero__rays i:nth-child(2){left:26%;transform:rotate(9deg);animation-delay:-4s;opacity:.6}
+.hero__rays i:nth-child(3){left:57%;transform:rotate(-7deg);animation-delay:-8s;opacity:.75}
+.hero__rays i:nth-child(4){left:78%;transform:rotate(-15deg);animation-delay:-2s;opacity:.45}
+@keyframes rayDrift{0%{opacity:.35;transform:rotate(var(--r,10deg)) translateX(-1.5rem)}100%{opacity:.85;transform:rotate(var(--r,10deg)) translateX(1.5rem)}}
+
+.hero__in{position:relative;width:var(--shell);margin-inline:auto;padding-block:clamp(7rem,17vh,10rem) clamp(2.25rem,6vh,3.75rem)}
+.hero h1{margin-block:clamp(1.1rem,3vw,1.75rem) clamp(1.35rem,3vw,2rem);max-width:16ch}
+.hero h1 em{color:var(--brass-2)}
+.hero__lede{max-width:50ch;color:var(--bone-2)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:clamp(1.75rem,4vw,2.5rem)}
+.hero__meta{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
+  margin-top:clamp(2.5rem,6vw,4rem);background:var(--line);
+  border-block:1px solid var(--line);
+}
+@media(min-width:760px){.hero__meta{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.hero__meta>div{background:var(--ink);padding:.95rem clamp(.75rem,2vw,1.4rem)}
+.hero__meta dt{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bone-3)}
+.hero__meta dd{margin:.4rem 0 0;font-family:var(--f-display);font-size:clamp(1rem,2vw,1.28rem);letter-spacing:.01em;color:var(--bone)}
+.hero__meta dd b{font-weight:500;color:var(--brass-2)}
+
+.hero__scroll{
+  position:absolute;right:clamp(1rem,4vw,3rem);bottom:clamp(2.25rem,6vh,3.75rem);
+  display:none;align-items:center;gap:.7rem;writing-mode:vertical-rl;
+  font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.34em;text-transform:uppercase;color:var(--bone-3);
+}
+@media(min-width:1100px){.hero__scroll{display:flex}}
+.hero__scroll::after{content:"";width:1px;height:clamp(3rem,8vh,5rem);background:linear-gradient(to bottom,var(--brass),transparent);animation:scrollPulse 2.6s var(--e-in-out) infinite}
+@keyframes scrollPulse{0%,100%{transform:scaleY(.35);opacity:.4;transform-origin:50% 0}50%{transform:scaleY(1);opacity:1;transform-origin:50% 0}}
+
+.hero__frame{position:absolute;inset:clamp(.75rem,2vw,1.5rem);border:1px solid rgba(231,206,139,.13);pointer-events:none;z-index:2}
+.hero__frame::before,.hero__frame::after{content:"";position:absolute;width:11px;height:11px;border:1px solid var(--brass)}
+.hero__frame::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.hero__frame::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+/* ═══════════════════════════════════════════════════════════════════
+   9 · MARQUEE  (MagicUI marquee / React Bits ScrollVelocity)
+   ═══════════════════════════════════════════════════════════════════ */
+.ticker{position:relative;overflow:hidden;border-block:1px solid var(--line);background:var(--ink-2);padding-block:.95rem;--dur:42s}
+.ticker__track{display:flex;width:max-content;animation:tickerRun var(--dur) linear infinite;will-change:transform}
+.ticker:hover .ticker__track,.ticker:focus-within .ticker__track{animation-play-state:paused}
+.ticker__grp{display:flex;align-items:center;flex:none}
+.ticker__grp span{
+  font-family:var(--f-display);font-size:clamp(1rem,2.4vw,1.6rem);letter-spacing:.06em;
+  color:var(--bone-2);padding-inline:clamp(.9rem,2vw,1.6rem);white-space:nowrap;
+}
+.ticker__grp span:nth-child(even){font-style:italic;color:var(--brass-2)}
+.ticker__grp i{width:5px;height:5px;background:var(--brass);transform:rotate(45deg);flex:none;opacity:.75}
+.ticker--rev .ticker__track{animation-direction:reverse}
+
+/* touch devices: freeze the two full-viewport blend-mode layers. They are
+   large repaints per frame and buy nothing when there is no cursor to please. */
+@media(pointer:coarse){
+  .grain{animation:none;opacity:.04}
+  .hero__rays i{animation:none}
+}
+@keyframes tickerRun{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+/* ═══════════════════════════════════════════════════════════════════
+   10 · MANIFESTO — sticky two column + word-wise scroll reveal
+   ═══════════════════════════════════════════════════════════════════ */
+.manifesto{background:linear-gradient(180deg,var(--ink),var(--ink-2) 55%,var(--ink))}
+.manifesto__grid{display:grid;gap:clamp(2.5rem,6vw,4rem)}
+@media(min-width:960px){.manifesto__grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(3rem,7vw,6.5rem)}}
+.manifesto__aside{align-self:start}
+@media(min-width:960px){.manifesto__aside{position:sticky;top:calc(var(--nav-h) + 2.5rem)}}
+.manifesto__quote{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.24;letter-spacing:-.01em;color:var(--bone)}
+.manifesto__quote em{color:var(--brass-2)}
+.manifesto__body{display:grid;gap:clamp(1.5rem,3.4vw,2.4rem)}
+.manifesto__body p{max-width:62ch;color:var(--bone-2)}
+.wordwise .w{display:inline-block;opacity:.16;transition:opacity .5s var(--e-out),color .5s var(--e-out)}
+.wordwise .w.on{opacity:1}
+.wordwise .w.peak{color:var(--brass-2)}
+
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(1rem,3vw,2rem)}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{background:var(--ink);padding:clamp(1.1rem,2.6vw,1.6rem)}
+.stat__n{font-family:var(--f-display);font-size:clamp(2rem,5vw,2.9rem);line-height:1;letter-spacing:-.02em;color:var(--brass-2)}
+.stat__n sup{font-size:.42em;vertical-align:super;color:var(--bone-3);margin-left:.15em}
+.stat__l{margin-top:.55rem;font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-3)}
+
+/* ═══════════════════════════════════════════════════════════════════
+   11 · SERVICES — ledger rows w/ cursor-following preview
+       (MagicUI magic-card + React Bits SpotlightCard/TiltedCard)
+   ═══════════════════════════════════════════════════════════════════ */
+.svc{position:relative;border-top:1px solid var(--line)}
+.svc__row{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.85rem;text-align:left;padding:clamp(1.1rem,2.6vw,1.55rem) clamp(.35rem,1.6vw,1rem);position:relative;isolation:isolate}
+.svc__row::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(201,162,39,.14),rgba(201,162,39,.02) 46%,transparent 78%);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--e-out);
+}
+.svc__row::after{
+  content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(22rem 22rem at var(--mx,50%) var(--my,50%),rgba(231,206,139,.11),transparent 62%);
+  opacity:0;transition:opacity .45s var(--e-out);
+}
+.svc__row:hover::before,.svc__row:focus-visible::before,.svc.is-open .svc__row::before{transform:scaleX(1)}
+.svc__row:hover::after,.svc__row:focus-visible::after{opacity:1}
+.svc__i{font-family:var(--f-mono);font-size:.625rem;letter-spacing:.14em;color:var(--brass);transition:transform .55s var(--e-out),color .4s}
+.svc__row:hover .svc__i{transform:translate3d(.3rem,0,0)}
+.svc__name{font-family:var(--f-display);font-size:clamp(1.3rem,3.4vw,2.05rem);line-height:1.12;letter-spacing:-.012em;transition:transform .6s var(--e-out),color .4s}
+.svc__row:hover .svc__name,.svc.is-open .svc__name{transform:translate3d(.55rem,0,0)}
+.svc__tags{display:block;margin-top:.4rem;font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.17em;text-transform:uppercase;color:var(--bone-3)}
+.svc__right{display:flex;align-items:center;gap:clamp(.6rem,2vw,1.5rem)}
+.svc__price{font-family:var(--f-mono);font-size:clamp(.8125rem,1.6vw,.9375rem);font-weight:500;color:var(--brass-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.svc__dur{display:none;font-family:var(--f-mono);font-size:.625rem;letter-spacing:.14em;color:var(--bone-3);white-space:nowrap}
+@media(min-width:700px){.svc__dur{display:block}}
+.svc__plus{position:relative;width:1.5rem;height:1.5rem;flex:none;border:1px solid var(--line-2);border-radius:50%;transition:border-color .4s,background .4s,transform .55s var(--e-out)}
+.svc__plus::before,.svc__plus::after{content:"";position:absolute;inset:50% 24%;height:1px;background:var(--bone-2);transform:translateY(-50%);transition:transform .5s var(--e-out),background .4s}
+.svc__plus::after{transform:translateY(-50%) rotate(90deg)}
+.svc__row:hover .svc__plus{border-color:var(--brass);background:rgba(201,162,39,.12)}
+.svc.is-open .svc__plus{transform:rotate(180deg)}
+.svc.is-open .svc__plus::after{transform:translateY(-50%) rotate(0deg)}
+.svc__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .62s var(--e-out)}
+.svc.is-open .svc__panel{grid-template-rows:1fr}
+.svc__panel>div{overflow:hidden}
+.svc__inner{display:grid;gap:1.15rem;padding:0 clamp(.35rem,1.6vw,1rem) clamp(1.5rem,3.4vw,2.1rem);opacity:0;transform:translate3d(0,-.6rem,0);transition:opacity .5s var(--e-out) .08s,transform .6s var(--e-out) .08s}
+.svc.is-open .svc__inner{opacity:1;transform:none}
+@media(min-width:760px){.svc__inner{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto;align-items:start;gap:2rem}}
+.svc__inner p{color:var(--bone-2);max-width:46ch;font-size:.9375rem}
+.svc__list{display:grid;gap:.4rem}
+.svc__list li{display:flex;gap:.6rem;font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.07em;color:var(--bone-3)}
+.svc__list li::before{content:"—";color:var(--brass);flex:none}
+.svc__book{justify-self:start}
+@media(min-width:760px){.svc__book{justify-self:end;align-self:center}}
+
+/* cursor-following preview (desktop fine pointers only) */
+.peek{
+  position:fixed;top:0;left:0;z-index:90;width:clamp(13rem,20vw,17rem);aspect-ratio:4/5;
+  pointer-events:none;opacity:0;transform:translate3d(-50%,-50%,0) scale(.86) rotate(-4deg);
+  transition:opacity .45s var(--e-out),transform .6s var(--e-out);
+  border:1px solid rgba(231,206,139,.28);overflow:hidden;
+}
+.peek.on{opacity:1;transform:translate3d(-50%,-50%,0) scale(1) rotate(-2.4deg)}
+.peek img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.1) brightness(.82)}
+@media(pointer:coarse){.peek{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════════
+   12 · GALLERY — filters (AutoAnimate FLIP) + lightbox
+   ═══════════════════════════════════════════════════════════════════ */
+.work{background:var(--ink-2)}
+.filters{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:clamp(1.5rem,4vw,2.5rem)}
+.chip{
+  position:relative;padding:.55rem 1.05rem;border:1px solid var(--line-2);border-radius:100px;
+  font-family:var(--f-mono);font-size:.625rem;letter-spacing:.17em;text-transform:uppercase;color:var(--bone-3);
+  transition:color .4s var(--e-out),border-color .4s,background .4s;
+}
+.chip:hover{color:var(--bone);border-color:rgba(231,206,139,.42)}
+.chip[aria-pressed="true"]{color:#141006;background:var(--foil);background-size:200% 100%;border-color:transparent}
+.chip span{margin-left:.45rem;opacity:.55;font-size:.86em}
+
+.grid-work{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.5rem,1.6vw,1.1rem);grid-auto-flow:row dense}
+/* once a filter is applied every tile becomes uniform so any count packs cleanly */
+.grid-work.filtered{grid-template-columns:repeat(auto-fill,minmax(clamp(9.5rem,26vw,16rem),1fr));grid-auto-rows:auto}
+.grid-work.filtered .tile{grid-column:span 1;grid-row:span 1;aspect-ratio:3/4}
+@media(min-width:860px){.grid-work{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem}}
+.tile{
+  position:relative;grid-column:span 1;overflow:hidden;background:var(--smoke);
+  aspect-ratio:3/4;isolation:isolate;
+  transition:opacity .5s var(--e-out),transform .5s var(--e-out);
+}
+.tile--w{grid-column:span 2;aspect-ratio:4/3}
+/* fixed row units let the tall and wide tiles resolve against real heights
+   instead of collapsing (their children are absolutely positioned) */
+@media(min-width:860px){
+  .grid-work{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem;grid-auto-rows:clamp(10rem,17vw,17rem)}
+  .tile{aspect-ratio:auto}
+  .tile--t{grid-row:span 2}
+  .tile--w{grid-column:span 2;aspect-ratio:auto}
+}
+.tile__ph{position:absolute;inset:0}
+.tile__ph img{
+  transform:scale(1.09);
+  filter:grayscale(.55) contrast(1.08) brightness(.72);
+  transition:transform 1.25s var(--e-out),filter .8s var(--e-out);
+  will-change:transform;
+}
+.tile:hover .tile__ph img,.tile:focus-visible .tile__ph img{transform:scale(1.01);filter:grayscale(.05) contrast(1.05) brightness(.92)}
+/* elegant clip-path wipe reveal on enter */
+.tile__ph{clip-path:inset(0 0 100% 0);transition:clip-path 1.15s var(--e-out) var(--d,0ms)}
+.tile.is-in .tile__ph{clip-path:inset(0 0 0 0)}
+.tile::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  border:1px solid rgba(231,206,139,0);
+  transition:border-color .5s var(--e-out),inset .5s;
+}
+.tile:hover::after,.tile:focus-visible::after{border-color:rgba(231,206,139,.4)}
+.tile__cap{
+  position:absolute;inset:auto 0 0 0;z-index:3;padding:clamp(.8rem,2vw,1.15rem);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:.75rem;
+  background:linear-gradient(to top,rgba(8,7,6,.9),rgba(8,7,6,.32) 52%,transparent);
+  transform:translate3d(0,.35rem,0);opacity:.9;transition:transform .6s var(--e-out),opacity .5s;
+}
+.tile:hover .tile__cap,.tile:focus-visible .tile__cap{transform:none;opacity:1}
+.tile__cap b{font-family:var(--f-display);font-weight:500;font-size:clamp(.95rem,1.9vw,1.2rem);letter-spacing:.005em;display:block}
+.tile__cap small{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-2);display:block;margin-top:.3rem}
+.tile__n{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.14em;color:rgba(239,231,216,.5);flex:none}
+.tile__zoom{position:absolute;top:.85rem;right:.85rem;z-index:3;width:2rem;height:2rem;display:grid;place-items:center;border:1px solid rgba(231,206,139,.4);border-radius:50%;background:rgba(10,9,8,.4);backdrop-filter:blur(6px);opacity:0;transform:scale(.7) rotate(-25deg);transition:opacity .45s var(--e-out),transform .55s var(--e-out);color:var(--brass-2)}
+.tile:hover .tile__zoom,.tile:focus-visible .tile__zoom{opacity:1;transform:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:180;display:grid;place-items:center;padding:clamp(1rem,4vw,3rem);background:rgba(6,5,4,.94);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .5s var(--e-out),visibility .5s}
+.lb.on{opacity:1;visibility:visible}
+.lb__fig{position:relative;max-width:min(1100px,100%);max-height:82svh;transform:scale(.94) translate3d(0,1rem,0);transition:transform .6s var(--e-out)}
+.lb.on .lb__fig{transform:none}
+.lb__fig img{max-height:74svh;width:auto;object-fit:contain;border:1px solid var(--line-2)}
+.lb__cap{margin-top:.9rem;display:flex;justify-content:space-between;gap:1rem;font-family:var(--f-mono);font-size:.625rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-3)}
+.lb__cap b{color:var(--bone);font-weight:500}
+.lb__x,.lb__nav{position:absolute;z-index:2;display:grid;place-items:center;width:2.9rem;height:2.9rem;border:1px solid var(--line-2);border-radius:50%;color:var(--bone);background:rgba(10,9,8,.55);transition:border-color .35s,background .35s,transform .35s var(--e-out)}
+.lb__x:hover,.lb__nav:hover{border-color:var(--brass);background:rgba(201,162,39,.16);transform:scale(1.06)}
+.lb__x{top:clamp(.75rem,3vw,2rem);right:clamp(.75rem,3vw,2rem);position:fixed}
+.lb__nav{top:50%;position:fixed}
+.lb__nav--p{left:clamp(.5rem,2vw,1.5rem);transform:translateY(-50%)}
+.lb__nav--n{right:clamp(.5rem,2vw,1.5rem);transform:translateY(-50%)}
+.lb__nav--p:hover{transform:translateY(-50%) scale(1.06)}
+.lb__nav--n:hover{transform:translateY(-50%) scale(1.06)}
+.lb__x svg,.lb__nav svg{width:1rem;height:1rem}
+
+/* ═══════════════════════════════════════════════════════════════════
+   13 · RITUAL — steps with a scroll-drawn brass line (DrawSVG pattern)
+   ═══════════════════════════════════════════════════════════════════ */
+.ritual__wrap{position:relative;display:grid;gap:clamp(2.25rem,5vw,3rem);padding-left:clamp(2.25rem,6vw,4.25rem)}
+.ritual__rail{position:absolute;left:clamp(.4rem,1.6vw,1rem);top:.4rem;bottom:.4rem;width:1px;background:var(--line);overflow:visible}
+.ritual__fill{position:absolute;inset:0;background:linear-gradient(180deg,var(--brass-2),var(--brass) 45%,rgba(201,162,39,.1));transform:scaleY(var(--p,0));transform-origin:50% 0;will-change:transform}
+.step{position:relative;display:grid;gap:.6rem}
+@media(min-width:760px){.step{grid-template-columns:auto minmax(0,1fr);gap:1.75rem;align-items:start}}
+.step__dot{position:absolute;left:calc(clamp(.4rem,1.6vw,1rem) - clamp(2.25rem,6vw,4.25rem) - .5px);top:.42rem;width:11px;height:11px;border-radius:50%;background:var(--ink);border:1px solid var(--line-2);transition:border-color .5s,background .5s,box-shadow .5s}
+@media(min-width:760px){.step__dot{position:static;margin-top:.5rem}}
+.step.is-in .step__dot{border-color:var(--brass);background:var(--brass);box-shadow:0 0 0 4px rgba(201,162,39,.14)}
+.step__n{font-family:var(--f-mono);font-size:.625rem;letter-spacing:.24em;color:var(--brass);grid-column:1}
+@media(min-width:760px){.step__n{display:none}}
+.step h3{font-family:var(--f-display);font-size:clamp(1.35rem,3vw,1.9rem);font-weight:500;letter-spacing:-.01em;line-height:1.14}
+.step p{color:var(--bone-3);max-width:52ch;font-size:.9375rem;margin-top:.45rem}
+.step__t{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-3);margin-top:.7rem}
+@media(min-width:760px){
+  .step__body{grid-column:2}
+  .ritual__wrap{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   14 · CRAFT CARDS
+   ═══════════════════════════════════════════════════════════════════ */
+.craft{display:grid;gap:clamp(.9rem,2.4vw,1.5rem)}
+@media(min-width:820px){.craft{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ccard{position:relative;overflow:hidden;background:var(--smoke);border:1px solid var(--line);transition:border-color .55s var(--e-out),transform .7s var(--e-out)}
+.ccard::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(20rem 20rem at var(--mx,50%) var(--my,50%),rgba(231,206,139,.13),transparent 60%);opacity:0;transition:opacity .5s var(--e-out)}
+.ccard:hover{border-color:rgba(231,206,139,.34);transform:translate3d(0,-.35rem,0)}
+.ccard:hover::after{opacity:1}
+.ccard__ph{aspect-ratio:5/4;overflow:hidden}
+.ccard__ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.14) brightness(.7);transition:filter .85s var(--e-out),transform 1.3s var(--e-out)}
+.ccard:hover .ccard__ph img{filter:grayscale(.1) contrast(1.05) brightness(.92);transform:scale(1.05)}
+.ccard__b{position:relative;padding:clamp(1.1rem,2.6vw,1.6rem);display:grid;gap:.65rem}
+.ccard__role{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+.ccard__b h3{font-family:var(--f-display);font-size:clamp(1.25rem,2.6vw,1.6rem);font-weight:500;line-height:1.15}
+.ccard__b p{color:var(--bone-3);font-size:.875rem}
+.ccard__yr{position:absolute;top:clamp(1.1rem,2.6vw,1.6rem);right:clamp(1.1rem,2.6vw,1.6rem);font-family:var(--f-mono);font-size:.625rem;letter-spacing:.14em;color:var(--bone-3)}
+/* shine-border sweep (MagicUI shine-border) */
+.ccard__shine{position:absolute;inset:0;pointer-events:none;border-radius:inherit;padding:1px;
+  background:radial-gradient(transparent,transparent,var(--brass),transparent,transparent);
+  background-size:300% 300%;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity .5s}
+.ccard:hover .ccard__shine{opacity:1;animation:shine 5.5s linear infinite}
+@keyframes shine{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* ═══════════════════════════════════════════════════════════════════
+   15 · QUOTES — swipeable stack (React Bits CardSwap pattern)
+   ═══════════════════════════════════════════════════════════════════ */
+.quotes{background:linear-gradient(180deg,var(--ink),var(--smoke) 40%,var(--ink))}
+.qwrap{position:relative;display:grid;gap:clamp(1.75rem,4vw,2.75rem)}
+@media(min-width:900px){.qwrap{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);align-items:center}}
+.qstack{position:relative;min-height:clamp(17rem,34vw,20rem);touch-action:pan-y}
+.qcard{
+  position:absolute;inset:0;padding:clamp(1.5rem,4vw,2.75rem);
+  border:1px solid var(--line);background:rgba(23,20,18,.72);
+  transition:transform .8s var(--e-out),opacity .7s var(--e-out),filter .7s var(--e-out);
+  display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem;
+  will-change:transform;
+}
+.qcard blockquote{font-family:var(--f-display);font-size:clamp(1.15rem,2.5vw,1.72rem);line-height:1.34;letter-spacing:-.005em;color:var(--bone)}
+.qcard blockquote::before{content:"“";color:var(--brass);margin-right:.06em}
+.qcard blockquote::after{content:"”";color:var(--brass)}
+.qcard figcaption{display:flex;align-items:center;gap:.85rem;font-family:var(--f-mono);font-size:.625rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-3)}
+.qcard figcaption b{color:var(--brass-2);font-weight:500}
+.qmark{width:2.1rem;height:2.1rem;flex:none;border-radius:50%;border:1px solid var(--brass);display:grid;place-items:center;font-family:var(--f-display);font-size:.85rem;color:var(--brass-2)}
+.stars{display:flex;gap:.2rem;color:var(--brass);margin-bottom:.85rem}
+.stars svg{width:.78rem;height:.78rem}
+.qnav{display:flex;align-items:center;gap:.9rem;margin-top:clamp(1.25rem,3vw,1.75rem)}
+.qbtn{width:2.9rem;height:2.9rem;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:border-color .4s,background .4s,transform .4s var(--e-out)}
+.qbtn:hover{border-color:var(--brass);background:rgba(201,162,39,.13);transform:scale(1.06)}
+.qbtn svg{width:.9rem;height:.9rem}
+.qdots{display:flex;gap:.4rem;margin-left:auto}
+.qdot{width:1.6rem;height:2px;background:var(--line-2);transition:background .45s,transform .45s var(--e-out)}
+.qdot[aria-current="true"]{background:var(--brass);transform:scaleY(2)}
+
+/* ═══════════════════════════════════════════════════════════════════
+   16 · BOOKING / CONTACT
+   ═══════════════════════════════════════════════════════════════════ */
+.book{background:var(--ink-2);position:relative;overflow:clip}
+.book__grid{display:grid;gap:clamp(2.25rem,5vw,3.75rem)}
+@media(min-width:980px){.book__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(3rem,6vw,5rem)}}
+.hours{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:.8125rem}
+.hours caption{text-align:left;padding-bottom:1rem;font-size:.5625rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bone-3)}
+.hours th,.hours td{padding:.72rem 0;border-bottom:1px solid var(--line);text-align:left;font-weight:400;vertical-align:baseline}
+.hours th{letter-spacing:.13em;text-transform:uppercase;font-size:.6875rem;color:var(--bone-2)}
+.hours td{color:var(--bone-3);text-align:right;font-variant-numeric:tabular-nums}
+.hours tr[data-today="1"] th{color:var(--brass-2)}
+.hours tr[data-today="1"] td{color:var(--brass-2)}
+.hours tr[data-today="1"] th::after{content:" · today";font-size:.5625rem;letter-spacing:.18em;color:var(--brass);opacity:.85}
+.hours tr[data-closed="1"] td{color:var(--ember)}
+
+.contact-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(1.5rem,3.5vw,2.25rem)}
+.contact-list a,.contact-list>div{display:flex;align-items:center;gap:1rem;padding:1.05rem clamp(.9rem,2vw,1.35rem);background:var(--ink-2);transition:background .45s var(--e-out)}
+.contact-list a:hover{background:rgba(201,162,39,.08)}
+.contact-list svg{width:1.05rem;height:1.05rem;color:var(--brass);flex:none}
+.contact-list b{display:block;font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-3);font-weight:400}
+.contact-list span{display:block;margin-top:.3rem;font-size:.9375rem;color:var(--bone)}
+.contact-list .arrow{margin-left:auto;color:var(--bone-3);transition:transform .45s var(--e-out),color .4s}
+.contact-list a:hover .arrow{transform:translate3d(.25rem,-.25rem,0);color:var(--brass-2)}
+
+.map{position:relative;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--smoke)}
+.map__art{position:absolute;inset:0;opacity:.85}
+.map__pin{position:absolute;left:52%;top:46%;transform:translate(-50%,-100%);z-index:2;display:grid;justify-items:center;gap:.5rem}
+.map__pin i{width:.8rem;height:.8rem;border-radius:50%;background:var(--brass);box-shadow:0 0 0 0 rgba(201,162,39,.6);animation:pinPulse 2.6s var(--e-out) infinite}
+@keyframes pinPulse{0%{box-shadow:0 0 0 0 rgba(201,162,39,.55)}70%{box-shadow:0 0 0 1.4rem rgba(201,162,39,0)}100%{box-shadow:0 0 0 0 rgba(201,162,39,0)}}
+.map__pin b{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.22em;text-transform:uppercase;background:rgba(10,9,8,.8);border:1px solid var(--line-2);padding:.35rem .6rem;color:var(--bone)}
+.map__go{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem clamp(.9rem,2vw,1.35rem);background:linear-gradient(to top,rgba(8,7,6,.95),rgba(8,7,6,.55));font-family:var(--f-mono);font-size:.625rem;letter-spacing:.18em;text-transform:uppercase}
+.map__go svg{width:.9rem;height:.9rem;color:var(--brass);transition:transform .45s var(--e-out)}
+.map__go:hover svg{transform:translate3d(.2rem,-.2rem,0)}
+
+/* form */
+.form{display:grid;gap:clamp(1rem,2.4vw,1.35rem)}
+.field{display:grid;gap:.5rem}
+.field label{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-3)}
+.field input,.field select,.field textarea{
+  width:100%;padding:.9rem 1rem;background:rgba(239,231,216,.035);
+  border:1px solid var(--line-2);border-radius:2px;color:var(--bone);
+  font-size:.9375rem;transition:border-color .4s,background .4s,box-shadow .4s;
+}
+.field textarea{resize:vertical;min-height:6rem}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23C9A227' stroke-width='1.4'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:.7rem;padding-right:2.5rem}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:rgba(231,206,139,.38)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brass);background:rgba(201,162,39,.07);box-shadow:0 0 0 3px rgba(201,162,39,.12)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(148,138,120,.6)}
+.field-row{display:grid;gap:clamp(1rem,2.4vw,1.35rem)}
+@media(min-width:620px){.field-row{grid-template-columns:1fr 1fr}}
+.form__note{font-family:var(--f-mono);font-size:.625rem;line-height:1.7;letter-spacing:.06em;color:var(--bone-3)}
+.form__ok{display:none;align-items:center;gap:.7rem;padding:.95rem 1.1rem;border:1px solid rgba(201,162,39,.45);background:rgba(201,162,39,.1);font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;color:var(--brass-2)}
+.form__ok.on{display:flex;animation:okIn .55s var(--e-out)}
+@keyframes okIn{from{opacity:0;transform:translate3d(0,.5rem,0)}to{opacity:1;transform:none}}
+
+/* ═══════════════════════════════════════════════════════════════════
+   17 · FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+.foot{position:relative;padding-top:clamp(3.5rem,9vw,6rem);border-top:1px solid var(--line);overflow:clip;background:var(--ink)}
+.foot__word{
+  font-family:var(--f-display);font-weight:600;line-height:.8;letter-spacing:-.03em;
+  font-size:clamp(2.75rem,18vw,15rem);text-align:center;white-space:nowrap;
+  background:var(--foil);background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  opacity:.9;user-select:none;will-change:transform;
+}
+.foot__cols{display:grid;gap:clamp(1.75rem,4vw,2.5rem);padding-block:clamp(2.25rem,5vw,3.5rem)}
+@media(min-width:760px){.foot__cols{grid-template-columns:1.4fr repeat(3,minmax(0,1fr))}}
+.foot h3{font-family:var(--f-mono);font-size:.5625rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bone-3);margin-bottom:1rem;font-weight:500}
+.foot ul{display:grid;gap:.55rem}
+.foot li a{font-size:.875rem;color:var(--bone-2);position:relative;display:inline-block;transition:color .4s,transform .4s var(--e-out)}
+.foot li a:hover{color:var(--brass-2);transform:translate3d(.22rem,0,0)}
+.foot__legal{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;align-items:center;padding-block:1.5rem;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.625rem;letter-spacing:.13em;color:var(--bone-3)}
+.foot__legal a{transition:color .35s}
+.foot__legal a:hover{color:var(--brass-2)}
+
+.to-top{position:fixed;right:clamp(.85rem,2.5vw,1.75rem);bottom:clamp(.85rem,2.5vw,1.75rem);z-index:95;width:2.9rem;height:2.9rem;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:50%;background:rgba(10,9,8,.7);backdrop-filter:blur(10px);color:var(--bone);opacity:0;visibility:hidden;transform:translate3d(0,.75rem,0) scale(.9);pointer-events:none;transition:opacity .45s var(--e-out),visibility .45s var(--e-out),transform .55s var(--e-out),border-color .35s,background .35s}
+.to-top.on{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.to-top:hover{border-color:var(--brass);background:rgba(201,162,39,.16)}
+.to-top svg{width:.95rem;height:.95rem}
+
+/* ═══════════════════════════════════════════════════════════════════
+   18 · CURSOR (fine pointers only) — React Bits GlowCursor/BlobCursor
+   ═══════════════════════════════════════════════════════════════════ */
+.cursor{position:fixed;top:0;left:0;z-index:150;width:2.1rem;height:2.1rem;border-radius:50%;border:1px solid rgba(231,206,139,.55);pointer-events:none;mix-blend-mode:screen;opacity:0;transform:translate3d(-50%,-50%,0);transition:opacity .4s,width .45s var(--e-out),height .45s var(--e-out),background .45s,border-color .45s;will-change:transform}
+.cursor.on{opacity:1}
+.cursor.big{width:3.6rem;height:3.6rem;background:rgba(231,206,139,.11);border-color:rgba(231,206,139,.85)}
+.cursor-dot{position:fixed;top:0;left:0;z-index:151;width:4px;height:4px;border-radius:50%;background:var(--brass-2);pointer-events:none;opacity:0;transform:translate3d(-50%,-50%,0);transition:opacity .3s}
+.cursor-dot.on{opacity:1}
+@media(pointer:coarse),(max-width:900px){.cursor,.cursor-dot{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════════
+   19 · NATIVE SCROLL-DRIVEN ENHANCEMENTS (progressive, 0 KB JS)
+   ═══════════════════════════════════════════════════════════════════ */
+@supports (animation-timeline:view()){
+  @media(prefers-reduced-motion:no-preference){
+    [data-parallax]{animation:para linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+    @keyframes para{from{transform:translate3d(0,4.5%,0)}to{transform:translate3d(0,-4.5%,0)}}
+    .ritual__fill{animation:railGrow linear both;animation-timeline:view();animation-range:entry 20% cover 62%}
+    @keyframes railGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   20 · REDUCED MOTION — full stop
+   ═══════════════════════════════════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;transition-delay:0ms !important;
+    scroll-behavior:auto !important;
+  }
+  [data-reveal]{opacity:1 !important;transform:none !important;filter:none !important}
+  .lines .line>span{transform:none !important}
+  .rule-draw{transform:scaleX(1) !important}
+  .tile__ph{clip-path:none !important}
+  .wordwise .w{opacity:1 !important}
+  .hero__bg img{transform:none !important;animation:none !important}
+  .grain{animation:none !important}
+  .ticker__track{animation:none !important}
+  .curtain{display:none !important}
+  .wipe{display:none !important}
+  .ritual__fill{transform:scaleY(1) !important}
+}
+/* no-JS safety net */
+noscript .ns-show,[data-noscript]{opacity:1 !important;transform:none !important;filter:none !important;clip-path:none !important}
+</style>
+</head>
+<body>
+
+<noscript><style>[data-reveal]{opacity:1;transform:none;filter:none}.lines .line>span{transform:none}.tile__ph{clip-path:none}.rule-draw{transform:scaleX(1)}.wordwise .w{opacity:1}.curtain{display:none}</style></noscript>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="wipe" id="wipe" aria-hidden="true"><i></i></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ══ CURTAIN ══════════════════════════════════════════════════ -->
+<div class="curtain" id="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--t"></div>
+  <div class="curtain__panel curtain__panel--b"></div>
+  <div class="curtain__bar curtain__bar--t"></div>
+  <div class="curtain__bar curtain__bar--b"></div>
+  <div class="curtain__mark" id="curtainMark" aria-hidden="true"></div>
+</div>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="#top" aria-label="MANKIND — home">
+      <svg class="brand__glyph" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <title>MANKIND monogram</title>
+        <rect x="1.25" y="1.25" width="37.5" height="37.5" stroke="currentColor" stroke-opacity=".38"/>
+        <path d="M8 31V9.5L15.2 21 20.6 12.4 26 21 33 9.5V31" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="20.6" cy="33.6" r="1.1" fill="currentColor"/>
+      </svg>
+      <span>
+        <span class="brand__txt">MANKIND</span>
+        <span class="brand__sub">Barber Room · New Cairo</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="#story">The Room</a>
+      <a class="nav__link" href="#services">Services</a>
+      <a class="nav__link" href="#work">The Work</a>
+      <a class="nav__link" href="#ritual">The Ritual</a>
+      <a class="nav__link" href="#book">Visit</a>
+    </nav>
+
+    <div class="nav__right">
+      <a class="btn btn--brass btn--sm magnet" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20a%20chair." target="_blank" rel="noopener noreferrer">
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span class="btn__lbl">Book a chair</span>
+      </a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ MOBILE SHEET ═════════════════════════════════════════════ -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Menu">
+  <a class="sheet__link" style="--i:0" href="#story"><i>01</i> The Room</a>
+  <a class="sheet__link" style="--i:1" href="#services"><i>02</i> Services</a>
+  <a class="sheet__link" style="--i:2" href="#work"><i>03</i> The Work</a>
+  <a class="sheet__link" style="--i:3" href="#ritual"><i>04</i> The Ritual</a>
+  <a class="sheet__link" style="--i:4" href="#crew"><i>05</i> The Craft</a>
+  <a class="sheet__link" style="--i:5" href="#book"><i>06</i> Visit</a>
+  <div class="sheet__foot">
+    <a class="btn btn--ghost" href="tel:+201148310107">
+      <span class="btn__fill" aria-hidden="true"></span>
+      <span class="btn__lbl">+20 11 4831 0107</span>
+    </a>
+    <p class="mono" style="font-size:.6875rem;letter-spacing:.16em;color:var(--bone-3)">ONE GOLDEN SQUARE · NEW CAIRO</p>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ══ HERO ═════════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero__bg">
+    <div class="ph">
+      <picture>
+        <source media="(max-width:760px)" srcset="https://images.pexels.com/photos/7518689/pexels-photo-7518689.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=760">
+        <img src="https://images.pexels.com/photos/7518689/pexels-photo-7518689.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1440"
+             alt="The MANKIND barber room — leather chairs, mirrors and warm light at One Golden Square, New Cairo"
+             width="1440" height="960" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
+  </div>
+  <div class="hero__tone" aria-hidden="true"></div>
+  <div class="hero__rays" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <div class="hero__in">
+    <p class="eyebrow" data-reveal style="--d:80ms">One Golden Square · New Cairo · Est. MMXXI</p>
+
+    <h1 class="display d-1 lines" id="heroTitle" data-lines>
+      <span class="line" style="--i:0"><span>Buzzed by</span></span>
+      <span class="line" style="--i:1"><span>the <em>professionals</em>.</span></span>
+    </h1>
+
+    <p class="hero__lede lede" data-reveal="blur" style="--d:520ms;--ry:14px">
+      A men&rsquo;s grooming room built on one stubborn idea &mdash; that a haircut
+      should be measured in millimetres, and the hour it takes should feel
+      like yours alone.
+    </p>
+
+    <div class="hero__cta" data-reveal style="--d:640ms;--ry:16px">
+      <a class="btn btn--brass magnet" href="#book">
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span class="btn__lbl">Reserve a chair
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="btn btn--ghost magnet" href="#work">
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span class="btn__lbl">See the work</span>
+      </a>
+    </div>
+
+    <dl class="hero__meta" data-reveal style="--d:760ms;--ry:18px">
+      <div><dt>Today</dt><dd id="todayHours">12:00 — 23:00</dd></div>
+      <div><dt>Walk&#8209;ins</dt><dd>Always <b>welcome</b></dd></div>
+      <div><dt>Chair time</dt><dd>30 — 100 <b>min</b></dd></div>
+      <div><dt>Since</dt><dd>2021 · <b>New Cairo</b></dd></div>
+    </dl>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">Scroll</div>
+  <div class="hero__frame" aria-hidden="true"></div>
+</section>
+
+<!-- ══ TICKER ═══════════════════════════════════════════════════ -->
+<div class="ticker" id="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <div class="ticker__grp">
+      <span>Skin Fades</span><i></i><span>Beard Sculpting</span><i></i>
+      <span>Hot&#8209;Towel Shave</span><i></i><span>Scissor Work</span><i></i>
+      <span>Junior Gents</span><i></i><span>Head Massage</span><i></i>
+    </div>
+    <div class="ticker__grp">
+      <span>Skin Fades</span><i></i><span>Beard Sculpting</span><i></i>
+      <span>Hot&#8209;Towel Shave</span><i></i><span>Scissor Work</span><i></i>
+      <span>Junior Gents</span><i></i><span>Head Massage</span><i></i>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MANIFESTO ════════════════════════════════════════════════ -->
+<section class="sec manifesto" id="story">
+  <div class="shell manifesto__grid">
+
+    <div class="manifesto__aside">
+      <p class="eyebrow" data-reveal>The Room</p>
+      <h2 class="display d-2 manifesto__quote" data-reveal style="--d:90ms;margin-top:1.1rem">
+        Not a barbershop.<br>A <em>half&#8209;hour</em> that<br>belongs to you.
+      </h2>
+      <div class="rule-draw" data-reveal-rule style="--d:280ms;margin-top:1.75rem"></div>
+      <p class="mono" style="font-size:.6875rem;letter-spacing:.18em;color:var(--bone-3);margin-top:1.25rem;line-height:1.9">
+        ONE GOLDEN SQUARE<br>NEW CAIRO, EGYPT
+      </p>
+    </div>
+
+    <div class="manifesto__body">
+      <p class="wordwise" id="wordwise" data-wordwise>
+        Mankind started with two chairs, one mirror and a rule we have never
+        broken: nobody leaves in a hurry. We cut dry, we cut slow, and we cut
+        to the shape of your head rather than the picture on your phone &mdash;
+        though we will get you close to that too.
+      </p>
+
+      <p data-reveal style="--d:80ms">
+        Every barber on the floor is trained in-house on the same three
+        things: a clean baseline, a fade that disappears rather than bands,
+        and a finish you can see from across a room. Then we hand you a hot
+        towel, a mirror, and the fifteen minutes most places skip.
+      </p>
+
+      <p data-reveal style="--d:150ms">
+        The room itself is deliberately quiet &mdash; low brass light, wood,
+        and a record playing at conversation volume. Bring a friend, wait
+        with a coffee, or say nothing at all. Both are entirely acceptable
+        here.
+      </p>
+
+      <div class="stats">
+        <div class="stat" data-reveal style="--d:0ms">
+          <div class="stat__n" data-count="4" data-suffix="">4</div>
+          <div class="stat__l">Years on the floor</div>
+        </div>
+        <div class="stat" data-reveal style="--d:80ms">
+          <div class="stat__n" data-count="18" data-suffix="k">18<sup>k</sup></div>
+          <div class="stat__l">Cuts delivered</div>
+        </div>
+        <div class="stat" data-reveal style="--d:160ms">
+          <div class="stat__n" data-count="6" data-suffix="">6</div>
+          <div class="stat__l">Barbers in the room</div>
+        </div>
+        <div class="stat" data-reveal style="--d:240ms">
+          <div class="stat__n" data-count="4.9" data-decimals="1">4.9</div>
+          <div class="stat__l">Guest average</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SERVICES ═════════════════════════════════════════════════ -->
+<section class="sec" id="services" style="background:var(--ink)">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" data-reveal>The Ledger</p>
+        <h2 class="display d-2" data-reveal style="--d:80ms;margin-top:1rem">
+          Services &amp; <em>rates</em>
+        </h2>
+      </div>
+      <p class="lede body-dim" data-reveal style="--d:160ms;font-size:1rem">
+        Prices in EGP, per guest. Every service includes a consultation,
+        a wash where it belongs, and a finish with product you can actually
+        buy again. Tap a line to read what&rsquo;s in it.
+      </p>
+    </div>
+
+    <div class="svc-list" id="svcList">
+
+      <article class="svc" data-reveal>
+        <button class="svc__row" type="button" aria-expanded="false" aria-controls="svc-p1" data-peek="https://images.pexels.com/photos/12074386/pexels-photo-12074386.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560">
+          <span class="svc__i">01</span>
+          <span class="svc__name">The Signature Cut
+            <span class="svc__tags">Consultation · Scissor &amp; clipper · Wash · Style</span>
+          </span>
+          <span class="svc__right">
+            <span class="svc__dur">45 MIN</span>
+            <span class="svc__price">450</span>
+            <span class="svc__plus" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-p1" role="region" aria-label="The Signature Cut details">
+          <div><div class="svc__inner">
+            <p>The house cut. We map your growth pattern and head shape first,
+              build the baseline dry, then refine wet and finish with a blow&#8209;dry
+              you can recreate at home in three minutes.</p>
+            <ul class="svc__list">
+              <li>Shape &amp; growth consultation</li>
+              <li>Scissor&#8209;over&#8209;comb perimeter</li>
+              <li>Wash, blow&#8209;dry &amp; product finish</li>
+              <li>Neck &amp; ear detail with razor</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm magnet svc__book" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20The%20Signature%20Cut%20(450%20EGP)." target="_blank" rel="noopener noreferrer">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__lbl">Book this</span>
+            </a>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="svc" data-reveal style="--d:60ms">
+        <button class="svc__row" type="button" aria-expanded="false" aria-controls="svc-p2" data-peek="https://images.pexels.com/photos/10775080/pexels-photo-10775080.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560">
+          <span class="svc__i">02</span>
+          <span class="svc__name">Skin Fade
+            <span class="svc__tags">Zero gap · Razor line&#8209;up · Blended to skin</span>
+          </span>
+          <span class="svc__right">
+            <span class="svc__dur">50 MIN</span>
+            <span class="svc__price">500</span>
+            <span class="svc__plus" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-p2" role="region" aria-label="Skin Fade details">
+          <div><div class="svc__inner">
+            <p>Taken to skin and blended upward so there is no band, no step and
+              no visible guideline. Finished with a razor line&#8209;up and a cold
+              cloth to close everything down.</p>
+            <ul class="svc__list">
+              <li>Bald&#8209;clipper or razor baseline</li>
+              <li>Three&#8209;pass blend, checked in two mirrors</li>
+              <li>Crisp line&#8209;up &amp; edge work</li>
+              <li>Cold towel &amp; aftercare balm</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm magnet svc__book" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20a%20Skin%20Fade%20(500%20EGP)." target="_blank" rel="noopener noreferrer">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__lbl">Book this</span>
+            </a>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="svc" data-reveal style="--d:120ms">
+        <button class="svc__row" type="button" aria-expanded="false" aria-controls="svc-p3" data-peek="https://images.pexels.com/photos/7697441/pexels-photo-7697441.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560">
+          <span class="svc__i">03</span>
+          <span class="svc__name">Beard Sculpt
+            <span class="svc__tags">Clipper shape · Scissor detail · Hot towel · Oil</span>
+          </span>
+          <span class="svc__right">
+            <span class="svc__dur">30 MIN</span>
+            <span class="svc__price">350</span>
+            <span class="svc__plus" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-p3" role="region" aria-label="Beard Sculpt details">
+          <div><div class="svc__inner">
+            <p>Built to your jaw, not to a trend. Weight is removed where the
+              beard goes wide, length is kept where it gives you structure,
+              and the cheek line is set where you can maintain it.</p>
+            <ul class="svc__list">
+              <li>Jaw&#8209;mapped shape &amp; weight removal</li>
+              <li>Razor cheek &amp; neck line</li>
+              <li>Steam towel and beard oil finish</li>
+              <li>Home maintenance plan</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm magnet svc__book" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20a%20Beard%20Sculpt%20(350%20EGP)." target="_blank" rel="noopener noreferrer">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__lbl">Book this</span>
+            </a>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="svc" data-reveal style="--d:180ms">
+        <button class="svc__row" type="button" aria-expanded="false" aria-controls="svc-p4" data-peek="https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560">
+          <span class="svc__i">04</span>
+          <span class="svc__name">Hot&#8209;Towel Shave
+            <span class="svc__tags">Straight razor · Steam · Cold close · Balm</span>
+          </span>
+          <span class="svc__right">
+            <span class="svc__dur">40 MIN</span>
+            <span class="svc__price">450</span>
+            <span class="svc__plus" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-p4" role="region" aria-label="Hot towel shave details">
+          <div><div class="svc__inner">
+            <p>The old ceremony, done properly. Pre&#8209;shave oil, two hot towels
+              to lift the hair, a single&#8209;direction razor pass, then a cold
+              cloth and an alcohol&#8209;free balm to close the skin back down.</p>
+            <ul class="svc__list">
+              <li>Fresh blade for every guest</li>
+              <li>Pre&#8209;shave oil &amp; steam towels</li>
+              <li>With&#8209;grain pass, no against&#8209;grain scraping</li>
+              <li>Cold close &amp; calming balm</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm magnet svc__book" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20a%20Hot%20Towel%20Shave%20(450%20EGP)." target="_blank" rel="noopener noreferrer">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__lbl">Book this</span>
+            </a>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="svc" data-reveal style="--d:240ms">
+        <button class="svc__row" type="button" aria-expanded="false" aria-controls="svc-p5" data-peek="https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560">
+          <span class="svc__i">05</span>
+          <span class="svc__name">The Full Mankind
+            <span class="svc__tags">Cut · Beard · Shave · Head massage — the whole hour</span>
+          </span>
+          <span class="svc__right">
+            <span class="svc__dur">100 MIN</span>
+            <span class="svc__price">950</span>
+            <span class="svc__plus" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-p5" role="region" aria-label="The Full Mankind details">
+          <div><div class="svc__inner">
+            <p>Everything on this list, in the right order, with a private chair
+              and no clock watching. Our most booked service before a wedding,
+              an interview, or simply a bad week.</p>
+            <ul class="svc__list">
+              <li>Signature cut &amp; skin fade as needed</li>
+              <li>Beard sculpt plus straight&#8209;razor shave</li>
+              <li>15&#8209;minute head, neck &amp; shoulder massage</li>
+              <li>Coffee or tea, and a product sample to take home</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm magnet svc__book" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20The%20Full%20Mankind%20(950%20EGP)." target="_blank" rel="noopener noreferrer">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__lbl">Book this</span>
+            </a>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="svc" data-reveal style="--d:300ms">
+        <button class="svc__row" type="button" aria-expanded="false" aria-controls="svc-p6" data-peek="https://images.pexels.com/photos/7697393/pexels-photo-7697393.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560">
+          <span class="svc__i">06</span>
+          <span class="svc__name">Junior Gent
+            <span class="svc__tags">Under 12 · Patient first cuts · No rush</span>
+          </span>
+          <span class="svc__right">
+            <span class="svc__dur">30 MIN</span>
+            <span class="svc__price">300</span>
+            <span class="svc__plus" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-p6" role="region" aria-label="Junior Gent details">
+          <div><div class="svc__inner">
+            <p>First haircuts set the tone for the next twenty years, so we take
+              them seriously. Quiet clippers, a chair they can actually see out
+              of, and as many breaks as it takes.</p>
+            <ul class="svc__list">
+              <li>Low&#8209;noise clippers on request</li>
+              <li>Parent stays in frame the whole time</li>
+              <li>Same style, sized for a smaller head</li>
+              <li>Free touch&#8209;up within 10 days</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm magnet svc__book" href="https://wa.me/201148310107?text=Hi%20MANKIND%2C%20I%27d%20like%20to%20book%20a%20Junior%20Gent%20cut%20(300%20EGP)." target="_blank" rel="noopener noreferrer">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__lbl">Book this</span>
+            </a>
+          </div></div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="mono" style="margin-top:2rem;font-size:.625rem;letter-spacing:.16em;color:var(--bone-3)" data-reveal>
+      GROUP BOOKINGS &amp; WEDDING PARTIES ARRANGED BY WHATSAPP · CARD, INSTAPAY &amp; CASH ACCEPTED
+    </p>
+  </div>
+</section>
+
+<div class="peek" id="peek" aria-hidden="true"><div class="ph"><img alt="" id="peekImg" decoding="async"></div></div>
+
+<!-- ══ THE WORK ═════════════════════════════════════════════════ -->
+<section class="sec work" id="work">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" data-reveal>The Work</p>
+        <h2 class="display d-2" data-reveal style="--d:80ms;margin-top:1rem">
+          Proof, not <em>promises</em>
+        </h2>
+      </div>
+      <p class="lede body-dim" data-reveal style="--d:160ms;font-size:1rem">
+        Shot in the room, on real guests, under the same brass light you
+        will sit in. Filter by what you came for.
+      </p>
+    </div>
+
+    <div class="filters" id="filters" role="group" aria-label="Filter the gallery">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">Everything <span>12</span></button>
+      <button class="chip" type="button" data-filter="fade" aria-pressed="false">Fades <span>4</span></button>
+      <button class="chip" type="button" data-filter="beard" aria-pressed="false">Beard &amp; shave <span>4</span></button>
+      <button class="chip" type="button" data-filter="room" aria-pressed="false">The room <span>2</span></button>
+      <button class="chip" type="button" data-filter="detail" aria-pressed="false">Detail <span>2</span></button>
+    </div>
+
+    <div class="grid-work" id="grid">
+
+      <button class="tile tile--t" type="button" data-cat="fade" data-reveal="scale" data-full="https://images.pexels.com/photos/12074386/pexels-photo-12074386.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Taper, rear view" data-meta="Skin fade · Barber 02">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/12074386/pexels-photo-12074386.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Rear view of a fresh skin fade taper" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Taper, rear view</b><small>Skin fade</small></span><span class="tile__n">01</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="beard" data-reveal="scale" style="--d:60ms" data-full="https://images.pexels.com/photos/7697441/pexels-photo-7697441.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Straight razor, cheek line" data-meta="Beard sculpt · Barber 01">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/7697441/pexels-photo-7697441.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Barber trimming a beard cheek line with a straight razor" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Cheek line</b><small>Beard sculpt</small></span><span class="tile__n">02</span></span>
+      </button>
+
+      <button class="tile tile--w" type="button" data-cat="room" data-reveal="scale" style="--d:120ms" data-full="https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" data-title="Two chairs, one mirror" data-meta="The room · Golden Square">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Barber room interior with leather chairs and a long mirror" width="1200" height="800" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Two chairs, one mirror</b><small>The room</small></span><span class="tile__n">03</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="detail" data-reveal="scale" data-full="https://images.pexels.com/photos/36043163/pexels-photo-36043163.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Blade to skin" data-meta="Detail · Clippers">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/36043163/pexels-photo-36043163.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close up of clippers cutting hair at the baseline" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Blade to skin</b><small>Detail</small></span><span class="tile__n">04</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="beard" data-reveal="scale" style="--d:60ms" data-full="https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="The shave" data-meta="Hot towel · Barber 03">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Barber shaving a guest's beard with a straight razor" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>The shave</b><small>Hot towel</small></span><span class="tile__n">05</span></span>
+      </button>
+
+      <button class="tile tile--t" type="button" data-cat="room" data-reveal="scale" style="--d:120ms" data-full="https://images.pexels.com/photos/7697709/pexels-photo-7697709.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Chair No. 1" data-meta="The room · Original">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/7697709/pexels-photo-7697709.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A vintage barber chair in the MANKIND room" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Chair No. 1</b><small>The room</small></span><span class="tile__n">06</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="fade" data-reveal="scale" data-full="https://images.pexels.com/photos/10989588/pexels-photo-10989588.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Mid fade, in progress" data-meta="Fade · Barber 04">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/10989588/pexels-photo-10989588.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Barber working a mid fade with clippers" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Mid fade, in progress</b><small>Fade</small></span><span class="tile__n">07</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="beard" data-reveal="scale" style="--d:60ms" data-full="https://images.pexels.com/photos/8867486/pexels-photo-8867486.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Down to the jaw" data-meta="Beard · Barber 01">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/8867486/pexels-photo-8867486.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Beard being shaped along the jawline" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Down to the jaw</b><small>Beard</small></span><span class="tile__n">08</span></span>
+      </button>
+
+      <button class="tile tile--w" type="button" data-cat="fade" data-reveal="scale" style="--d:120ms" data-full="https://images.pexels.com/photos/2809652/pexels-photo-2809652.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" data-title="Razor finish" data-meta="Fade · Detail work">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/2809652/pexels-photo-2809652.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Detail work with a razor finishing a haircut" width="1200" height="800" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Razor finish</b><small>Fade · detail</small></span><span class="tile__n">09</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="detail" data-reveal="scale" data-full="https://images.pexels.com/photos/4730941/pexels-photo-4730941.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Neckline" data-meta="Detail · Razor">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/4730941/pexels-photo-4730941.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Razor cleaning a neckline" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Neckline</b><small>Detail</small></span><span class="tile__n">10</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="beard" data-reveal="scale" style="--d:60ms" data-full="https://images.pexels.com/photos/8867542/pexels-photo-8867542.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Classic shave" data-meta="Hot towel · Barber 02">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/8867542/pexels-photo-8867542.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A classic straight razor shave in progress" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Classic shave</b><small>Hot towel</small></span><span class="tile__n">11</span></span>
+      </button>
+
+      <button class="tile" type="button" data-cat="fade" data-reveal="scale" style="--d:120ms" data-full="https://images.pexels.com/photos/7697393/pexels-photo-7697393.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" data-title="Junior gent" data-meta="Under 12 · First cut">
+        <span class="tile__ph ph"><img src="https://images.pexels.com/photos/7697393/pexels-photo-7697393.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A young guest getting a careful first clipper cut" width="800" height="1067" loading="lazy" decoding="async"></span>
+        <span class="tile__zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v6M4 7h6" stroke-linecap="round"/><path d="M11.5 11.5L14 14" stroke-linecap="round"/><circle cx="7" cy="7" r="5"/></svg></span>
+        <span class="tile__cap"><span><b>Junior gent</b><small>First cut</small></span><span class="tile__n">12</span></span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ RITUAL ═══════════════════════════════════════════════════ -->
+<section class="sec" id="ritual">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" data-reveal>The Ritual</p>
+        <h2 class="display d-2" data-reveal style="--d:80ms;margin-top:1rem">
+          Forty&#8209;five minutes,<br>in <em>order</em>
+        </h2>
+      </div>
+      <p class="lede body-dim" data-reveal style="--d:160ms;font-size:1rem">
+        Nothing here is improvised. The sequence is the service &mdash;
+        skip a step and you have a haircut, not a Mankind cut.
+      </p>
+    </div>
+
+    <div class="ritual__wrap" id="ritualWrap">
+      <div class="ritual__rail" aria-hidden="true"><div class="ritual__fill" id="ritualFill"></div></div>
+
+      <article class="step" data-reveal>
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__n">01</span>
+        <div class="step__body">
+          <h3>Five minutes of talking</h3>
+          <p>Before anything is picked up. Growth pattern, cowlicks, how often
+            you actually come back, and what you do with it on a normal Tuesday
+            morning &mdash; because that is the haircut we have to build.</p>
+          <p class="step__t">Consultation · no clippers yet</p>
+        </div>
+      </article>
+
+      <article class="step" data-reveal style="--d:70ms">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__n">02</span>
+        <div class="step__body">
+          <h3>Dry work first</h3>
+          <p>Hair lies differently wet. We establish the shape and the baseline
+            dry, where we can see exactly what your head does with it, then go
+            back with water for refinement.</p>
+          <p class="step__t">Structure · baseline · weight</p>
+        </div>
+      </article>
+
+      <article class="step" data-reveal style="--d:140ms">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__n">03</span>
+        <div class="step__body">
+          <h3>The blend</h3>
+          <p>Three passes, checked in the hand mirror against the wall mirror.
+            A fade either disappears or it is a mistake &mdash; we are not
+            interested in the middle outcome.</p>
+          <p class="step__t">Guideline removal · two&#8209;mirror check</p>
+        </div>
+      </article>
+
+      <article class="step" data-reveal style="--d:210ms">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__n">04</span>
+        <div class="step__body">
+          <h3>Edge &amp; steam</h3>
+          <p>Razor along the hairline and neck, fresh blade, with the grain.
+            Then a hot towel pressed and held &mdash; not waved &mdash; until
+            the skin stops fighting.</p>
+          <p class="step__t">Line&#8209;up · hot towel · cold close</p>
+        </div>
+      </article>
+
+      <article class="step" data-reveal style="--d:280ms">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__n">05</span>
+        <div class="step__body">
+          <h3>Finish &amp; the mirror turn</h3>
+          <p>Product matched to your hair, not to a shelf. Then we hand you the
+            mirror and show you how to get the same result in three minutes at
+            home &mdash; including the part you will always forget.</p>
+          <p class="step__t">Blow&#8209;dry · product · aftercare</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CRAFT ════════════════════════════════════════════════════ -->
+<section class="sec" id="crew" style="background:var(--ink-2)">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" data-reveal>Behind the chair</p>
+        <h2 class="display d-2" data-reveal style="--d:80ms;margin-top:1rem">
+          Six pairs of hands,<br>one <em>standard</em>
+        </h2>
+      </div>
+      <p class="lede body-dim" data-reveal style="--d:160ms;font-size:1rem">
+        Every barber here trained on the floor for months before taking a chair.
+        You can ask for anyone by name &mdash; or take whoever is free and
+        get the same result.
+      </p>
+    </div>
+
+    <div class="craft">
+      <article class="ccard spotlight" data-reveal>
+        <div class="ccard__ph ph"><img src="https://images.pexels.com/photos/10775080/pexels-photo-10775080.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Hands guiding clippers through a precise fade" width="800" height="640" loading="lazy" decoding="async"></div>
+        <span class="ccard__shine" aria-hidden="true"></span>
+        <div class="ccard__b">
+          <span class="ccard__yr">01</span>
+          <span class="ccard__role">Fade specialist</span>
+          <h3>Baseline discipline</h3>
+          <p>The person you want when you say &ldquo;skin, but not too skin&rdquo;
+            and mean it precisely. Trained on zero&#8209;gap blending.</p>
+        </div>
+      </article>
+
+      <article class="ccard spotlight" data-reveal style="--d:90ms">
+        <div class="ccard__ph ph"><img src="https://images.pexels.com/photos/4730941/pexels-photo-4730941.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A straight razor held against a beard line" width="800" height="640" loading="lazy" decoding="async"></div>
+        <span class="ccard__shine" aria-hidden="true"></span>
+        <div class="ccard__b">
+          <span class="ccard__yr">02</span>
+          <span class="ccard__role">Razor &amp; beard</span>
+          <h3>Cheek lines that hold</h3>
+          <p>Set where you can maintain them for three weeks, not where they
+            photograph well for three hours.</p>
+        </div>
+      </article>
+
+      <article class="ccard spotlight" data-reveal style="--d:180ms">
+        <div class="ccard__ph ph"><img src="https://images.pexels.com/photos/36043163/pexels-photo-36043163.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close detail of clipper work at the hairline" width="800" height="640" loading="lazy" decoding="async"></div>
+        <span class="ccard__shine" aria-hidden="true"></span>
+        <div class="ccard__b">
+          <span class="ccard__yr">03</span>
+          <span class="ccard__role">Scissor work</span>
+          <h3>Long hair, done properly</h3>
+          <p>Most barbershops stop at clippers. We cut length, layers and curls
+            with the same patience.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUOTES ═══════════════════════════════════════════════════ -->
+<section class="sec quotes" id="voices">
+  <div class="shell qwrap">
+    <div>
+      <p class="eyebrow" data-reveal>Guests</p>
+      <h2 class="display d-3" data-reveal style="--d:80ms;margin-top:1rem">
+        What the room<br>sounds like <em>afterwards</em>
+      </h2>
+      <div class="stars" data-reveal style="--d:160ms;margin-top:1.5rem" role="img" aria-label="Rated 4.9 out of 5 by guests">
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+      </div>
+      <p class="mono" style="font-size:.625rem;letter-spacing:.2em;color:var(--bone-3);margin-top:.75rem">4.9 AVERAGE · 300+ GUESTS</p>
+    </div>
+
+    <div>
+      <div class="qstack" id="qstack" data-reveal="scale"></div>
+      <div class="qnav">
+        <button class="qbtn" id="qPrev" type="button" aria-label="Previous quote">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="qbtn" id="qNext" type="button" aria-label="Next quote">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="qdots" id="qdots" role="tablist" aria-label="Choose a quote"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOOKING / VISIT ══════════════════════════════════════════ -->
+<section class="sec book" id="book">
+  <div class="shell book__grid">
+
+    <div>
+      <p class="eyebrow" data-reveal>Visit</p>
+      <h2 class="display d-2" data-reveal style="--d:80ms;margin-top:1rem">
+        Take the <em>chair</em>
+      </h2>
+      <p class="lede" data-reveal style="--d:150ms;margin-top:1.25rem;font-size:1.0625rem">
+        Reserve on WhatsApp and we will hold the slot &mdash; or simply walk
+        in. Either way you will not be rushed out.
+      </p>
+
+      <table class="hours" data-reveal style="--d:220ms">
+        <caption>Opening hours</caption>
+        <tbody>
+          <tr data-day="6"><th scope="row">Saturday</th><td>11:00 — 23:00</td></tr>
+          <tr data-day="0"><th scope="row">Sunday</th><td>12:00 — 23:00</td></tr>
+          <tr data-day="1"><th scope="row">Monday</th><td>12:00 — 23:00</td></tr>
+          <tr data-day="2"><th scope="row">Tuesday</th><td>12:00 — 23:00</td></tr>
+          <tr data-day="3"><th scope="row">Wednesday</th><td>12:00 — 23:00</td></tr>
+          <tr data-day="4"><th scope="row">Thursday</th><td>12:00 — 00:00</td></tr>
+          <tr data-day="5"><th scope="row">Friday</th><td>14:00 — 00:00</td></tr>
+        </tbody>
+      </table>
+
+      <div class="contact-list" data-reveal style="--d:280ms">
+        <a href="https://wa.me/201148310107" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 20.5l1.3-4A8.4 8.4 0 1112 20.4a8.5 8.5 0 01-4.3-1.2L3 20.5z" stroke-linejoin="round"/><path d="M8.7 9.2c.2.9 1.6 2.6 2.8 3.2.5.2 1-.1 1.2-.4l.7-.5 1.6 1-.4.9c-.3.5-.9.8-1.5.7-2.3-.4-4.6-2.7-5-5-.1-.6.2-1.2.7-1.5l.9-.4 1 1.6-.5.7c-.3.2-.6.7-.5 1.2z" fill="currentColor" stroke="none"/></svg>
+          <span><b>WhatsApp · fastest</b><span>+20 11 4831 0107</span></span>
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:+201148310107">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2.2 2A17 17 0 014.5 5.7 2 2 0 016.5 3.5z" stroke-linejoin="round"/></svg>
+          <span><b>Call the room</b><span>+20 11 4831 0107</span></span>
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.instagram.com/mankindegypt" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+          <span><b>Instagram</b><span>@mankindegypt</span></span>
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span><b>The room</b><span>One Golden Square, New Cairo, Cairo</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map" data-reveal="scale">
+        <svg class="map__art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <title>Stylised map of the Golden Square area</title>
+          <rect width="400" height="300" fill="#12100E"/>
+          <g stroke="rgba(233,222,200,.09)" stroke-width="1">
+            <path d="M0 40h400M0 92h400M0 148h400M0 204h400M0 258h400"/>
+            <path d="M46 0v300M108 0v300M176 0v300M244 0v300M312 0v300M368 0v300"/>
+          </g>
+          <g stroke="rgba(201,162,39,.34)" stroke-width="2.4" fill="none">
+            <path d="M0 148h400"/>
+            <path d="M176 0v300"/>
+          </g>
+          <path d="M108 92h136v112H108z" fill="rgba(201,162,39,.07)" stroke="rgba(201,162,39,.22)"/>
+          <path d="M244 204h68v54h-68z" fill="rgba(180,71,44,.08)" stroke="rgba(180,71,44,.22)"/>
+          <text x="116" y="86" fill="rgba(148,138,120,.85)" font-family="monospace" font-size="9" letter-spacing="1.6">GOLDEN SQUARE</text>
+          <text x="182" y="270" fill="rgba(148,138,120,.7)" font-family="monospace" font-size="8" letter-spacing="1.4">90TH ST</text>
+        </svg>
+        <span class="map__pin" aria-hidden="true"><i></i><b>MANKIND</b></span>
+        <a class="map__go" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Square+New+Cairo+Egypt" target="_blank" rel="noopener noreferrer">
+          <span>Open in Maps</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <form class="form" id="bookForm" data-reveal style="--d:120ms;margin-top:clamp(1.5rem,3.5vw,2.25rem)" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Omar" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+20 1x xxx xxxxx" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-svc">Service</label>
+            <select id="f-svc" name="service">
+              <option>The Signature Cut — 450 EGP</option>
+              <option>Skin Fade — 500 EGP</option>
+              <option>Beard Sculpt — 350 EGP</option>
+              <option>Hot-Towel Shave — 450 EGP</option>
+              <option selected>The Full Mankind — 950 EGP</option>
+              <option>Junior Gent — 300 EGP</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-date">Preferred day</label>
+            <input id="f-date" name="date" type="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-note">Anything we should know</label>
+          <textarea id="f-note" name="note" rows="3" placeholder="Cowlick on the left, I come every three weeks, prefer a quiet chair…"></textarea>
+        </div>
+        <p class="form__ok" id="formOk" role="status">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" style="width:1rem;height:1rem;flex:none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Opening WhatsApp with your request &mdash; tap send and the slot is yours.</span>
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center">
+          <button class="btn btn--brass magnet" type="submit">
+            <span class="btn__fill" aria-hidden="true"></span>
+            <span class="btn__lbl">Send request
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <span class="form__note">No account, no deposit.<br>We reply during opening hours.</span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+<footer class="foot">
+  <div class="shell">
+    <p class="eyebrow eyebrow--center" data-reveal>Buzzed by the professionals</p>
+    <div class="foot__word" id="footWord" data-parallax aria-hidden="true">MANKIND</div>
+
+    <div class="foot__cols">
+      <div>
+        <h3>The room</h3>
+        <p style="font-size:.9375rem;color:var(--bone-2);max-width:34ch;line-height:1.7">
+          One Golden Square, New Cairo, Cairo, Egypt. Walk&#8209;ins welcome
+          every day we are open.
+        </p>
+        <div style="display:flex;gap:.5rem;margin-top:1.25rem">
+          <a class="btn btn--ghost btn--sm" href="https://www.instagram.com/mankindegypt" target="_blank" rel="noopener noreferrer" aria-label="MANKIND on Instagram">
+            <span class="btn__fill" aria-hidden="true"></span>
+            <span class="btn__lbl">Instagram</span>
+          </a>
+          <a class="btn btn--ghost btn--sm" href="https://www.facebook.com/MankindGentsSalon/" target="_blank" rel="noopener noreferrer" aria-label="MANKIND on Facebook">
+            <span class="btn__fill" aria-hidden="true"></span>
+            <span class="btn__lbl">Facebook</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#story">The Room</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">The Work</a></li>
+          <li><a href="#ritual">The Ritual</a></li>
+          <li><a href="#crew">The Craft</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Signature Cut</a></li>
+          <li><a href="#services">Skin Fade</a></li>
+          <li><a href="#services">Beard Sculpt</a></li>
+          <li><a href="#services">Hot&#8209;Towel Shave</a></li>
+          <li><a href="#services">Junior Gent</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="https://wa.me/201148310107" target="_blank" rel="noopener noreferrer">+20 11 4831 0107</a></li>
+          <li><a href="mailto:hello@mankind.eg">hello@mankind.eg</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Square+New+Cairo+Egypt" target="_blank" rel="noopener noreferrer">Get directions</a></li>
+          <li><a href="#book">Book a chair</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot__legal">
+      <span>© <span id="yr">2026</span> MANKIND · NEW CAIRO</span>
+      <span>Crafted in Cairo · Lenis + AutoAnimate (MIT)</span>
+      <span><a href="#top">Back to top ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ══ LIGHTBOX ═════════════════════════════════════════════════ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photograph">
+  <button class="lb__x" id="lbX" type="button" aria-label="Close (Esc)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke-linecap="round"/></svg>
+  </button>
+  <button class="lb__nav lb__nav--p" id="lbP" type="button" aria-label="Previous photograph">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="lb__nav lb__nav--n" id="lbN" type="button" aria-label="Next photograph">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <figure class="lb__fig" id="lbFig">
+    <img id="lbImg" src="" alt="" decoding="async">
+    <figcaption class="lb__cap"><b id="lbTitle"></b><span id="lbMeta"></span></figcaption>
+  </figure>
+</div>
+
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     VENDORED · Lenis 1.3.26 (MIT · darkroomengineering/lenis)
+     Inlined verbatim so smooth scroll keeps working when this file
+     is saved to disk and opened over file:// with no build step.
+     ══════════════════════════════════════════════════════════════ -->
+<script>(function(){var e=`1.3.26`;function t(e,t,n){return Math.max(e,Math.min(t,n))}function n(e,t,n){return(1-n)*e+n*t}function r(e,t,r,i){return n(e,t,1-Math.exp(-r*i))}function i(e,t){return(e%t+t)%t}var a=class{isRunning=!1;value=0;from=0;to=0;currentTime=0;lerp;duration;easing;onUpdate;advance(e){if(!this.isRunning)return;let n=!1;if(this.duration&&this.easing){this.currentTime+=e;let r=t(0,this.currentTime/this.duration,1);n=r>=1;let i=n?1:this.easing(r);this.value=this.from+(this.to-this.from)*i}else this.lerp?(this.value=r(this.value,this.to,this.lerp*60,e),Math.round(this.value)===Math.round(this.to)&&(this.value=this.to,n=!0)):(this.value=this.to,n=!0);n&&this.stop(),this.onUpdate?.(this.value,n)}stop(){this.isRunning=!1}fromTo(e,t,{lerp:n,duration:r,easing:i,onStart:a,onUpdate:o}){this.from=this.value=e,this.to=t,this.lerp=n,this.duration=r,this.easing=i,this.currentTime=0,this.isRunning=!0,a?.(),this.onUpdate=o}};function o(e,t){let n;return function(...r){clearTimeout(n),n=setTimeout(()=>{n=void 0,e.apply(this,r)},t)}}var s=class{width=0;height=0;scrollHeight=0;scrollWidth=0;debouncedResize;wrapperResizeObserver;contentResizeObserver;constructor(e,t,{autoResize:n=!0,debounce:r=250}={}){this.wrapper=e,this.content=t,n&&(this.debouncedResize=o(this.resize,r),this.wrapper instanceof Window?window.addEventListener(`resize`,this.debouncedResize):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener(`resize`,this.debouncedResize)}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}},c=class{events={};emit(e,...t){let n=this.events[e]||[];for(let e=0,r=n.length;e<r;e++)n[e]?.(...t)}on(e,t){return this.events[e]?this.events[e].push(t):this.events[e]=[t],()=>{this.events[e]=this.events[e]?.filter(e=>t!==e)}}off(e,t){this.events[e]=this.events[e]?.filter(e=>t!==e)}destroy(){this.events={}}};let l={passive:!1};function u(e,t){return e===1?16.666666666666668:e===2?t:1}var d=class{touchStart={x:0,y:0};lastDelta={x:0,y:0};window={width:0,height:0};emitter=new c;constructor(e,t={wheelMultiplier:1,touchMultiplier:1}){this.element=e,this.options=t,window.addEventListener(`resize`,this.onWindowResize),this.onWindowResize(),this.element.addEventListener(`wheel`,this.onWheel,l),this.element.addEventListener(`touchstart`,this.onTouchStart,l),this.element.addEventListener(`touchmove`,this.onTouchMove,l),this.element.addEventListener(`touchend`,this.onTouchEnd,l)}on(e,t){return this.emitter.on(e,t)}destroy(){this.emitter.destroy(),window.removeEventListener(`resize`,this.onWindowResize),this.element.removeEventListener(`wheel`,this.onWheel,l),this.element.removeEventListener(`touchstart`,this.onTouchStart,l),this.element.removeEventListener(`touchmove`,this.onTouchMove,l),this.element.removeEventListener(`touchend`,this.onTouchEnd,l)}onTouchStart=e=>{let{clientX:t,clientY:n}=e.targetTouches?e.targetTouches[0]:e;this.touchStart.x=t,this.touchStart.y=n,this.lastDelta={x:0,y:0},this.emitter.emit(`scroll`,{deltaX:0,deltaY:0,event:e})};onTouchMove=e=>{let{clientX:t,clientY:n}=e.targetTouches?e.targetTouches[0]:e,r=-(t-this.touchStart.x)*this.options.touchMultiplier,i=-(n-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=t,this.touchStart.y=n,this.lastDelta={x:r,y:i},this.emitter.emit(`scroll`,{deltaX:r,deltaY:i,event:e})};onTouchEnd=e=>{this.emitter.emit(`scroll`,{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:e})};onWheel=e=>{let{deltaX:t,deltaY:n,deltaMode:r}=e,i=u(r,this.window.width),a=u(r,this.window.height);t*=i,n*=a,t*=this.options.wheelMultiplier,n*=this.options.wheelMultiplier,this.emitter.emit(`scroll`,{deltaX:t,deltaY:n,event:e})};onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}}};let f=e=>Math.min(1,1.001-2**(-10*e));var p=class{_isScrolling=!1;_isStopped=!1;_isLocked=!1;_preventNextNativeScrollEvent=!1;_resetVelocityTimeout=null;_rafId=null;_isDraggingSelection=!1;reducedMotionMediaQuery=window.matchMedia(`(prefers-reduced-motion: reduce)`);isTouching;isIos;time=0;userData={};lastVelocity=0;velocity=0;direction=0;options;targetScroll;animatedScroll;animate=new a;emitter=new c;dimensions;virtualScroll;constructor({wrapper:t=window,content:n=document.documentElement,eventsTarget:r=t,smoothWheel:i=!0,syncTouch:a=!1,syncTouchLerp:o=.075,touchInertiaExponent:c=1.7,duration:l,easing:u,lerp:p=.1,infinite:m=!1,orientation:h=`vertical`,gestureOrientation:g=h===`horizontal`?`both`:`vertical`,touchMultiplier:_=1,wheelMultiplier:v=1,autoResize:y=!0,prevent:b,virtualScroll:x,overscroll:S=!0,autoRaf:C=!1,anchors:w=!1,autoToggle:T=!1,allowNestedScroll:E=!1,__experimental__naiveDimensions:D=!1,naiveDimensions:O=D,stopInertiaOnNavigate:k=!1,respectReducedMotion:A=!0}={}){window.lenisVersion=e,window.lenis||(window.lenis={}),window.lenis.version=e,h===`horizontal`&&(window.lenis.horizontal=!0),a===!0&&(window.lenis.touch=!0),this.isIos=/(iPad|iPhone|iPod)/g.test(navigator.userAgent),(!t||t===document.documentElement)&&(t=window),typeof l==`number`&&typeof u!=`function`?u=f:typeof u==`function`&&typeof l!=`number`&&(l=1),this.options={wrapper:t,content:n,eventsTarget:r,smoothWheel:i,syncTouch:a,syncTouchLerp:o,touchInertiaExponent:c,duration:l,easing:u,lerp:p,infinite:m,gestureOrientation:g,orientation:h,touchMultiplier:_,wheelMultiplier:v,autoResize:y,prevent:b,virtualScroll:x,overscroll:S,autoRaf:C,anchors:w,autoToggle:T,allowNestedScroll:E,naiveDimensions:O,stopInertiaOnNavigate:k,respectReducedMotion:A},this.dimensions=new s(t,n,{autoResize:y}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener(`scroll`,this.onNativeScroll),this.options.wrapper.addEventListener(`scrollend`,this.onScrollEnd,{capture:!0}),(this.options.anchors||this.options.stopInertiaOnNavigate)&&this.options.wrapper.addEventListener(`click`,this.onClick),this.options.wrapper.addEventListener(`pointerdown`,this.onPointerDown),this.virtualScroll=new d(r,{touchMultiplier:_,wheelMultiplier:v}),this.virtualScroll.on(`scroll`,this.onVirtualScroll),this.options.autoToggle&&(this.checkOverflow(),this.rootElement.addEventListener(`transitionend`,this.onTransitionEnd)),this.options.autoRaf&&(this._rafId=requestAnimationFrame(this.raf))}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener(`scroll`,this.onNativeScroll),this.options.wrapper.removeEventListener(`scrollend`,this.onScrollEnd,{capture:!0}),this.options.wrapper.removeEventListener(`pointerdown`,this.onPointerDown),(this.options.anchors||this.options.stopInertiaOnNavigate)&&this.options.wrapper.removeEventListener(`click`,this.onClick),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName(),this._rafId&&cancelAnimationFrame(this._rafId)}on(e,t){return this.emitter.on(e,t)}off(e,t){return this.emitter.off(e,t)}onScrollEnd=e=>{e instanceof CustomEvent||(this.isScrolling===`smooth`||this.isScrolling===!1)&&e.stopPropagation()};dispatchScrollendEvent=()=>{this.options.wrapper.dispatchEvent(new CustomEvent(`scrollend`,{bubbles:this.options.wrapper===window,detail:{lenisScrollEnd:!0}}))};get overflow(){let e=this.isHorizontal?`overflow-x`:`overflow-y`;return getComputedStyle(this.rootElement)[e]}checkOverflow(){[`hidden`,`clip`].includes(this.overflow)?this.internalStop():this.internalStart()}onTransitionEnd=e=>{e.propertyName?.includes(`overflow`)&&e.target===this.rootElement&&this.checkOverflow()};setScroll(e){this.isHorizontal?this.options.wrapper.scrollTo({left:e,behavior:`instant`}):this.options.wrapper.scrollTo({top:e,behavior:`instant`})}onClick=e=>{let t=e.composedPath().filter(e=>e instanceof HTMLAnchorElement&&e.href).map(e=>new URL(e.href)),n=new URL(window.location.href);if(this.options.anchors){let e=t.find(e=>n.host===e.host&&n.pathname===e.pathname&&e.hash);if(e){let t=typeof this.options.anchors==`object`&&this.options.anchors?this.options.anchors:void 0,n=decodeURIComponent(e.hash);this.scrollTo(n,t);return}}if(this.options.stopInertiaOnNavigate&&t.some(e=>n.host===e.host&&n.pathname!==e.pathname)){this.reset();return}};onPointerDown=e=>{e.button===1&&this.reset()};isTouchOnSelectionHandle(e){let t=window.getSelection();if(!t||t.isCollapsed||t.rangeCount===0)return!1;let n=e.targetTouches[0]??e.changedTouches[0];if(!n)return!1;let r=t.getRangeAt(0).getClientRects();if(r.length===0)return!1;let i=r[0],a=r[r.length-1],o=Math.hypot(n.clientX-i.left,n.clientY-i.top)<=40,s=Math.hypot(n.clientX-a.right,n.clientY-a.bottom)<=40;return o||s}onVirtualScroll=e=>{if(typeof this.options.virtualScroll==`function`&&this.options.virtualScroll(e)===!1)return;let{deltaX:t,deltaY:n,event:r}=e;if(this.emitter.emit(`virtual-scroll`,{deltaX:t,deltaY:n,event:r}),r.ctrlKey||r.lenisStopPropagation)return;let i=r.type.includes(`touch`),a=r.type.includes(`wheel`);if(i&&this.isIos&&(r.type===`touchstart`&&(this._isDraggingSelection=this.isTouchOnSelectionHandle(r)),this._isDraggingSelection)){r.type===`touchend`&&(this._isDraggingSelection=!1);return}this.isTouching=r.type===`touchstart`||r.type===`touchmove`;let o=t===0&&n===0;if(this.options.syncTouch&&i&&r.type===`touchstart`&&o&&!this.isStopped&&!this.isLocked){this.reset();return}let s=this.options.gestureOrientation===`vertical`&&n===0||this.options.gestureOrientation===`horizontal`&&t===0;if(o||s)return;let c=r.composedPath();c=c.slice(0,c.indexOf(this.rootElement));let l=this.options.prevent,u=Math.abs(t)>=Math.abs(n)?`horizontal`:`vertical`;if(c.find(e=>e instanceof HTMLElement&&(typeof l==`function`&&l?.(e)||e.hasAttribute?.(`data-lenis-prevent`)||u===`vertical`&&e.hasAttribute?.(`data-lenis-prevent-vertical`)||u===`horizontal`&&e.hasAttribute?.(`data-lenis-prevent-horizontal`)||i&&e.hasAttribute?.(`data-lenis-prevent-touch`)||a&&e.hasAttribute?.(`data-lenis-prevent-wheel`)||this.options.allowNestedScroll&&this.hasNestedScroll(e,{deltaX:t,deltaY:n}))))return;if(this.isStopped||this.isLocked){r.cancelable&&r.preventDefault();return}if(!(this.options.syncTouch&&i||this.options.smoothWheel&&a)){this.isScrolling=`native`,this.animate.stop(),r.lenisStopPropagation=!0;return}let d=n;this.options.gestureOrientation===`both`?d=Math.abs(n)>Math.abs(t)?n:t:this.options.gestureOrientation===`horizontal`&&(d=t),(!this.options.overscroll||this.options.infinite||this.options.wrapper!==window&&this.limit>0&&(this.animatedScroll>0&&this.animatedScroll<this.limit||this.animatedScroll===0&&n>0||this.animatedScroll===this.limit&&n<0))&&(r.lenisStopPropagation=!0),r.cancelable&&r.preventDefault();let f=i&&this.options.syncTouch,p=i&&r.type===`touchend`;p&&(d=Math.sign(d)*Math.abs(this.velocity)**this.options.touchInertiaExponent),this.scrollTo(this.targetScroll+d,{programmatic:!1,...f?{lerp:p?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit(`scroll`,this)}onNativeScroll=()=>{if(this._resetVelocityTimeout!==null&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent){this._preventNextNativeScrollEvent=!1;return}if(this.isScrolling===!1||this.isScrolling===`native`){let e=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-e,this.direction=Math.sign(this.animatedScroll-e),this.isStopped||(this.isScrolling=`native`),this.emit(),this.velocity!==0&&(this._resetVelocityTimeout=setTimeout(()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()},400))}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){if(this.isStopped){if(this.options.autoToggle){this.rootElement.style.removeProperty(`overflow`);return}this.internalStart()}}internalStart(){this.isStopped&&(this.reset(),this.isStopped=!1,this.emit())}stop(){if(!this.isStopped){if(this.options.autoToggle){this.rootElement.style.setProperty(`overflow`,`clip`);return}this.internalStop()}}internalStop(){this.isStopped||(this.reset(),this.isStopped=!0,this.emit())}raf=e=>{let t=e-(this.time||e);this.time=e,this.animate.advance(t*.001),this.options.autoRaf&&(this._rafId=requestAnimationFrame(this.raf))};scrollTo(e,{offset:n=0,immediate:r=!1,lock:i=!1,programmatic:a=!0,lerp:o=a?this.options.lerp:void 0,duration:s=a?this.options.duration:void 0,easing:c=a?this.options.easing:void 0,onStart:l,onComplete:u,force:d=!1,userData:p}={}){if(this.prefersReducedMotion&&(a?r=!0:(o=1,s=void 0,c=void 0)),(this.isStopped||this.isLocked)&&!d)return;let m=e,h=n;if(typeof m==`string`&&[`top`,`left`,`start`,`#`].includes(m))m=0;else if(typeof m==`string`&&[`bottom`,`right`,`end`].includes(m))m=this.limit;else{let e=null;if(typeof m==`string`?(e=m.startsWith(`#`)?document.getElementById(m.slice(1)):document.querySelector(m),e||(m===`#top`?m=0:console.warn(`Lenis: Target not found`,m))):m instanceof HTMLElement&&m?.nodeType&&(e=m),e){if(this.options.wrapper!==window){let e=this.rootElement.getBoundingClientRect();h-=this.isHorizontal?e.left:e.top}let t=e.getBoundingClientRect(),n=getComputedStyle(e),r=this.isHorizontal?Number.parseFloat(n.scrollMarginLeft):Number.parseFloat(n.scrollMarginTop),i=getComputedStyle(this.rootElement),a=this.isHorizontal?Number.parseFloat(i.scrollPaddingLeft):Number.parseFloat(i.scrollPaddingTop);m=(this.isHorizontal?t.left:t.top)+this.animatedScroll-(Number.isNaN(r)?0:r)-(Number.isNaN(a)?0:a)}}if(typeof m==`number`){if(m+=h,this.options.infinite){if(a){this.targetScroll=this.animatedScroll=this.scroll;let e=m-this.animatedScroll;e>this.limit/2?m-=this.limit:e<-this.limit/2&&(m+=this.limit)}}else m=t(0,m,this.limit);if(m===this.targetScroll){l?.(this),u?.(this);return}if(this.userData=p??{},r){this.animatedScroll=this.targetScroll=m,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),u?.(this),this.userData={},requestAnimationFrame(()=>{this.dispatchScrollendEvent()});return}a||(this.targetScroll=m),typeof s==`number`&&typeof c!=`function`?c=f:typeof c==`function`&&typeof s!=`number`&&(s=1),this.animate.fromTo(this.animatedScroll,m,{duration:s,easing:c,lerp:o,onStart:()=>{i&&(this.isLocked=!0),this.isScrolling=`smooth`,l?.(this)},onUpdate:(e,t)=>{this.isScrolling=`smooth`,this.lastVelocity=this.velocity,this.velocity=e-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=e,this.setScroll(this.scroll),a&&(this.targetScroll=e),t||this.emit(),t&&(this.reset(),this.emit(),u?.(this),this.userData={},requestAnimationFrame(()=>{this.dispatchScrollendEvent()}),this.preventNextNativeScrollEvent())}})}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame(()=>{this._preventNextNativeScrollEvent=!1})}hasNestedScroll(e,{deltaX:t,deltaY:n}){let r=Date.now();e._lenis||={};let i=e._lenis,a,o,s,c,l,u,d,f,p,m;if(r-(i.time??0)>2e3){i.time=Date.now();let t=window.getComputedStyle(e);if(i.computedStyle=t,a=[`auto`,`overlay`,`scroll`].includes(t.overflowX),o=[`auto`,`overlay`,`scroll`].includes(t.overflowY),l=[`auto`].includes(t.overscrollBehaviorX),u=[`auto`].includes(t.overscrollBehaviorY),i.hasOverflowX=a,i.hasOverflowY=o,!(a||o))return!1;d=e.scrollWidth,f=e.scrollHeight,p=e.clientWidth,m=e.clientHeight,s=d>p,c=f>m,i.isScrollableX=s,i.isScrollableY=c,i.scrollWidth=d,i.scrollHeight=f,i.clientWidth=p,i.clientHeight=m,i.hasOverscrollBehaviorX=l,i.hasOverscrollBehaviorY=u}else s=i.isScrollableX,c=i.isScrollableY,a=i.hasOverflowX,o=i.hasOverflowY,d=i.scrollWidth,f=i.scrollHeight,p=i.clientWidth,m=i.clientHeight,l=i.hasOverscrollBehaviorX,u=i.hasOverscrollBehaviorY;if(!(a&&s||o&&c))return!1;let h=Math.abs(t)>=Math.abs(n)?`horizontal`:`vertical`,g,_,v,y,b,x;if(h===`horizontal`)g=Math.round(e.scrollLeft),_=d-p,v=t,y=a,b=s,x=l;else if(h===`vertical`)g=Math.round(e.scrollTop),_=f-m,v=n,y=o,b=c,x=u;else return!1;return!x&&(g>=_||g<=0)?!0:(v>0?g<_:g>0)&&y&&b}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?`x`:`y`]}get isHorizontal(){return this.options.orientation===`horizontal`}get actualScroll(){let e=this.options.wrapper;return this.isHorizontal?e.scrollX??e.scrollLeft:e.scrollY??e.scrollTop}get scroll(){return this.options.infinite?i(this.animatedScroll,this.limit):this.animatedScroll}get progress(){return this.limit===0?1:this.scroll/this.limit}get isScrolling(){return this._isScrolling}set isScrolling(e){this._isScrolling!==e&&(this._isScrolling=e,this.updateClassName())}get isStopped(){return this._isStopped}set isStopped(e){this._isStopped!==e&&(this._isStopped=e,this.updateClassName())}get isLocked(){return this._isLocked}set isLocked(e){this._isLocked!==e&&(this._isLocked=e,this.updateClassName())}get isSmooth(){return this.isScrolling===`smooth`}get prefersReducedMotion(){return this.options.respectReducedMotion&&this.reducedMotionMediaQuery.matches}get className(){let e=`lenis`;return this.options.autoToggle&&(e+=` lenis-autoToggle`),this.isStopped&&(e+=` lenis-stopped`),this.isLocked&&(e+=` lenis-locked`),this.isScrolling&&(e+=` lenis-scrolling`),this.isScrolling===`smooth`&&(e+=` lenis-smooth`),e}updateClassName(){this.cleanUpClassName(),this.className.split(` `).forEach(e=>{this.rootElement.classList.add(e)})}cleanUpClassName(){for(let e of Array.from(this.rootElement.classList))(e===`lenis`||e.startsWith(`lenis-`))&&this.rootElement.classList.remove(e)}};globalThis.Lenis=p,globalThis.Lenis.prototype=p.prototype})();</script>
+
+<!-- ══════════════════════════════════════════════════════════════
+     VENDORED · AutoAnimate 0.10.0 (MIT · formkit/auto-animate)
+     Inlined; only the trailing `export{}` was swapped for a window
+     shim so it can be consumed from an inline ES module.
+     ══════════════════════════════════════════════════════════════ -->
+<script type="module">const e=new Set,t=new WeakMap,n=new WeakMap,o=new WeakMap,i=new WeakMap,r=new WeakMap,l=new WeakMap,a=new WeakMap,s=new WeakMap,c=new WeakSet;let d,u=0,f=0;const h="__aa_tgt",p="__aa_del",g="__aa_new",m=e=>{const i=function(e){const t=e.reduce((e,t)=>[...e,...Array.from(t.addedNodes),...Array.from(t.removedNodes)],[]);return!t.every(e=>"#comment"===e.nodeName)&&e.reduce((e,t)=>{if(!1===e)return!1;if(t.target instanceof Element){if(_(t.target),!e.has(t.target)){e.add(t.target);for(let n=0;n<t.target.children.length;n++){const o=t.target.children.item(n);if(o){if(p in o)return!1;_(t.target,o),e.add(o)}}}if(t.removedNodes.length)for(let o=0;o<t.removedNodes.length;o++){const i=t.removedNodes[o];if(p in i)return!1;i instanceof Element&&(e.add(i),_(t.target,i),n.set(i,[t.previousSibling,t.nextSibling]))}}return e},new Set)}(e);i&&i.forEach(e=>function(e){var i,r;const l=e.isConnected,a=t.has(e);l&&n.has(e)&&n.delete(e);"finished"!==(null===(i=o.get(e))||void 0===i?void 0:i.playState)&&(null===(r=o.get(e))||void 0===r||r.cancel());g in e?$(e):a&&l?function(e){const n=t.get(e),i=O(e);if(!N(e))return t.set(e,i);if(v(e))return t.set(e,i),void y(e);let r;if(!n)return;const l=C(e);if("function"!=typeof l){let t=n.left-i.left,o=n.top-i.top;const a=n.left+n.width-(i.left+i.width);0==n.top+n.height-(i.top+i.height)&&(o=0),0==a&&(t=0);const[s,c,d,u]=S(e,n,i),f={transform:`translate(${t}px, ${o}px)`},h={transform:"translate(0, 0)"};s!==c&&(f.width=`${s}px`,h.width=`${c}px`),d!==u&&(f.height=`${d}px`,h.height=`${u}px`),r=e.animate([f,h],{duration:l.duration,easing:l.easing})}else{const[t]=j(l(e,"remain",n,i));r=new Animation(t),r.play()}o.set(e,r),t.set(e,i),r.addEventListener("finish",b.bind(null,e,!1),{once:!0})}(e):a&&!l?function(e){var i;if(!n.has(e)||!t.has(e))return;const[r,l]=n.get(e);Object.defineProperty(e,p,{value:!0,configurable:!0});const a=window.scrollX,s=window.scrollY;l&&l.parentNode&&l.parentNode instanceof Element?l.parentNode.insertBefore(e,l):r&&r.parentNode?r.parentNode.appendChild(e):null===(i=L(e))||void 0===i||i.appendChild(e);if(!N(e))return A(e);const[c,h,g,m]=function(e){var n;const i=t.get(e),[r,,l]=S(e,i,O(e));let a=e.parentElement;for(;a&&("static"===getComputedStyle(a).position||a instanceof HTMLBodyElement);)a=a.parentElement;a||(a=document.body);const s=getComputedStyle(a),c=o.has(e)&&"finished"!==(null===(n=o.get(e))||void 0===n?void 0:n.playState)?t.get(a):O(a),d=Math.round(i.top-c.top)-T(s.borderTopWidth),u=Math.round(i.left-c.left)-T(s.borderLeftWidth);return[d,u,r,l]}(e),w=C(e),v=t.get(e);a===u&&s===f||function(e,t,n,o){const i=u-t,r=f-n,l=document.documentElement.style.scrollBehavior;"smooth"===getComputedStyle(d).scrollBehavior&&(document.documentElement.style.scrollBehavior="auto");if(window.scrollTo(window.scrollX+i,window.scrollY+r),!e.parentElement)return;const a=e.parentElement;let s=a.clientHeight,c=a.clientWidth;const h=performance.now();function p(){requestAnimationFrame(()=>{if(!B(o)){const e=s-a.clientHeight,t=c-a.clientWidth;h+o.duration>performance.now()?(window.scrollTo({left:window.scrollX-t,top:window.scrollY-e}),s=a.clientHeight,c=a.clientWidth,p()):document.documentElement.style.scrollBehavior=l}})}p()}(e,a,s,w);let y,b={position:"absolute",top:`${c}px`,left:`${h}px`,width:`${g}px`,height:`${m}px`,margin:"0",pointerEvents:"none",transformOrigin:"center",zIndex:"100"};if(B(w)){const[t,n]=j(w(e,"remove",v));!1!==(null==n?void 0:n.styleReset)&&(b=(null==n?void 0:n.styleReset)||b,Object.assign(e.style,b)),y=new Animation(t),y.play()}else Object.assign(e.style,b),y=e.animate([{transform:"scale(1)",opacity:1},{transform:"scale(.98)",opacity:0}],{duration:w.duration,easing:"ease-out"});o.set(e,y),y.addEventListener("finish",()=>A(e,b),{once:!0})}(e):$(e)}(e))},w=n=>{n.forEach(n=>{n.target===d&&(clearTimeout(s.get(d)),s.set(d,setTimeout(()=>{e.forEach(e=>k(e,e=>M(()=>b(e))))},100))),t.has(n.target)&&b(n.target)})};function v(e){const t=e.getBoundingClientRect(),n=(null==d?void 0:d.clientWidth)||0,o=(null==d?void 0:d.clientHeight)||0;return t.bottom<0||t.top>o||t.right<0||t.left>n}function y(e){const n=i.get(e);null==n||n.disconnect();let o=t.get(e),r=0;o||(o=O(e),t.set(e,o));const{offsetWidth:l,offsetHeight:a}=d,s=[o.top-5,l-(o.left+5+o.width),a-(o.top+5+o.height),o.left-5].map(e=>-1*Math.floor(e)+"px").join(" "),c=new IntersectionObserver(()=>{++r>1&&b(e)},{root:d,threshold:1,rootMargin:s});c.observe(e),i.set(e,c)}function b(e,n=!0){clearTimeout(s.get(e));const i=C(e),r=n?B(i)?500:i.duration:0;s.set(e,setTimeout(async()=>{const n=o.get(e);try{await(null==n?void 0:n.finished),t.set(e,O(e)),y(e)}catch{}},r))}function E(e){setTimeout(()=>{l.set(e,setInterval(()=>M(b.bind(null,e)),2e3))},Math.round(2e3*Math.random()))}function M(e){"function"==typeof requestIdleCallback?requestIdleCallback(()=>e()):requestAnimationFrame(()=>e())}let W;const x="undefined"!=typeof window&&"ResizeObserver"in window;function _(e,t){t||h in e?t&&!(h in t)&&Object.defineProperty(t,h,{value:e}):Object.defineProperty(e,h,{value:e})}function T(e){return Number(e.replace(/[^0-9.\-]/g,""))}function O(e){const t=e.getBoundingClientRect(),{x:n,y:o}=function(e){let t=e.parentElement;for(;t;){if(t.scrollLeft||t.scrollTop)return{x:t.scrollLeft,y:t.scrollTop};t=t.parentElement}return{x:0,y:0}}(e);return{top:t.top+o,left:t.left+n,width:t.width,height:t.height}}function S(e,t,n){let o=t.width,i=t.height,r=n.width,l=n.height;const a=getComputedStyle(e);if("content-box"===a.getPropertyValue("box-sizing")){const e=T(a.paddingTop)+T(a.paddingBottom)+T(a.borderTopWidth)+T(a.borderBottomWidth),t=T(a.paddingLeft)+T(a.paddingRight)+T(a.borderRightWidth)+T(a.borderLeftWidth);o-=t,r-=t,i-=e,l-=e}return[o,r,i,l].map(Math.round)}function C(e){return h in e&&a.has(e[h])?a.get(e[h]):{duration:250,easing:"ease-in-out"}}function L(e){if(h in e)return e[h]}function N(e){const t=L(e);return!!t&&c.has(t)}function k(e,...t){t.forEach(t=>t(e,a.has(e)));for(let n=0;n<e.children.length;n++){const o=e.children.item(n);o&&t.forEach(e=>e(o,a.has(o)))}}function j(e){return Array.isArray(e)?e:[e]}function B(e){return"function"==typeof e}function $(e){g in e&&delete e[g];const n=O(e);t.set(e,n);const i=C(e);if(!N(e))return;if(v(e))return void y(e);let r;if("function"!=typeof i)r=e.animate([{transform:"scale(.98)",opacity:0},{transform:"scale(0.98)",opacity:0,offset:.5},{transform:"scale(1)",opacity:1}],{duration:1.5*i.duration,easing:"ease-in"});else{const[t]=j(i(e,"add",n));r=new Animation(t),r.play()}o.set(e,r),r.addEventListener("finish",b.bind(null,e,!1),{once:!0})}function A(e,r){var l;e.remove(),t.delete(e),n.delete(e),o.delete(e),null===(l=i.get(e))||void 0===l||l.disconnect(),setTimeout(()=>{if(p in e&&delete e[p],Object.defineProperty(e,g,{value:!0,configurable:!0}),r&&e instanceof HTMLElement)for(const t in r)e.style[t]=""},0)}function R(d,u={}){if(x&&W){if(!(window.matchMedia("(prefers-reduced-motion: reduce)").matches&&!B(u)&&!u.disrespectUserMotionPreference)){c.add(d),"static"===getComputedStyle(d).position&&Object.assign(d.style,{position:"relative"}),k(d,b,E,e=>null==W?void 0:W.observe(e)),B(u)?a.set(d,u):a.set(d,{duration:250,easing:"ease-in-out",...u});const t=new MutationObserver(m);t.observe(d,{childList:!0}),r.set(d,t),e.add(d)}}return Object.freeze({parent:d,enable:()=>{c.add(d)},disable:()=>{c.delete(d),k(d,e=>{const t=o.get(e);try{null==t||t.cancel()}catch{}o.delete(e);const n=s.get(e);n&&clearTimeout(n),s.delete(e);const i=l.get(e);i&&clearInterval(i),l.delete(e)})},isEnabled:()=>c.has(d),destroy:()=>{c.delete(d),e.delete(d),a.delete(d);const u=r.get(d);null==u||u.disconnect(),r.delete(d),k(d,e=>{null==W||W.unobserve(e);const r=o.get(e);try{null==r||r.cancel()}catch{}o.delete(e);const a=i.get(e);null==a||a.disconnect(),i.delete(e);const c=l.get(e);c&&clearInterval(c),l.delete(e);const d=s.get(e);d&&clearTimeout(d),s.delete(e),t.delete(e),n.delete(e)})}})}x&&(d=document.documentElement,new MutationObserver(m),W=new ResizeObserver(w),window.addEventListener("scroll",()=>{f=window.scrollY,u=window.scrollX}),W.observe(d));const P={mounted:(e,t)=>{const n=R(e,t.value||{});Object.defineProperty(e,"__aa_ctl",{value:n,configurable:!0})},unmounted:e=>{var t;const n=e.__aa_ctl;null===(t=null==n?void 0:n.destroy)||void 0===t||t.call(n);try{delete e.__aa_ctl}catch{}},getSSRProps:()=>({})};window.autoAnimate=R;window.__aaSizes=S;</script>
+
+<script type="module">
+/* ═══════════════════════════════════════════════════════════════════
+   MANKIND — interaction layer (hand-written vanilla JS, no framework)
+   Effect patterns ported from magicuidesign/magicui and
+   DavidHDev/react-bits. See SITE-NOTES.md for the full audit.
+   ═══════════════════════════════════════════════════════════════════ */
+(() => {
+"use strict";
+
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp  = (a, b, t) => a + (b - a) * t;
+const easeOutExpo = t => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+const hasNativeTimeline = () => typeof CSS !== "undefined" && CSS.supports && CSS.supports("animation-timeline", "view()");
+
+/* matchMedia is missing in a handful of embedded WebViews — never let that
+   take the whole interaction layer down with it. */
+const NO_MQ = { matches: false, media: "", addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} };
+const mq = q => {
+  if (typeof window.matchMedia !== "function") return NO_MQ;
+  const m = window.matchMedia(q);
+  if (!m) return NO_MQ;
+  if (typeof m.addEventListener !== "function" && typeof m.addListener === "function") {
+    m.addEventListener = (_t, f) => m.addListener(f);
+    m.removeEventListener = (_t, f) => m.removeListener(f);
+  }
+  return m;
+};
+const RM = mq("(prefers-reduced-motion: reduce)");
+const COARSE = mq("(pointer: coarse)");
+let reduced = RM.matches;
+try { RM.addEventListener("change", e => { reduced = e.matches; }); } catch (_) {}
+
+/* ── single shared scroll ticker ────────────────────────────────── */
+const S = { y: 0, vh: innerHeight, max: 1 };
+const tasks = [];
+const onScroll = fn => tasks.push(fn);
+
+const measure = () => {
+  S.vh = innerHeight;
+  S.max = Math.max(1, document.documentElement.scrollHeight - S.vh);
+};
+const read = () => { S.y = lenis ? lenis.scroll : (scrollY || document.documentElement.scrollTop || 0); };
+
+let ticking = false;
+function frame() {
+  read();
+  for (const fn of tasks) fn(S.y, S.vh, S.max);
+  ticking = false;
+}
+function requestFrame() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+
+addEventListener("resize", () => { measure(); requestFrame(); }, { passive: true });
+addEventListener("scroll", requestFrame, { passive: true });
+
+/* ══ 1 · LENIS — smooth scroll (fine pointers, motion allowed) ════ */
+let lenis = null;
+function initLenis() {
+  if (reduced || COARSE.matches || typeof window.Lenis !== "function") return;
+  try {
+    lenis = new window.Lenis({
+      duration: 1.05,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      syncTouch: false,
+      wheelMultiplier: 0.94,
+      touchMultiplier: 1.4,
+      infinite: false
+    });
+    lenis.on("scroll", requestFrame);
+    const raf = time => { if (lenis) { lenis.raf(time); requestAnimationFrame(raf); } };
+    requestAnimationFrame(raf);
+  } catch (_) { lenis = null; }
+}
+
+/* scroll lock that cooperates with Lenis */
+let locks = 0;
+function lockScroll(on) {
+  locks = Math.max(0, locks + (on ? 1 : -1));
+  const locked = locks > 0;
+  if (lenis) locked ? lenis.stop() : lenis.start();
+  document.documentElement.style.overflow = locked && !lenis ? "hidden" : "";
+  /* keep assistive tech out of the page that sits behind the overlay */
+  for (const el of [$("#main"), $("#nav"), $("#toTop")]) {
+    if (!el) continue;
+    locked ? el.setAttribute("inert", "") : el.removeAttribute("inert");
+  }
+}
+
+function navOffset() {
+  const nav = $("#nav");
+  return nav ? -(nav.getBoundingClientRect().height * 0.72) : -52;
+}
+function scrollToEl(el) {
+  if (!el) return;
+  const off = navOffset();
+  if (lenis) lenis.scrollTo(el, { offset: off, duration: reduced ? 0.01 : 1.25 });
+  else scrollTo({ top: el.getBoundingClientRect().top + S.y + off, behavior: reduced ? "auto" : "smooth" });
+}
+
+/* razor-line transition on in-page navigation */
+const wipe = $("#wipe");
+function razorWipe() {
+  if (reduced || !wipe) return;
+  wipe.classList.remove("go");
+  void wipe.offsetWidth;              /* restart the animation */
+  wipe.classList.add("go");
+  setTimeout(() => wipe.classList.remove("go"), 900);
+}
+
+/* ══ 2 · CURTAIN — the intro wipe ════════════════════════════════ */
+let gateDelay = 0;
+function initCurtain() {
+  const curtain = $("#curtain");
+  if (!curtain) return;
+  let seen = false;
+  try { seen = sessionStorage.getItem("mk-seen") === "1"; sessionStorage.setItem("mk-seen", "1"); } catch (_) {}
+
+  if (reduced || COARSE.matches || seen || document.hidden || innerWidth < 560) { curtain.remove(); return; }
+
+  document.body.classList.add("curtained");
+  lockScroll(true);
+  const mark = $("#curtainMark");
+  if (mark) {
+    mark.innerHTML = "MANKIND".split("")
+      .map((c, i) => `<span style="transition-delay:${90 + i * 42}ms">${c}</span>`).join("");
+  }
+  requestAnimationFrame(() => curtain.classList.add("is-lit"));
+  gateDelay = 540;
+  setTimeout(() => curtain.classList.add("is-open"), 520);
+  setTimeout(() => {
+    curtain.classList.add("is-gone");
+    document.body.classList.remove("curtained");
+    lockScroll(false);
+    measure(); requestFrame();
+  }, 1380);
+  setTimeout(() => curtain.remove(), 1950);
+}
+
+/* ══ 3 · REVEALS — IntersectionObserver ══════════════════════════ */
+function initReveals() {
+  const targets = $$("[data-reveal], .lines, .rule-draw, .tile, .step");
+  if (!("IntersectionObserver" in window) || reduced) {
+    targets.forEach(t => { t.classList.add("is-in"); countUp(t); });
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      e.target.classList.add("is-in");
+      io.unobserve(e.target);
+      countUp(e.target);
+    }
+  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
+  targets.forEach(t => io.observe(t));
+}
+
+/* ══ 4 · NUMBER TICKER (MagicUI number-ticker port) ══════════════ */
+function countUp(scope) {
+  if (!scope || !scope.querySelector && !scope.hasAttribute?.("data-count")) return;
+  const nodes = scope.hasAttribute?.("data-count") ? [scope] : $$("[data-count]", scope);
+  for (const n of nodes) {
+    if (n.dataset.done) continue;
+    n.dataset.done = "1";
+    const to  = parseFloat(n.dataset.count || "0");
+    const dec = parseInt(n.dataset.decimals || "0", 10);
+    const suf = n.dataset.suffix || "";
+    let sup = null;
+    const put = v => {
+      n.textContent = v.toFixed(dec);
+      if (suf) { sup = sup || n.appendChild(document.createElement("sup")); sup.textContent = suf; }
+    };
+    if (reduced) { put(to); continue; }
+    const dur = 1500, t0 = performance.now();
+    const step = now => { const p = clamp((now - t0) / dur); put(to * easeOutExpo(p)); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+}
+
+/* ══ 5 · WORD-WISE SCROLL REVEAL (React Bits ScrollReveal port) ══ */
+function initWordwise() {
+  const el = $("#wordwise");
+  if (!el) return;
+  const words = el.textContent.replace(/\s+/g, " ").trim().split(" ");
+  el.textContent = "";
+  words.forEach((w, i) => {
+    if (i) el.append(" ");
+    const s = document.createElement("span");
+    s.className = "w";
+    s.textContent = w;
+    el.append(s);
+  });
+  const spans = $$(".w", el);
+  let last = -1;
+
+  onScroll(() => {
+    const r = el.getBoundingClientRect();
+    if (r.bottom < -240 || r.top > S.vh + 240) return;
+    const lit = Math.round(clamp((S.vh * 0.82 - r.top) / (r.height * 0.55 + S.vh * 0.34)) * spans.length);
+    if (lit === last) return;
+    last = lit;
+    spans.forEach((s, i) => {
+      s.classList.toggle("on", i < lit);
+      s.classList.toggle("peak", i >= lit - 4 && i < lit);
+    });
+  });
+}
+
+/* ══ 6 · NAV — progress hairline, stuck state, active section ════ */
+function initNav() {
+  const bar = $("#progress"), nav = $("#nav"), toTop = $("#toTop");
+  onScroll(() => {
+    if (bar) bar.style.transform = `scaleX(${clamp(S.y / S.max).toFixed(4)})`;
+    if (nav) nav.classList.toggle("is-stuck", S.y > 40);
+    if (toTop) toTop.classList.toggle("on", S.y > S.vh * 1.15);
+  });
+
+  const links = $$(".nav__link");
+  const secs = links.map(a => $(a.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window && secs.length) {
+    const io = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        for (const a of links) a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + e.target.id));
+      }
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    secs.forEach(s => io.observe(s));
+  }
+
+  if (toTop) toTop.addEventListener("click", () => {
+    razorWipe();
+    if (lenis) lenis.scrollTo(0, { duration: reduced ? 0.01 : 1.4 });
+    else scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+  });
+}
+
+/* ══ 7 · ANCHORS + MOBILE SHEET ══════════════════════════════════ */
+function initNavUI() {
+  const burger = $("#burger"), sheet = $("#sheet");
+  if (!burger || !sheet) return;
+  let open = false;
+
+  const setSheet = v => {
+    if (open === v) return;
+    open = v;
+    sheet.classList.toggle("is-open", v);
+    burger.setAttribute("aria-expanded", String(v));
+    burger.setAttribute("aria-label", v ? "Close menu" : "Open menu");
+    lockScroll(v);
+    if (v) { const f = $(".sheet__link", sheet); f && f.focus({ preventScroll: true }); }
+  };
+
+  burger.addEventListener("click", () => setSheet(!open));
+  addEventListener("keydown", e => {
+    if (e.key !== "Escape" || !open) return;
+    setSheet(false); burger.focus();
+  });
+  /* trap focus inside the open sheet */
+  sheet.addEventListener("keydown", e => {
+    if (e.key !== "Tab") return;
+    const f = $$("a,button", sheet).filter(n => n.offsetParent !== null);
+    if (!f.length) return;
+    const i = f.indexOf(document.activeElement);
+    e.preventDefault();
+    f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+  });
+
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute("href");
+    if (!id || id === "#") return;
+    const t = $(id);
+    if (!t) return;
+    e.preventDefault();
+    const wasOpen = open;
+    if (wasOpen) setSheet(false);
+    razorWipe();
+    setTimeout(() => scrollToEl(t), reduced ? 0 : wasOpen ? 260 : 110);
+    try { history.replaceState(null, "", id); } catch (_) {}
+  });
+}
+
+/* ══ 8 · SERVICES — accordion, spotlight, cursor-following peek ══ */
+function initServices() {
+  const rows = $$(".svc__row");
+
+  rows.forEach(row => {
+    const art = row.closest(".svc");
+    row.addEventListener("click", () => {
+      const opening = !art.classList.contains("is-open");
+      for (const o of $$(".svc.is-open")) {
+        if (o === art) continue;
+        o.classList.remove("is-open");
+        $(".svc__row", o)?.setAttribute("aria-expanded", "false");
+      }
+      art.classList.toggle("is-open", opening);
+      row.setAttribute("aria-expanded", String(opening));
+      measure();
+    });
+  });
+
+  /* pointer spotlight — MagicUI magic-card / React Bits SpotlightCard */
+  if (!COARSE.matches) {
+    for (const el of $$(".svc__row, .spotlight")) {
+      let raf = 0;
+      el.addEventListener("pointermove", e => {
+        if (raf) return;
+        const x = e.clientX, y = e.clientY;
+        raf = requestAnimationFrame(() => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty("--mx", `${x - r.left}px`);
+          el.style.setProperty("--my", `${y - r.top}px`);
+          raf = 0;
+        });
+      }, { passive: true });
+    }
+  }
+
+  /* cursor-following preview image (desktop only) */
+  const peek = $("#peek"), peekImg = $("#peekImg");
+  if (!peek || !peekImg || COARSE.matches || reduced) return;
+  let px = 0, py = 0, tx = 0, ty = 0, live = false, raf = 0;
+
+  const loop = () => {
+    px = lerp(px, tx, 0.14); py = lerp(py, ty, 0.14);
+    peek.style.transform =
+      `translate3d(${px.toFixed(1)}px,${py.toFixed(1)}px,0) translate(-50%,-50%) rotate(${clamp((tx - px) * -0.07, -7, 7).toFixed(2)}deg)`;
+    if (live || Math.abs(tx - px) > 0.4 || Math.abs(ty - py) > 0.4) raf = requestAnimationFrame(loop);
+    else raf = 0;
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+
+  addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    tx = e.clientX + 132; ty = e.clientY;
+    if (live) kick();
+  }, { passive: true });
+
+  rows.forEach(row => {
+    row.addEventListener("pointerenter", () => {
+      if (innerWidth < 1180 || !row.dataset.peek) return;
+      if (peekImg.getAttribute("src") !== row.dataset.peek) peekImg.setAttribute("src", row.dataset.peek);
+      if (!live) { px = tx; py = ty; }          /* snap, never slide in from 0,0 */
+      peek.classList.add("on"); live = true; kick();
+    });
+    row.addEventListener("pointerleave", () => { peek.classList.remove("on"); live = false; });
+  });
+  addEventListener("resize", () => { if (innerWidth < 1180) { peek.classList.remove("on"); live = false; } }, { passive: true });
+}
+
+/* ══ 9 · MAGNETIC BUTTONS (React Bits Magnet port) ═══════════════ */
+function initMagnet() {
+  if (COARSE.matches || reduced) return;
+  for (const el of $$(".magnet")) {
+    let raf = 0, mx = 0, my = 0, cx = 0, cy = 0, on = false;
+    const loop = () => {
+      cx = lerp(cx, on ? mx : 0, 0.15);
+      cy = lerp(cy, on ? my : 0, 0.15);
+      if (!on && Math.abs(cx) < 0.06 && Math.abs(cy) < 0.06) { el.style.transform = ""; raf = 0; return; }
+      el.style.transform = `translate3d(${cx.toFixed(2)}px,${cy.toFixed(2)}px,0)`;
+      raf = requestAnimationFrame(loop);
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+    el.addEventListener("pointerenter", () => { on = true; kick(); });
+    el.addEventListener("pointermove", e => {
+      const r = el.getBoundingClientRect();
+      mx = clamp((e.clientX - (r.left + r.width / 2)) * 0.3, -14, 14);
+      my = clamp((e.clientY - (r.top + r.height / 2)) * 0.42, -9, 9);
+    }, { passive: true });
+    el.addEventListener("pointerleave", () => { on = false; kick(); });
+  }
+}
+
+/* ══ 10 · CURSOR — soft brass ring (fine pointers, wide screens) ══ */
+function initCursor() {
+  const ring = $("#cursor"), dot = $("#cursorDot");
+  if (!ring || !dot || COARSE.matches || reduced || innerWidth < 900) return;
+  let rx = 0, ry = 0, dx = 0, dy = 0, tx = 0, ty = 0, shown = false, raf = 0, big = false, idle = 0;
+
+  const loop = () => {
+    rx = lerp(rx, tx, 0.17); ry = lerp(ry, ty, 0.17);
+    dx = lerp(dx, tx, 0.5);  dy = lerp(dy, ty, 0.5);
+    ring.style.transform = `translate3d(${rx.toFixed(1)}px,${ry.toFixed(1)}px,0) translate(-50%,-50%)`;
+    dot.style.transform  = `translate3d(${dx.toFixed(1)}px,${dy.toFixed(1)}px,0) translate(-50%,-50%)`;
+    const settled = Math.abs(tx - rx) < 0.3 && Math.abs(ty - ry) < 0.3;
+    if (settled && ++idle > 40) { raf = 0; idle = 0; return; }
+    if (!settled) idle = 0;
+    raf = requestAnimationFrame(loop);
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+
+  addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    tx = e.clientX; ty = e.clientY;
+    if (!shown) { shown = true; rx = dx = tx; ry = dy = ty; ring.classList.add("on"); dot.classList.add("on"); }
+    kick();
+  }, { passive: true });
+
+  document.addEventListener("pointerover", e => {
+    const hit = !!e.target.closest("a,button,.tile,.svc__row,input,select,textarea");
+    if (hit === big) return;
+    big = hit; ring.classList.toggle("big", big);
+  }, { passive: true });
+
+  addEventListener("pointerdown", () => ring.classList.add("big"), { passive: true });
+  addEventListener("pointerup", () => { if (!big) ring.classList.remove("big"); }, { passive: true });
+  document.addEventListener("mouseleave", () => { ring.classList.remove("on"); dot.classList.remove("on"); shown = false; });
+}
+
+/* ══ 11 · GALLERY — AutoAnimate filters + lightbox ═══════════════ */
+function initGallery() {
+  const grid = $("#grid");
+  if (!grid) return;
+  const all = $$(".tile", grid);
+
+  /* AutoAnimate: zero-config FLIP for the re-layout on filter.
+     It drives Element.animate(), so feature-detect the Web Animations API
+     first — without it AutoAnimate throws from inside a MutationObserver,
+     which no try/catch here could reach. */
+  if (typeof window.autoAnimate === "function" && typeof Element.prototype.animate === "function") {
+    try { window.autoAnimate(grid, { duration: 520, easing: "cubic-bezier(.16,1,.3,1)" }); } catch (_) {}
+  }
+
+  let visible = all.slice();
+  const chips = $$("#filters .chip");
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const cat = chip.dataset.filter;
+      chips.forEach(c => c.setAttribute("aria-pressed", String(c === chip)));
+      grid.classList.toggle("filtered", cat !== "all");
+      visible = all.filter(t => cat === "all" || t.dataset.cat === cat);
+      for (const t of all) if (!visible.includes(t) && t.parentNode === grid) grid.removeChild(t);
+      for (const t of visible) grid.appendChild(t);
+      measure();
+    });
+  });
+
+  /* lightbox */
+  const lb = $("#lb"), img = $("#lbImg"), title = $("#lbTitle"), meta = $("#lbMeta");
+  if (!lb || !img) return;
+  let idx = 0, lastFocus = null;
+
+  const paint = () => {
+    const t = visible[idx];
+    if (!t) return;
+    img.src = t.dataset.full;
+    img.alt = t.querySelector("img")?.alt || t.dataset.title || "";
+    title.textContent = t.dataset.title || "";
+    meta.textContent = `${t.dataset.meta || ""} · ${idx + 1} / ${visible.length}`;
+  };
+  const open = i => {
+    if (!visible.length) return;
+    idx = ((i % visible.length) + visible.length) % visible.length;
+    lastFocus = document.activeElement;
+    paint();
+    lb.classList.add("on");
+    lockScroll(true);
+    $("#lbX")?.focus({ preventScroll: true });
+  };
+  const close = () => {
+    lb.classList.remove("on");
+    lockScroll(false);
+    lastFocus?.focus?.({ preventScroll: true });
+  };
+  const step = d => { idx = (idx + d + visible.length) % visible.length; paint(); };
+
+  grid.addEventListener("click", e => {
+    const t = e.target.closest(".tile");
+    if (t) open(visible.indexOf(t));
+  });
+  $("#lbX")?.addEventListener("click", close);
+  $("#lbP")?.addEventListener("click", () => step(-1));
+  $("#lbN")?.addEventListener("click", () => step(1));
+  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+
+  addEventListener("keydown", e => {
+    if (!lb.classList.contains("on")) return;
+    if (e.key === "Escape") { close(); return; }
+    if (e.key === "ArrowLeft") { step(-1); return; }
+    if (e.key === "ArrowRight") { step(1); return; }
+    if (e.key === "Tab") {
+      const f = $$("button", lb);
+      const i = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+
+  /* horizontal swipe opens the neighbour */
+  let sx = 0, sy = 0;
+  grid.addEventListener("touchstart", e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  grid.addEventListener("touchend", e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    /* predominantly horizontal, and clearly a swipe — never a vertical scroll */
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.6) return;
+    const t = document.activeElement?.closest?.(".tile");
+    const i = t ? visible.indexOf(t) : 0;
+    if (i >= 0) open(i + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+}
+
+/* ══ 12 · RITUAL RAIL — drawn brass line (DrawSVG-style) ═════════ */
+function initRitual() {
+  const wrap = $("#ritualWrap"), fill = $("#ritualFill");
+  if (!wrap || !fill) return;
+  /* reduced motion: the CSS !important rule already shows the rail full-length */
+  if (reduced) return;
+  if (hasNativeTimeline()) return;               /* CSS scroll-timeline wins, 0 KB JS */
+  let last = "";
+  onScroll(() => {
+    const r = wrap.getBoundingClientRect();
+    if (r.bottom < -200 || r.top > S.vh + 200) return;
+    const v = clamp((S.vh * 0.72 - r.top) / (r.height * 0.82)).toFixed(4);
+    if (v !== last) { last = v; fill.style.setProperty("--p", v); }
+  });
+}
+
+/* ══ 13 · QUOTES STACK (React Bits CardSwap port) ════════════════ */
+const QUOTES = [
+  { q: "First place in Cairo that cut my hair the way I asked, then explained why the version I wanted wouldn't have worked.", n: "Youssef A.", m: "Guest since 2022" },
+  { q: "Booked the Full Mankind before my wedding. Two hours later I looked like the photograph I had brought in.", n: "Karim M.", m: "The Full Mankind" },
+  { q: "Brought my son for his first cut. They slowed down, switched the clippers off twice, and he asked to come back.", n: "Dina H.", m: "Junior Gent" },
+  { q: "The fade still looks right eleven days later. That has never happened to me anywhere else in New Cairo.", n: "Ahmed S.", m: "Skin Fade" }
+];
+
+function initQuotes() {
+  const stack = $("#qstack"), dots = $("#qdots");
+  if (!stack || !dots) return;
+  const star = '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>';
+
+  stack.textContent = "";
+  QUOTES.forEach((o, i) => {
+    const fig = document.createElement("figure");
+    fig.className = "qcard";
+    if (i) fig.setAttribute("aria-hidden", "true");
+    fig.innerHTML =
+      `<div><div class="stars" aria-hidden="true">${star.repeat(5)}</div><blockquote>${o.q}</blockquote></div>` +
+      `<figcaption><span class="qmark" aria-hidden="true">${o.n.charAt(0)}</span>` +
+      `<span><b>${o.n}</b><br>${o.m}</span></figcaption>`;
+    stack.append(fig);
+  });
+
+  dots.textContent = "";
+  QUOTES.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.className = "qdot"; b.type = "button"; b.dataset.i = String(i);
+    b.setAttribute("aria-label", `Quote ${i + 1}`);
+    b.setAttribute("aria-current", String(i === 0));
+    dots.append(b);
+  });
+
+  const cards = $$(".qcard", stack), dotEls = $$(".qdot", dots);
+  let cur = 0, timer = 0;
+
+  const show = i => {
+    cur = ((i % cards.length) + cards.length) % cards.length;
+    cards.forEach((c, k) => {
+      const d = (k - cur + cards.length) % cards.length;
+      c.style.transform = d === 0 ? "translate3d(0,0,0) scale(1)"
+        : d === 1 ? "translate3d(0,7%,0) scale(.955)"
+        : "translate3d(0,14%,0) scale(.91)";
+      c.style.opacity = d === 0 ? "1" : d === 1 ? ".4" : "0";
+      c.style.zIndex = String(cards.length - d);
+      c.style.pointerEvents = d === 0 ? "auto" : "none";
+      d === 0 ? c.removeAttribute("aria-hidden") : c.setAttribute("aria-hidden", "true");
+    });
+    dotEls.forEach((b, k) => b.setAttribute("aria-current", String(k === cur)));
+  };
+  const stop = () => clearInterval(timer);
+  const play = () => { stop(); if (!reduced) timer = setInterval(() => show(cur + 1), 6800); };
+
+  $("#qNext")?.addEventListener("click", () => { show(cur + 1); play(); });
+  $("#qPrev")?.addEventListener("click", () => { show(cur - 1); play(); });
+  dotEls.forEach(b => b.addEventListener("click", () => { show(+b.dataset.i); play(); }));
+  stack.addEventListener("pointerenter", stop);
+  stack.addEventListener("pointerleave", play);
+  stack.addEventListener("focusin", stop);
+
+  let sx = 0;
+  stack.addEventListener("touchstart", e => { sx = e.touches[0].clientX; stop(); }, { passive: true });
+  stack.addEventListener("touchend", e => {
+    if (Math.abs(e.changedTouches[0].clientX - sx) > 45) show(cur + (e.changedTouches[0].clientX < sx ? 1 : -1));
+    play();
+  }, { passive: true });
+
+  show(0); play();
+}
+
+/* ══ 14 · HOURS + BOOKING ════════════════════════════════════════ */
+function initBooking() {
+  const now = new Date();
+  const row = $(`.hours tr[data-day="${now.getDay()}"]`);
+  if (row) {
+    row.setAttribute("data-today", "1");
+    const txt = row.querySelector("td")?.textContent.trim();
+    if (txt) { const h = $("#todayHours"); if (h) h.textContent = txt; }
+  }
+  const yr = $("#yr"); if (yr) yr.textContent = String(now.getFullYear());
+  const d = $("#f-date"); if (d) d.min = now.toISOString().slice(0, 10);
+
+  const form = $("#bookForm");
+  if (!form) return;
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = $("#f-name"), phone = $("#f-phone");
+    let bad = null;
+    if (!name.value.trim()) bad = name;
+    else if (phone.value.replace(/\D/g, "").length < 8) bad = phone;
+    if (bad) {
+      bad.focus();
+      bad.style.borderColor = "var(--ember)";
+      setTimeout(() => { bad.style.borderColor = ""; }, 1800);
+      return;
+    }
+    const msg =
+      "Hi MANKIND, I'd like to book a chair.\n\n" +
+      `Name: ${name.value.trim()}\n` +
+      `Phone: ${phone.value.trim()}\n` +
+      `Service: ${$("#f-svc").value}\n` +
+      `Preferred day: ${$("#f-date").value || "flexible"}\n` +
+      ($("#f-note").value.trim() ? `Notes: ${$("#f-note").value.trim()}\n` : "");
+
+    $("#formOk")?.classList.add("on");
+    const url = `https://wa.me/201148310107?text=${encodeURIComponent(msg)}`;
+    /* fire inside the submit gesture so popup blockers stay quiet */
+    const a = document.createElement("a");
+    a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    document.body.append(a); a.click(); a.remove();
+  });
+}
+
+/* ══ 15 · PARALLAX FALLBACK + IMAGE SAFETY NET ═══════════════════ */
+function initParallax() {
+  if (hasNativeTimeline() || reduced) return;   /* CSS scroll-timeline wins */
+  const els = $$("[data-parallax]").map(el => ({ el, last: "" }));
+  if (!els.length) return;
+  onScroll(() => {
+    for (const o of els) {
+      const r = o.el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > S.vh + 200) continue;
+      const v = ((clamp((S.vh - r.top) / (S.vh + r.height)) - 0.5) * -42).toFixed(2) + "px";
+      if (v !== o.last) { o.last = v; o.el.style.transform = `translate3d(0,${v},0)`; }
+    }
+  });
+}
+
+function initImageSafety() {
+  document.addEventListener("error", e => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement)) return;
+    img.closest(".ph")?.classList.add("no-img");
+    img.setAttribute("aria-hidden", "true");
+    img.removeAttribute("alt");
+  }, true);
+}
+
+/* ══ BOOT ════════════════════════════════════════════════════════ */
+initImageSafety();
+initLenis();
+initCurtain();
+measure();
+initNav();
+initNavUI();
+initServices();
+initMagnet();
+initCursor();
+initGallery();
+initRitual();
+initQuotes();
+initBooking();
+initParallax();
+initWordwise();
+
+if (gateDelay) setTimeout(initReveals, gateDelay);
+else initReveals();
+
+requestFrame();
+addEventListener("load", () => { measure(); requestFrame(); });
+addEventListener("orientationchange", () => setTimeout(() => { measure(); requestFrame(); }, 340));
+})();
+</script>
+</body>
+</html>
