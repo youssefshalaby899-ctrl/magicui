@@ -8,6 +8,45 @@ export const CALYPSO = {
   maps: "https://www.google.com/maps/search/?api=1&query=Chill+Out+El+Kafrawi+Axis+Cairo+Egypt",
   facebook: "https://www.facebook.com/Calypso.egypt/",
   instagram: "https://www.instagram.com/calypso.egypt",
+  whatsapp:
+    "https://wa.me/201002683835?text=Hello%20Calypso!%20I%27d%20like%20to%20reserve%20a%20table.",
+} as const
+
+/** Every verified public account for Calypso Egypt (from their FB/IG pages). */
+export const SOCIALS = [
+  {
+    label: "Instagram",
+    handle: "@calypso.egypt",
+    href: CALYPSO.instagram,
+    icon: "instagram",
+  },
+  {
+    label: "Facebook",
+    handle: "Calypso Café and Restaurant",
+    href: CALYPSO.facebook,
+    icon: "facebook",
+  },
+  {
+    label: "WhatsApp",
+    handle: CALYPSO.phoneDisplay,
+    href: CALYPSO.whatsapp,
+    icon: "whatsapp",
+  },
+] as const
+
+/**
+ * The real Calypso menu (print.pdf, shared by the owner via Google Drive).
+ * Served from Drive so the site never carries the 48 MB print file:
+ * `preview` is Google Drive's embeddable viewer, `view`/`download` are
+ * the visitor-facing open & save links.
+ */
+export const MENU_PDF = {
+  fileId: "1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq",
+  view: "https://drive.google.com/file/d/1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq/view?usp=drivesdk",
+  preview:
+    "https://drive.google.com/file/d/1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq/preview",
+  download:
+    "https://drive.google.com/uc?id=1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq&export=download",
 } as const
 
 const img = (id: string, w = 1400) =>

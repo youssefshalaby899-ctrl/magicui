@@ -6,11 +6,14 @@ import Lenis from "lenis"
 import {
   ArrowRight,
   ArrowUpRight,
+  BookOpen,
   Clock,
+  Download,
   Facebook,
   Instagram,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
   Star,
 } from "lucide-react"
@@ -23,7 +26,14 @@ import {
 } from "motion/react"
 
 import { cn } from "@/lib/utils"
-import { CALYPSO, GALLERY, MENU, TESTIMONIALS } from "@/components/calypso/data"
+import {
+  CALYPSO,
+  GALLERY,
+  MENU,
+  MENU_PDF,
+  SOCIALS,
+  TESTIMONIALS,
+} from "@/components/calypso/data"
 
 /* ————— Library audit applied here —————
    Lenis (installed): smooth scroll, disabled for reduced-motion / touch.
@@ -147,6 +157,7 @@ function Nav() {
   const links = [
     ["Story", "#story"],
     ["Menu", "#menu"],
+    ["Full menu", "#full-menu"],
     ["Moments", "#moments"],
     ["Visit", "#visit"],
   ] as const
@@ -551,6 +562,140 @@ function MenuSection() {
   )
 }
 
+function SocialIcon({ icon, className }: { icon: string; className?: string }) {
+  if (icon === "instagram")
+    return <Instagram className={className} aria-hidden />
+  if (icon === "facebook") return <Facebook className={className} aria-hidden />
+  return <MessageCircle className={className} aria-hidden />
+}
+
+/* ———————— Full menu (the real print menu, served from Google Drive) ———————— */
+function FullMenu() {
+  const [open, setOpen] = useState(false)
+  return (
+    <section
+      id="full-menu"
+      className="border-t border-[#f6ecdc]/10 bg-[#171008] text-[#f6ecdc]"
+    >
+      <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <Reveal>
+              <Eyebrow>The complete menu</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="mt-5 font-[family-name:var(--font-calypso-display)] text-4xl font-medium md:text-5xl">
+                Read the real{" "}
+                <span className="text-[#e9c07a] italic">Calypso menu</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-[#f6ecdc]/60">
+                This is our actual in-house menu — every dish, drink and shisha,
+                exactly as you’ll find it on the table. Open it here, or save it
+                for later.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.15}>
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                aria-controls="calypso-menu-viewer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#c9903f] px-6 py-3 text-sm font-semibold text-[#120c07] transition hover:bg-[#e9c07a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e9c07a]"
+              >
+                <BookOpen className="size-4" aria-hidden />{" "}
+                {open ? "Hide the menu" : "Open the menu here"}
+              </button>
+              <a
+                href={MENU_PDF.view}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/25 px-6 py-3 text-sm font-semibold transition hover:border-[#f6ecdc] hover:bg-[#f6ecdc]/10 focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
+              >
+                View in Google Drive{" "}
+                <ArrowUpRight className="size-4" aria-hidden />
+              </a>
+              <a
+                href={MENU_PDF.download}
+                className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/25 px-6 py-3 text-sm font-semibold transition hover:border-[#f6ecdc] hover:bg-[#f6ecdc]/10 focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
+              >
+                <Download className="size-4" aria-hidden /> Download PDF
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              id="calypso-menu-viewer"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.6, ease }}
+              className="overflow-hidden"
+            >
+              <div className="mt-10 overflow-hidden rounded-[1.75rem] bg-[#0d0906] shadow-2xl ring-1 ring-[#f6ecdc]/15">
+                <iframe
+                  src={MENU_PDF.preview}
+                  title="Calypso Café & Restaurant — full menu (PDF)"
+                  className="h-[70svh] w-full md:h-[82svh]"
+                  loading="lazy"
+                  allow="fullscreen"
+                />
+              </div>
+              <p className="mt-4 text-[13px] text-[#f6ecdc]/50">
+                Menu as shared by the Calypso team — prices or items may change
+                in-house;{" "}
+                <a
+                  href={CALYPSO.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#e9c07a] underline-offset-4 hover:underline"
+                >
+                  message us on WhatsApp
+                </a>{" "}
+                for today’s specials.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {!open && (
+          <Reveal delay={0.1}>
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-label="Open the full Calypso menu"
+              className="group relative mt-10 block w-full overflow-hidden rounded-[1.75rem] text-left ring-1 ring-[#f6ecdc]/15 transition hover:ring-[#c9903f]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e9c07a]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1800&auto=format&fit=crop"
+                alt=""
+                width={1800}
+                height={700}
+                className="h-56 w-full object-cover opacity-60 transition duration-[1200ms] group-hover:scale-105 group-hover:opacity-75 md:h-72"
+                loading="lazy"
+              />
+              <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-t from-[#120c07]/85 via-[#120c07]/30 to-transparent p-6 text-center">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#faf5ea] px-6 py-3 text-sm font-bold text-[#211812] transition group-hover:bg-[#e9c07a]">
+                  <BookOpen className="size-4" aria-hidden /> Tap to read the
+                  full menu
+                </span>
+                <span className="text-[13px] text-[#f6ecdc]/70">
+                  Kitchen · Café · Drinks · Shisha — the complete Calypso list
+                </span>
+              </span>
+            </button>
+          </Reveal>
+        )}
+      </div>
+    </section>
+  )
+}
+
 /* ————————————— Gallery / Moments ————————————— */
 function Moments() {
   const [i, setI] = useState(0)
@@ -754,25 +899,23 @@ function Visit() {
             </ul>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="mt-10 flex gap-3">
-              <a
-                href={CALYPSO.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Calypso on Instagram"
-                className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/25 px-5 py-2.5 text-sm transition hover:border-[#c9903f] hover:bg-[#c9903f] hover:text-[#120c07] focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
-              >
-                <Instagram className="size-4" aria-hidden /> @calypso.egypt
-              </a>
-              <a
-                href={CALYPSO.facebook}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Calypso on Facebook"
-                className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/25 px-5 py-2.5 text-sm transition hover:border-[#c9903f] hover:bg-[#c9903f] hover:text-[#120c07] focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
-              >
-                <Facebook className="size-4" aria-hidden /> Facebook
-              </a>
+            <p className="mt-10 text-[11px] font-semibold tracking-[0.32em] text-[#c9903f] uppercase">
+              Follow Calypso
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Calypso on ${s.label} — ${s.handle}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/25 px-5 py-2.5 text-sm transition hover:border-[#c9903f] hover:bg-[#c9903f] hover:text-[#120c07] focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
+                >
+                  <SocialIcon icon={s.icon} className="size-4" /> {s.label} ·{" "}
+                  {s.handle}
+                </a>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -894,6 +1037,20 @@ function Visit() {
             Menu highlights shown — ask our team for today’s full menu. ©{" "}
             {new Date().getFullYear()} Calypso Egypt.
           </p>
+          <span className="flex items-center gap-2">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Calypso on ${s.label}`}
+                className="inline-flex size-9 items-center justify-center rounded-full border border-[#f6ecdc]/20 text-[#f6ecdc]/70 transition hover:border-[#c9903f] hover:bg-[#c9903f] hover:text-[#120c07] focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
+              >
+                <SocialIcon icon={s.icon} className="size-4" />
+              </a>
+            ))}
+          </span>
           <a
             href="#top"
             className="underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
@@ -926,6 +1083,7 @@ export function CalypsoSite() {
       <Marquee />
       <Story />
       <MenuSection />
+      <FullMenu />
       <Moments />
       <Visit />
     </motion.main>
