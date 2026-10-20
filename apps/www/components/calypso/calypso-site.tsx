@@ -301,7 +301,7 @@ function Hero() {
               href="#visit"
               className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/30 px-6 py-3.5 text-sm font-semibold text-[#f6ecdc] backdrop-blur transition hover:border-[#f6ecdc] hover:bg-[#f6ecdc]/10 focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
             >
-              Book a table
+              Visit us
             </a>
           </motion.div>
         </div>
@@ -548,8 +548,7 @@ function MenuSection() {
                       href={CALYPSO.phoneHref}
                       className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#e9c07a] transition hover:gap-2.5 focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
                     >
-                      Order / reserve{" "}
-                      <ArrowUpRight className="size-3.5" aria-hidden />
+                      Order <ArrowUpRight className="size-3.5" aria-hidden />
                     </a>
                   </div>
                 </article>
@@ -807,9 +806,8 @@ function Moments() {
   )
 }
 
-/* ————————————— Visit / Reserve ————————————— */
+/* ————————————— Visit ————————————— */
 function Visit() {
-  const [sent, setSent] = useState(false)
   return (
     <section
       id="visit"
@@ -828,15 +826,14 @@ function Visit() {
         className="absolute inset-0 bg-gradient-to-r from-[#120c07] via-[#120c07]/85 to-[#120c07]/40"
         aria-hidden
       />
-      <div className="relative mx-auto grid max-w-7xl gap-14 px-5 py-24 md:px-10 md:py-36 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-3xl px-5 py-24 md:px-10 md:py-36">
         <div>
           <Reveal>
             <Eyebrow>Visit us</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-[family-name:var(--font-calypso-display)] text-4xl font-medium md:text-6xl">
-              Your table is{" "}
-              <span className="text-[#e9c07a] italic">waiting.</span>
+              Come say <span className="text-[#e9c07a] italic">hello.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -919,113 +916,6 @@ function Visit() {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={0.1}>
-          <div className="rounded-[2rem] bg-[#faf5ea] p-7 text-[#211812] shadow-2xl md:p-9">
-            {sent ? (
-              <div role="status" className="py-10 text-center">
-                <p className="font-[family-name:var(--font-calypso-display)] text-3xl">
-                  Shukran! 🎉
-                </p>
-                <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-[#211812]/65">
-                  Your request is ready — tap below to send it to us instantly
-                  on the phone line, and we’ll confirm your table.
-                </p>
-                <a
-                  href={CALYPSO.phoneHref}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#211812] px-6 py-3 text-sm font-semibold text-[#faf5ea] transition hover:bg-[#a96f2c]"
-                >
-                  Call {CALYPSO.phoneDisplay}
-                </a>
-                <button
-                  onClick={() => setSent(false)}
-                  className="mt-4 block w-full text-sm text-[#211812]/55 underline underline-offset-4"
-                >
-                  Make another request
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  setSent(true)
-                }}
-                aria-label="Reserve a table"
-              >
-                <h3 className="font-[family-name:var(--font-calypso-display)] text-2xl">
-                  Reserve a table
-                </h3>
-                <p className="mt-1 text-sm text-[#211812]/60">
-                  We reply fastest by phone — this form prepares your request.
-                </p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <label className="grid gap-1.5 text-sm font-medium">
-                    Name
-                    <input
-                      required
-                      name="name"
-                      autoComplete="name"
-                      placeholder="Your name"
-                      className="rounded-xl border border-[#211812]/15 bg-white px-4 py-3 font-normal transition outline-none focus:border-[#a96f2c] focus:ring-2 focus:ring-[#a96f2c]/25"
-                    />
-                  </label>
-                  <label className="grid gap-1.5 text-sm font-medium">
-                    Phone
-                    <input
-                      required
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      placeholder="01x xxxx xxxx"
-                      className="rounded-xl border border-[#211812]/15 bg-white px-4 py-3 font-normal transition outline-none focus:border-[#a96f2c] focus:ring-2 focus:ring-[#a96f2c]/25"
-                    />
-                  </label>
-                  <label className="grid gap-1.5 text-sm font-medium">
-                    Guests
-                    <input
-                      name="guests"
-                      type="number"
-                      min={1}
-                      max={40}
-                      defaultValue={2}
-                      className="rounded-xl border border-[#211812]/15 bg-white px-4 py-3 font-normal transition outline-none focus:border-[#a96f2c] focus:ring-2 focus:ring-[#a96f2c]/25"
-                    />
-                  </label>
-                  <label className="grid gap-1.5 text-sm font-medium">
-                    Seating
-                    <select
-                      name="seating"
-                      className="rounded-xl border border-[#211812]/15 bg-white px-4 py-3 font-normal transition outline-none focus:border-[#a96f2c] focus:ring-2 focus:ring-[#a96f2c]/25"
-                    >
-                      <option>Terrace (outdoor)</option>
-                      <option>Indoor</option>
-                      <option>No preference</option>
-                    </select>
-                  </label>
-                  <label className="grid gap-1.5 text-sm font-medium sm:col-span-2">
-                    Anything we should know?
-                    <textarea
-                      name="notes"
-                      rows={3}
-                      placeholder="Birthday, shisha preference, quiet corner…"
-                      className="resize-none rounded-xl border border-[#211812]/15 bg-white px-4 py-3 font-normal transition outline-none focus:border-[#a96f2c] focus:ring-2 focus:ring-[#a96f2c]/25"
-                    />
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#211812] px-6 py-3.5 text-sm font-semibold text-[#faf5ea] transition hover:bg-[#a96f2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a96f2c]"
-                >
-                  Request reservation{" "}
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-1"
-                    aria-hidden
-                  />
-                </button>
-              </form>
-            )}
-          </div>
-        </Reveal>
       </div>
       <footer className="relative border-t border-[#f6ecdc]/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-8 text-[13px] text-[#f6ecdc]/50 md:flex-row md:px-10">

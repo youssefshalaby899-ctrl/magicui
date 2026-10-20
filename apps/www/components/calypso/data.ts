@@ -8,8 +8,7 @@ export const CALYPSO = {
   maps: "https://www.google.com/maps/search/?api=1&query=Chill+Out+El+Kafrawi+Axis+Cairo+Egypt",
   facebook: "https://www.facebook.com/Calypso.egypt/",
   instagram: "https://www.instagram.com/calypso.egypt",
-  whatsapp:
-    "https://wa.me/201002683835?text=Hello%20Calypso!%20I%27d%20like%20to%20reserve%20a%20table.",
+  whatsapp: "https://wa.me/201002683835?text=Hello%20Calypso!",
 } as const
 
 /** Every verified public account for Calypso Egypt (from their FB/IG pages). */

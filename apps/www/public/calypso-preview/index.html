@@ -148,7 +148,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <p class="eyebrow" style="color:var(--gold)">Café · Restaurant · Shisha — Cairo</p>
 <h1 id="h1" aria-label="Where Cairo comes to unwind.">Where Cairo <em>comes to unwind.</em></h1>
 <p class="lead">A nice meal, a proper drink and shisha with your friends — in a room that feels homey and friendly from the moment you step in.</p>
-<div class="cta"><a class="btn btn-gold" href="#menu">Explore the menu →</a><a class="btn btn-ghost" href="#full-menu">📖 Full menu (PDF)</a><a class="btn btn-ghost" href="#visit">Book a table</a></div>
+<div class="cta"><a class="btn btn-gold" href="#menu">Explore the menu →</a><a class="btn btn-ghost" href="#full-menu">📖 Full menu (PDF)</a><a class="btn btn-ghost" href="#visit">Visit us</a></div>
 <div class="meta"><span><b>📍</b> El Kafrawi Axis, Cairo</span><span><b>🕐</b> Dine-in &amp; outdoor seating</span><span><b>★</b> Loved by Cairo's night owls</span></div>
 </div></div>
 
@@ -198,8 +198,8 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <!-- VISIT -->
 <section class="visit" id="visit">
 <img class="bgimg" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1800&auto=format&fit=crop" alt="" loading="lazy" aria-hidden="true"><div class="shade2" aria-hidden="true"></div>
-<div class="wrap grid2 rel">
-<div><p class="eyebrow">Visit us</p><h2>Your table is <em>waiting.</em></h2>
+<div class="wrap rel" style="max-width:56rem;margin-left:0">
+<div><p class="eyebrow">Visit us</p><h2>Come say <em>hello.</em></h2>
 <ul class="contact">
 <li>📍 <a href="https://www.google.com/maps/search/?api=1&query=Chill+Out+El+Kafrawi+Axis+Cairo+Egypt" target="_blank" rel="noreferrer">Chill Out, El Kafrawi Axis, Cairo, Egypt — Get directions →</a></li>
 <li>📞 <a href="tel:+201002683835">+20 10 0268 3835</a></li>
@@ -210,25 +210,8 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <div class="socials">
 <a href="https://www.instagram.com/calypso.egypt" target="_blank" rel="noreferrer" aria-label="Calypso on Instagram">Instagram · @calypso.egypt</a>
 <a href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer" aria-label="Calypso on Facebook">Facebook · Calypso Café and Restaurant</a>
-<a href="https://wa.me/201002683835?text=Hello%20Calypso!%20I'd%20like%20to%20reserve%20a%20table." target="_blank" rel="noreferrer" aria-label="Calypso on WhatsApp">WhatsApp · +20 10 0268 3835</a>
-</div></div>
-
-<div class="form" id="book">
-<div id="formWrap"><h3>Reserve a table</h3>
-<p style="font-size:.875rem;color:rgba(33,24,18,.6);margin-top:.25rem">We reply fastest by phone — this form prepares your request.</p>
-<form id="resForm" aria-label="Reserve a table">
-<div class="row"><label>Name<input required name="name" autocomplete="name" placeholder="Your name"></label>
-<label>Phone<input required name="phone" type="tel" autocomplete="tel" placeholder="01x xxxx xxxx"></label></div>
-<div class="row"><label>Guests<input name="guests" type="number" min="1" max="40" value="2"></label>
-<label>Seating<select name="seating"><option>Terrace (outdoor)</option><option>Indoor</option><option>No preference</option></select></label></div>
-<label>Anything we should know?<textarea name="notes" rows="3" placeholder="Birthday, shisha preference, quiet corner…" style="resize:none"></textarea></label>
-<button class="submit" type="submit">Request reservation →</button></form></div>
-<div id="sentWrap" class="hidden" role="status" style="text-align:center;padding:2.5rem 0">
-<p class="serif" style="font-size:1.875rem">Shukran! 🎉</p>
-<p style="font-size:.875rem;color:rgba(33,24,18,.65);line-height:1.6;margin-top:.75rem">Your request is ready — tap below to send it to us instantly, and we'll confirm your table.</p>
-<a class="btn" style="background:var(--txt);color:var(--cream);margin-top:1.5rem" href="https://wa.me/201002683835" target="_blank" rel="noreferrer">💬 Send on WhatsApp</a>
-<p style="margin-top:1rem"><a href="tel:+201002683835" style="font-size:.875rem">or call +20 10 0268 3835</a></p>
-</div></div>
+<a href="https://wa.me/201002683835?text=Hello%20Calypso!" target="_blank" rel="noreferrer" aria-label="Calypso on WhatsApp">WhatsApp · +20 10 0268 3835</a>
+</div>
 </div>
 <footer class="site"><div class="wrap">
 <span class="serif" style="font-size:1.125rem;color:var(--paper)">Calypso <em style="color:var(--copper)">Café &amp; Restaurant</em></span>
@@ -249,7 +232,7 @@ const U=id=>`https://images.unsplash.com/photo-${id}?q=80&w=900&auto=format&fit=
 const MENU={'Kitchen':[['Calypso Grilled Platter','Char-grilled cuts, smoked garlic butter, warm bread & house salads.','EGP 420','1555939594-58d7cb561ad1','House signature'],['Slow Pasta al Pomodoro','Hand-torn basil, rich tomato sugo, aged parmesan, olive oil.','EGP 240','1473093295043-cdd812d0e601',''],['The Calypso Burger','Smashed beef, cheddar, pickles & secret sauce in a toasted brioche.','EGP 285','1568901346375-23c9450c58cd','Most loved'],['Garden Bowl','Seasonal greens, grains, avocado & citrus-herb dressing.','EGP 210','1540189549336-e6e99c629fe0','']],'Café':[['Signature Espresso Bar','Single-origin beans, pulled slow — cortado, flat white or classic espresso.','from EGP 70','1509042239860-f550ce710b93','House signature'],['Iced Spanish Latte','Double shot, cold milk & a whisper of condensed sweetness over ice.','EGP 110','1495474472287-4d71bcdd2085',''],['Honeycomb Pancakes','Fluffy stack, honeycomb butter, berries & maple drizzle.','EGP 195','1567620905732-2d1ec7ab7445',''],['Midnight Dessert','Dark chocolate, sea salt & cream — the table always shares one more.','EGP 165','1551024506-0bccd828d307','After dinner']],'Drinks & Shisha':[['Sunset Mocktails','Fresh citrus, herbs & sparkling botanicals, mixed to order at the bar.','from EGP 120','1514362545857-3bc16c4c7d1b','Golden hour'],['Fresh-Brewed Classics','Mint tea, Turkish coffee & seasonal fresh juices, served the slow way.','from EGP 60','1546069901-baacef7a0c4d',''],['Premium Shisha','Your favourite blends, prepared tableside — best enjoyed outdoors, unhurried.','Ask your host','1470337458703-46ad1756a187','Outdoor terrace'],['Pizza, Fired Fresh','Blistered crust, fior di latte & toppings straight from the kitchen pass.','from EGP 230','1513104890138-7c749659a591','']]};
 const tabs=$('#tabs'),cards=$('#cards');
 Object.keys(MENU).forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.textContent=c;b.setAttribute('role','tab');b.setAttribute('aria-selected',i===0);b.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected','false'));b.setAttribute('aria-selected','true');render(c)};tabs.append(b)});
-function render(c){cards.innerHTML=MENU[c].map(([n,d,p,im,tag])=>`<article class="card"><div class="ph"><img src="${U(im)}" alt="${n}" loading="lazy">${tag?`<span class="tag">${tag}</span>`:''}<span class="price">${p}</span></div><div class="tx"><h3>${n}</h3><p>${d}</p><a href="https://wa.me/201002683835" target="_blank" rel="noreferrer">Order / reserve ↗</a></div></article>`).join('')}
+function render(c){cards.innerHTML=MENU[c].map(([n,d,p,im,tag])=>`<article class="card"><div class="ph"><img src="${U(im)}" alt="${n}" loading="lazy">${tag?`<span class="tag">${tag}</span>`:''}<span class="price">${p}</span></div><div class="tx"><h3>${n}</h3><p>${d}</p><a href="https://wa.me/201002683835" target="_blank" rel="noreferrer">Order ↗</a></div></article>`).join('')}
 render('Kitchen');
 /* full menu toggle */
 $('#toggleMenu').onclick=e=>{const v=$('#viewer'),open=v.classList.toggle('hidden')===false;e.currentTarget.textContent=open?'📖 Hide the menu':'📖 Open the menu here';e.currentTarget.setAttribute('aria-expanded',open)};
@@ -262,7 +245,6 @@ function show(i,manual){gi=i;$$('#gal img').forEach((im,k)=>im.classList.toggle(
 function start(){if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show((gi+1)%G.length),5200)}
 start();
 /* reveals */ const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el));
-/* form */ $('#resForm').onsubmit=e=>{e.preventDefault();$('#formWrap').classList.add('hidden');$('#sentWrap').classList.remove('hidden')};
 </script>
 </body>
 </html>
