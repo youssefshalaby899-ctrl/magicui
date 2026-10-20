@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Calypso Café &amp; Restaurant — Cairo (Preview)</title>
+<meta name="description" content="Calypso Café & Restaurant, El Kafrawi Axis, Cairo. Meals, drinks & shisha in a homey, friendly atmosphere."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#120c07;--ink2:#1d130a;--cream:#faf5ea;--paper:#f6ecdc;--copper:#c9903f;--gold:#e9c07a;--brown:#a96f2c;--txt:#211812}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.serif{font-family:Fraunces,Georgia,serif}
+a{color:inherit}img{display:block;max-width:100%}
+.wrap{max-width:80rem;margin:0 auto;padding:0 1.25rem}
+@media(min-width:768px){.wrap{padding:0 2.5rem}}
+.eyebrow{display:flex;align-items:center;gap:.75rem;font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--copper)}
+.eyebrow::before{content:"";width:2.5rem;height:1px;background:var(--copper)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.85rem 1.5rem;font-size:.875rem;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.3s}
+.btn-gold{background:var(--copper);color:var(--ink)}.btn-gold:hover{background:var(--gold)}
+.btn-ghost{border-color:rgba(246,236,220,.3);color:var(--paper);background:transparent}.btn-ghost:hover{border-color:var(--paper);background:rgba(246,236,220,.1)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:.4s}
+header.scrolled{background:rgba(18,12,7,.92);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:Fraunces,serif;font-size:1.5rem;color:#f6ecdc;text-decoration:none}.logo sup{font-size:10px;letter-spacing:.25em;color:var(--copper);font-family:Inter}
+nav ul{display:none;gap:2.25rem;list-style:none}
+@media(min-width:768px){nav ul{display:flex}}
+nav ul a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,236,220,.8)}
+nav ul a:hover{color:#fff}
+.callbtn{display:inline-flex;gap:.5rem;align-items:center;border:1px solid rgba(246,236,220,.25);border-radius:999px;padding:.5rem 1rem;font-size:13px;text-decoration:none}
+.callbtn:hover{background:var(--copper);color:var(--ink);border-color:var(--copper)}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2200&auto=format&fit=crop') center/cover;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.05)}to{transform:scale(1.18)}}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(to top,#120c07 5%,rgba(18,12,7,.35) 55%,rgba(18,12,7,.3))}
+.hero .inner{position:relative;z-index:2;width:100%;padding:9rem 0 3.5rem}
+.hero h1{font-family:Fraunces,serif;font-weight:500;font-size:13.5vw;line-height:.95;color:#faf3e6;max-width:56rem}
+@media(min-width:640px){.hero h1{font-size:4.5rem}}@media(min-width:1024px){.hero h1{font-size:7.5rem}}
+.hero h1 em{color:var(--gold)}
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.w span{display:inline-block;animation:rise .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes rise{from{transform:translateY(110%);opacity:0;filter:blur(6px)}to{transform:none;opacity:1;filter:none}}
+.hero p.lead{max-width:28rem;color:rgba(246,236,220,.75);line-height:1.6;margin-top:2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.meta{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;border-top:1px solid rgba(246,236,220,.15);margin-top:3.5rem;padding-top:1.5rem;font-size:13px;color:rgba(246,236,220,.65)}
+.meta b{color:var(--copper);font-weight:600}
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid rgba(246,236,220,.1);background:#171008;padding:1rem 0}
+.marquee .track{display:flex;width:max-content;animation:mq 36s linear infinite}
+.marquee span{display:flex;align-items:center;gap:1.5rem;padding-right:1.5rem;font-family:Fraunces,serif;font-style:italic;font-size:1.125rem;color:rgba(246,236,220,.7);white-space:nowrap}
+.marquee i{width:6px;height:6px;border-radius:50%;background:var(--copper);flex:none}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:6rem 0}
+@media(min-width:768px){section{padding:8rem 0}}
+.light{background:var(--cream);color:var(--txt)}
+h2{font-family:Fraunces,serif;font-weight:500;font-size:2.25rem;line-height:1.05;margin-top:1.25rem}
+@media(min-width:768px){h2{font-size:3.5rem}}
+h2 em{color:var(--brown)} .dark h2 em{color:var(--gold)}
+.grid2{display:grid;gap:3rem}
+@media(min-width:768px){.grid2{grid-template-columns:1fr 1fr;gap:5rem}}
+.body-txt{color:rgba(33,24,18,.7);line-height:1.7;margin-top:1.5rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(33,24,18,.1);border-radius:1rem;overflow:hidden;margin-top:2.5rem}
+.stats div{background:var(--cream);padding:1.25rem}.stats b{font-family:Fraunces,serif;font-size:1.875rem;color:var(--brown);display:block;font-weight:500}
+.stats span{font-size:13px;color:rgba(33,24,18,.6)}
+.storyimg{border-radius:2rem;overflow:hidden;position:relative;aspect-ratio:4/5}
+.storyimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+.storyimg:hover img{transform:scale(1.05)}
+.storyimg figcaption{position:absolute;left:1.25rem;bottom:1.25rem;font-family:Fraunces,serif;font-style:italic;font-size:1.125rem;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+/* menu */
+.dark{background:var(--ink)}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:3rem}
+.tab{border:1px solid rgba(246,236,220,.2);background:transparent;color:rgba(246,236,220,.7);border-radius:999px;padding:.6rem 1.25rem;font-size:.875rem;font-weight:500;cursor:pointer;transition:.3s;font-family:Inter}
+.tab[aria-selected="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.cards{display:grid;gap:1.25rem;margin-top:2.5rem}
+@media(min-width:640px){.cards{grid-template-columns:1fr 1fr}}@media(min-width:1024px){.cards{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--ink2);border:1px solid rgba(246,236,220,.1);border-radius:1.5rem;overflow:hidden;transition:.5s;animation:fade .45s both}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card:hover{transform:translateY(-6px);border-color:rgba(201,144,63,.45);box-shadow:0 24px 48px rgba(0,0,0,.5)}
+.card .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.card:hover .ph img{transform:scale(1.1)}
+.price{position:absolute;right:.75rem;bottom:.75rem;background:var(--cream);color:var(--txt);font-size:13px;font-weight:700;border-radius:999px;padding:.25rem .75rem}
+.tag{position:absolute;left:.75rem;top:.75rem;background:rgba(18,12,7,.7);backdrop-filter:blur(6px);color:var(--gold);font-size:11px;font-weight:600;border-radius:999px;padding:.25rem .75rem}
+.card .tx{padding:1.25rem}.card h3{font-family:Fraunces,serif;font-size:1.25rem;font-weight:500}
+.card p{font-size:.875rem;line-height:1.6;color:rgba(246,236,220,.6);margin-top:.5rem}
+.card a{font-size:13px;font-weight:600;color:var(--gold);text-decoration:none;display:inline-block;margin-top:1rem}
+/* full menu */
+.fullmenu{background:#171008;border-top:1px solid rgba(246,236,220,.1)}
+.viewer{margin-top:2.5rem;border-radius:1.75rem;overflow:hidden;background:#0d0906;border:1px solid rgba(246,236,220,.15)}
+.viewer iframe{width:100%;height:82svh;border:0;display:block}
+.hidden{display:none!important}
+/* gallery + testimonials */
+.gal{position:relative;border-radius:2rem;overflow:hidden;aspect-ratio:16/10;margin-top:3rem;background:#ddd}
+@media(min-width:768px){.gal{aspect-ratio:21/9}}
+.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s}
+.gal img.on{opacity:1}
+.gal figcaption{position:absolute;left:1.5rem;bottom:1.25rem;z-index:2;font-family:Fraunces,serif;font-style:italic;font-size:1.35rem;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.thumbs{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+.thumbs button{width:6rem;height:4rem;border-radius:.75rem;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;opacity:.55;background:none}
+.thumbs button[aria-selected="true"]{border-color:var(--brown);opacity:1}.thumbs button:hover{opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.quotes{display:grid;gap:1.25rem;margin-top:4rem}
+@media(min-width:768px){.quotes{grid-template-columns:repeat(3,1fr)}}
+blockquote{background:rgba(255,255,255,.7);border:1px solid rgba(33,24,18,.1);border-radius:1.5rem;padding:1.75rem}
+blockquote .stars{color:var(--copper);letter-spacing:.2em}
+blockquote p{font-family:Fraunces,serif;font-style:italic;font-size:1.25rem;line-height:1.4;margin-top:1rem}
+blockquote footer{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:rgba(33,24,18,.55);margin-top:1.25rem}
+/* visit */
+.visit{position:relative;overflow:hidden;background:var(--ink)}
+.visit .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
+.visit .shade2{position:absolute;inset:0;background:linear-gradient(to right,#120c07,rgba(18,12,7,.85),rgba(18,12,7,.4))}
+.visit .rel{position:relative}
+.contact{list-style:none;margin-top:2.5rem;display:grid;gap:1.25rem;font-size:15px}
+.contact a{text-decoration:none}.contact a:hover{text-decoration:underline}
+.socials{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+.socials a{border:1px solid rgba(246,236,220,.25);border-radius:999px;padding:.6rem 1.25rem;font-size:.875rem;text-decoration:none}
+.socials a:hover{background:var(--copper);color:var(--ink);border-color:var(--copper)}
+.form{background:var(--cream);color:var(--txt);border-radius:2rem;padding:2rem;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.form h3{font-family:Fraunces,serif;font-size:1.5rem;font-weight:500}
+.form label{display:grid;gap:.4rem;font-size:.875rem;font-weight:500;margin-top:1rem}
+.form input,.form select,.form textarea{border:1px solid rgba(33,24,18,.15);border-radius:.75rem;padding:.75rem 1rem;font:inherit;background:#fff;width:100%}
+.form .row{display:grid;gap:0 1rem}@media(min-width:640px){.form .row{grid-template-columns:1fr 1fr}}
+.submit{width:100%;margin-top:1.5rem;background:var(--txt);color:var(--cream);border:0;border-radius:999px;padding:.9rem;font-weight:600;cursor:pointer;font-size:.875rem}
+.submit:hover{background:var(--brown)}
+footer.site{border-top:1px solid rgba(246,236,220,.1);padding:2rem 0;font-size:13px;color:rgba(246,236,220,.5)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="hdr"><div class="wrap"><nav aria-label="Calypso">
+<a class="logo" href="#top">Calypso<sup>EG</sup></a>
+<ul><li><a href="#story">Story</a></li><li><a href="#menu">Menu</a></li><li><a href="#full-menu">Full menu</a></li><li><a href="#moments">Moments</a></li><li><a href="#visit">Visit</a></li></ul>
+<a class="callbtn" href="tel:+201002683835">📞 +20 10 0268 3835</a>
+</nav></div></header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero"><div class="bg" aria-hidden="true"></div><div class="shade" aria-hidden="true"></div>
+<div class="wrap inner">
+<p class="eyebrow" style="color:var(--gold)">Café · Restaurant · Shisha — Cairo</p>
+<h1 id="h1" aria-label="Where Cairo comes to unwind.">Where Cairo <em>comes to unwind.</em></h1>
+<p class="lead">A nice meal, a proper drink and shisha with your friends — in a room that feels homey and friendly from the moment you step in.</p>
+<div class="cta"><a class="btn btn-gold" href="#menu">Explore the menu →</a><a class="btn btn-ghost" href="#full-menu">📖 Full menu (PDF)</a><a class="btn btn-ghost" href="#visit">Book a table</a></div>
+<div class="meta"><span><b>📍</b> El Kafrawi Axis, Cairo</span><span><b>🕐</b> Dine-in &amp; outdoor seating</span><span><b>★</b> Loved by Cairo's night owls</span></div>
+</div></div>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- STORY -->
+<section class="light" id="story"><div class="wrap grid2">
+<div><p class="eyebrow">Our story</p><h2>Not just a table.<br><em>A place to land.</em></h2>
+<p class="body-txt">Calypso began with a simple idea: Cairo needed a room that treats you like a guest in someone's home. Good food, honest drinks, shisha prepared with care — and staff who remember your name by the second visit.</p>
+<p class="body-txt">Find us on El Kafrawi Axis, where the terrace catches the evening breeze and dinner has a way of turning into the whole night.</p>
+<div class="stats"><div><b>203+</b><span>moments shared on Instagram</span></div><div><b>7</b><span>days a week, morning to late</span></div><div><b>2</b><span>ways to sit — dine-in or terrace</span></div><div><b>1</b><span>rule: never rush a guest</span></div></div></div>
+<figure class="storyimg reveal"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1400&auto=format&fit=crop" alt="Warm, welcoming interior at Calypso Café & Restaurant" loading="lazy"><figcaption>“Step in — you're among friends.”</figcaption></figure>
+</div></section>
+
+<!-- MENU CARDS -->
+<section class="dark" id="menu"><div class="wrap">
+<p class="eyebrow">From the kitchen &amp; bar</p><h2>Tonight at <em>Calypso</em></h2>
+<div class="tabs" role="tablist" aria-label="Menu categories" id="tabs"></div>
+<div class="cards" id="cards" aria-live="polite"></div>
+</div></section>
+
+<!-- FULL MENU (GOOGLE DRIVE) -->
+<section class="fullmenu" id="full-menu"><div class="wrap">
+<p class="eyebrow">The complete menu</p><h2>Read the real <em>Calypso menu</em></h2>
+<p style="max-width:32rem;margin-top:1rem;font-size:.9rem;line-height:1.65;color:rgba(246,236,220,.6)">This is our actual in-house menu — every dish, drink and shisha, exactly as you'll find it on the table. Open it here, or save it for later.</p>
+<div class="cta">
+<button class="btn btn-gold" id="toggleMenu" aria-expanded="false" aria-controls="viewer">📖 Open the menu here</button>
+<a class="btn btn-ghost" href="https://drive.google.com/file/d/1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq/view?usp=drivesdk" target="_blank" rel="noreferrer">View in Google Drive ↗</a>
+<a class="btn btn-ghost" href="https://drive.google.com/uc?id=1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq&export=download">⬇ Download PDF</a>
+</div>
+<div class="viewer hidden" id="viewer"><iframe src="https://drive.google.com/file/d/1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq/preview" title="Calypso Café & Restaurant — full menu (PDF)" loading="lazy" allow="fullscreen"></iframe></div>
+<p style="margin-top:1rem;font-size:13px;color:rgba(246,236,220,.5)">Prices or items may change in-house — <a style="color:var(--gold)" href="https://wa.me/201002683835" target="_blank" rel="noreferrer">message us on WhatsApp</a> for today's specials.</p>
+</div></section>
+
+<!-- MOMENTS -->
+<section class="light" id="moments"><div class="wrap">
+<p class="eyebrow">Moments</p><h2>Evenings, as they <em>actually feel</em></h2>
+<figure class="gal reveal" id="gal"></figure>
+<div class="thumbs" role="tablist" aria-label="Gallery" id="thumbs"></div>
+<div class="quotes">
+<blockquote><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“You feel the homey, friendly atmosphere the moment you step in — and you never want to leave.”</p><footer>A regular, Cairo</footer></blockquote>
+<blockquote><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“A meal, a drink, shisha with friends — Calypso is where our evenings naturally end up.”</p><footer>Weekend guest</footer></blockquote>
+<blockquote><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Unhurried service, generous plates and a terrace made for long conversations.”</p><footer>First-time visitor</footer></blockquote>
+</div></div></section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+<img class="bgimg" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1800&auto=format&fit=crop" alt="" loading="lazy" aria-hidden="true"><div class="shade2" aria-hidden="true"></div>
+<div class="wrap grid2 rel">
+<div><p class="eyebrow">Visit us</p><h2>Your table is <em>waiting.</em></h2>
+<ul class="contact">
+<li>📍 <a href="https://www.google.com/maps/search/?api=1&query=Chill+Out+El+Kafrawi+Axis+Cairo+Egypt" target="_blank" rel="noreferrer">Chill Out, El Kafrawi Axis, Cairo, Egypt — Get directions →</a></li>
+<li>📞 <a href="tel:+201002683835">+20 10 0268 3835</a></li>
+<li>✉️ <a href="mailto:calypsocafeegypt@gmail.com">calypsocafeegypt@gmail.com</a></li>
+<li>🕐 Open daily — dine-in &amp; outdoor seating. Call ahead for large groups &amp; celebrations.</li>
+</ul>
+<p class="eyebrow" style="margin-top:2.5rem">Follow Calypso</p>
+<div class="socials">
+<a href="https://www.instagram.com/calypso.egypt" target="_blank" rel="noreferrer" aria-label="Calypso on Instagram">Instagram · @calypso.egypt</a>
+<a href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer" aria-label="Calypso on Facebook">Facebook · Calypso Café and Restaurant</a>
+<a href="https://wa.me/201002683835?text=Hello%20Calypso!%20I'd%20like%20to%20reserve%20a%20table." target="_blank" rel="noreferrer" aria-label="Calypso on WhatsApp">WhatsApp · +20 10 0268 3835</a>
+</div></div>
+
+<div class="form" id="book">
+<div id="formWrap"><h3>Reserve a table</h3>
+<p style="font-size:.875rem;color:rgba(33,24,18,.6);margin-top:.25rem">We reply fastest by phone — this form prepares your request.</p>
+<form id="resForm" aria-label="Reserve a table">
+<div class="row"><label>Name<input required name="name" autocomplete="name" placeholder="Your name"></label>
+<label>Phone<input required name="phone" type="tel" autocomplete="tel" placeholder="01x xxxx xxxx"></label></div>
+<div class="row"><label>Guests<input name="guests" type="number" min="1" max="40" value="2"></label>
+<label>Seating<select name="seating"><option>Terrace (outdoor)</option><option>Indoor</option><option>No preference</option></select></label></div>
+<label>Anything we should know?<textarea name="notes" rows="3" placeholder="Birthday, shisha preference, quiet corner…" style="resize:none"></textarea></label>
+<button class="submit" type="submit">Request reservation →</button></form></div>
+<div id="sentWrap" class="hidden" role="status" style="text-align:center;padding:2.5rem 0">
+<p class="serif" style="font-size:1.875rem">Shukran! 🎉</p>
+<p style="font-size:.875rem;color:rgba(33,24,18,.65);line-height:1.6;margin-top:.75rem">Your request is ready — tap below to send it to us instantly, and we'll confirm your table.</p>
+<a class="btn" style="background:var(--txt);color:var(--cream);margin-top:1.5rem" href="https://wa.me/201002683835" target="_blank" rel="noreferrer">💬 Send on WhatsApp</a>
+<p style="margin-top:1rem"><a href="tel:+201002683835" style="font-size:.875rem">or call +20 10 0268 3835</a></p>
+</div></div>
+</div>
+<footer class="site"><div class="wrap">
+<span class="serif" style="font-size:1.125rem;color:var(--paper)">Calypso <em style="color:var(--copper)">Café &amp; Restaurant</em></span>
+<span>Menu highlights shown — see the full menu above. © 2026 Calypso Egypt.</span>
+<span><a href="https://www.instagram.com/calypso.egypt" target="_blank" rel="noreferrer">IG</a> · <a href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer">FB</a> · <a href="https://wa.me/201002683835" target="_blank" rel="noreferrer">WhatsApp</a> · <a href="#top">Back to top ↑</a></span>
+</div></footer>
+</section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+/* header */ addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>40),{passive:true});
+/* split headline */
+(()=>{const h=$('#h1');const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach((w,i)=>{if(!w)return;if(/^\s+$/.test(w)){f.append(w);return}const o=document.createElement('span');o.className='w';const s=document.createElement('span');s.textContent=w;s.style.animationDelay=(h._d=(h._d||0)+0.07)+'s';o.append(s);f.append(o)});c.replaceWith(f)}else if(c.nodeType===1)walk(c)})};walk(h)})();
+/* marquee */ (()=>{const items=['Slow mornings','Golden-hour terraces','Signature shisha','Kitchen favourites','Coffee, properly brewed','Nights that linger'];const html=items.map(t=>`<span>${t}<i></i></span>`).join('');$('#mq').innerHTML=html+html})();
+/* menu */
+const U=id=>`https://images.unsplash.com/photo-${id}?q=80&w=900&auto=format&fit=crop`;
+const MENU={'Kitchen':[['Calypso Grilled Platter','Char-grilled cuts, smoked garlic butter, warm bread & house salads.','EGP 420','1555939594-58d7cb561ad1','House signature'],['Slow Pasta al Pomodoro','Hand-torn basil, rich tomato sugo, aged parmesan, olive oil.','EGP 240','1473093295043-cdd812d0e601',''],['The Calypso Burger','Smashed beef, cheddar, pickles & secret sauce in a toasted brioche.','EGP 285','1568901346375-23c9450c58cd','Most loved'],['Garden Bowl','Seasonal greens, grains, avocado & citrus-herb dressing.','EGP 210','1540189549336-e6e99c629fe0','']],'Café':[['Signature Espresso Bar','Single-origin beans, pulled slow — cortado, flat white or classic espresso.','from EGP 70','1509042239860-f550ce710b93','House signature'],['Iced Spanish Latte','Double shot, cold milk & a whisper of condensed sweetness over ice.','EGP 110','1495474472287-4d71bcdd2085',''],['Honeycomb Pancakes','Fluffy stack, honeycomb butter, berries & maple drizzle.','EGP 195','1567620905732-2d1ec7ab7445',''],['Midnight Dessert','Dark chocolate, sea salt & cream — the table always shares one more.','EGP 165','1551024506-0bccd828d307','After dinner']],'Drinks & Shisha':[['Sunset Mocktails','Fresh citrus, herbs & sparkling botanicals, mixed to order at the bar.','from EGP 120','1514362545857-3bc16c4c7d1b','Golden hour'],['Fresh-Brewed Classics','Mint tea, Turkish coffee & seasonal fresh juices, served the slow way.','from EGP 60','1546069901-baacef7a0c4d',''],['Premium Shisha','Your favourite blends, prepared tableside — best enjoyed outdoors, unhurried.','Ask your host','1470337458703-46ad1756a187','Outdoor terrace'],['Pizza, Fired Fresh','Blistered crust, fior di latte & toppings straight from the kitchen pass.','from EGP 230','1513104890138-7c749659a591','']]};
+const tabs=$('#tabs'),cards=$('#cards');
+Object.keys(MENU).forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.textContent=c;b.setAttribute('role','tab');b.setAttribute('aria-selected',i===0);b.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected','false'));b.setAttribute('aria-selected','true');render(c)};tabs.append(b)});
+function render(c){cards.innerHTML=MENU[c].map(([n,d,p,im,tag])=>`<article class="card"><div class="ph"><img src="${U(im)}" alt="${n}" loading="lazy">${tag?`<span class="tag">${tag}</span>`:''}<span class="price">${p}</span></div><div class="tx"><h3>${n}</h3><p>${d}</p><a href="https://wa.me/201002683835" target="_blank" rel="noreferrer">Order / reserve ↗</a></div></article>`).join('')}
+render('Kitchen');
+/* full menu toggle */
+$('#toggleMenu').onclick=e=>{const v=$('#viewer'),open=v.classList.toggle('hidden')===false;e.currentTarget.textContent=open?'📖 Hide the menu':'📖 Open the menu here';e.currentTarget.setAttribute('aria-expanded',open)};
+/* gallery */
+const G=[['1554118811-1e0d58224f24','Warm café interior with guests relaxing','The room, as evening settles in'],['1414235077428-338989a2e8c0','Elegant table setting at Calypso','Dinner, served without hurry'],['1470337458703-46ad1756a187','Calypso bar at night','Drinks & conversation at the bar'],['1514933651103-005eec06c04b','Restaurant interior with warm lighting','Homey corners, friendly faces'],['1509042239860-f550ce710b93','Freshly brewed coffee being poured','First pour of the day']];
+const gal=$('#gal'),th=$('#thumbs');let gi=0,timer;
+G.forEach(([id,alt,cap],i)=>{const im=document.createElement('img');im.src=`https://images.unsplash.com/photo-${id}?q=80&w=1600&auto=format&fit=crop`;im.alt=alt;im.loading='lazy';if(i===0)im.className='on';gal.append(im);const b=document.createElement('button');b.setAttribute('role','tab');b.setAttribute('aria-label',cap);b.setAttribute('aria-selected',i===0);b.innerHTML=`<img src="https://images.unsplash.com/photo-${id}?q=80&w=300&auto=format&fit=crop" alt="" loading="lazy">`;b.onclick=()=>show(i,true);th.append(b)});
+const cap=document.createElement('figcaption');cap.textContent=G[0][2];gal.append(cap);
+function show(i,manual){gi=i;$$('#gal img').forEach((im,k)=>im.classList.toggle('on',k===i));$$('#thumbs button').forEach((b,k)=>b.setAttribute('aria-selected',k===i));cap.textContent=G[i][2];if(manual){clearInterval(timer);start()}}
+function start(){if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show((gi+1)%G.length),5200)}
+start();
+/* reveals */ const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el));
+/* form */ $('#resForm').onsubmit=e=>{e.preventDefault();$('#formWrap').classList.add('hidden');$('#sentWrap').classList.remove('hidden')};
+</script>
+</body>
+</html>
