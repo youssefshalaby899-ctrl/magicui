@@ -235,7 +235,7 @@ function Hero() {
     >
       <motion.div style={{ y, scale }} className="absolute inset-0" aria-hidden>
         <Image
-          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2200&auto=format&fit=crop"
+          src="/calypso-preview/photos/storefront-night.jpg"
           alt=""
           fill
           priority
@@ -412,8 +412,8 @@ function Story() {
         <Reveal delay={0.1} className="relative">
           <div className="group relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image
-              src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1400&auto=format&fit=crop"
-              alt="Warm, welcoming interior at Calypso Café & Restaurant"
+              src="/calypso-preview/photos/storefront-day.jpg"
+              alt="Calypso Café & Restaurant storefront and terrace, Cairo"
               fill
               sizes="(max-width:768px) 100vw, 50vw"
               className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
@@ -428,8 +428,8 @@ function Story() {
           </div>
           <div className="absolute -bottom-6 -left-4 hidden w-52 rotate-[-4deg] overflow-hidden rounded-2xl border-4 border-[#faf5ea] shadow-xl md:block">
             <Image
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=700&auto=format&fit=crop"
-              alt="Coffee being poured"
+              src="/calypso-preview/photos/croissant-coffee.jpg"
+              alt="Croissants and lattes at Calypso"
               width={420}
               height={300}
               className="aspect-[4/3] object-cover"
@@ -671,7 +671,7 @@ function FullMenu() {
               className="group relative mt-10 block w-full overflow-hidden rounded-[1.75rem] text-left ring-1 ring-[#f6ecdc]/15 transition hover:ring-[#c9903f]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e9c07a]"
             >
               <Image
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1800&auto=format&fit=crop"
+                src="/calypso-preview/photos/storefront-night.jpg"
                 alt=""
                 width={1800}
                 height={700}
@@ -814,7 +814,7 @@ function Visit() {
       className="relative overflow-hidden bg-[#120c07] text-[#f6ecdc]"
     >
       <Image
-        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1800&auto=format&fit=crop"
+        src="/calypso-preview/photos/storefront-night.jpg"
         alt=""
         fill
         sizes="100vw"

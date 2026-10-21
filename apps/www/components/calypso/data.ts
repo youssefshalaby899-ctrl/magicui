@@ -48,15 +48,12 @@ export const MENU_PDF = {
     "https://drive.google.com/uc?id=1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq&export=download",
 } as const
 
-const img = (id: string, w = 1400) =>
-  `https://images.unsplash.com/photo-${id}?q=80&w=${w}&auto=format&fit=crop`
+const photo = (name: string) => `/calypso-preview/photos/${name}`
 
 export const IMAGES = {
-  hero: img("1554118811-1e0d58224f24", 2200),
-  interior: img("1514933651103-005eec06c04b"),
-  dining: img("1414235077428-338989a2e8c0"),
-  bar: img("1470337458703-46ad1756a187"),
-  coffee: img("1509042239860-f550ce710b93"),
+  hero: photo("storefront-night.jpg"),
+  storefront: photo("storefront-day.jpg"),
+  brownie: photo("brownie.jpg"),
 }
 
 export type MenuItem = {
@@ -67,119 +64,34 @@ export type MenuItem = {
   tag?: string
 }
 
+const SEE_MENU = "See full menu"
+
 export const MENU: Record<string, MenuItem[]> = {
   Kitchen: [
-    {
-      name: "Calypso Grilled Platter",
-      desc: "Char-grilled cuts, smoked garlic butter, warm bread & house salads.",
-      price: "EGP 420",
-      image: img("1555939594-58d7cb561ad1", 900),
-      tag: "House signature",
-    },
-    {
-      name: "Slow Pasta al Pomodoro",
-      desc: "Hand-torn basil, rich tomato sugo, aged parmesan, olive oil.",
-      price: "EGP 240",
-      image: img("1473093295043-cdd812d0e601", 900),
-    },
-    {
-      name: "The Calypso Burger",
-      desc: "Smashed beef, cheddar, pickles & secret sauce in a toasted brioche.",
-      price: "EGP 285",
-      image: img("1568901346375-23c9450c58cd", 900),
-      tag: "Most loved",
-    },
-    {
-      name: "Garden Bowl",
-      desc: "Seasonal greens, grains, avocado & citrus-herb dressing.",
-      price: "EGP 210",
-      image: img("1540189549336-e6e99c629fe0", 900),
-    },
+    { name: "Beef Skillet, Rice & Fries", desc: "Slow-cooked beef in a creamy mushroom sauce, rosemary, rice & golden fries.", price: SEE_MENU, image: photo("beef-skillet.jpg"), tag: "House favourite" },
+    { name: "Spaghetti Bolognese", desc: "Rich beef ragù over spaghetti, garlic toast & fresh parsley.", price: SEE_MENU, image: photo("bolognese.jpg") },
+    { name: "Creamy Penne & Crispy Chicken", desc: "Penne in white sauce with crispy chicken under melted cheese sauce.", price: SEE_MENU, image: photo("penne-chicken.jpg"), tag: "Most loved" },
+    { name: "Chicken Mushroom", desc: "Our famous chicken mushroom — the dish ordered every single day, with fries.", price: SEE_MENU, image: photo("chicken-mushroom.jpg"), tag: "Signature" },
   ],
-  Café: [
-    {
-      name: "Signature Espresso Bar",
-      desc: "Single-origin beans, pulled slow — cortado, flat white or classic espresso.",
-      price: "from EGP 70",
-      image: img("1509042239860-f550ce710b93", 900),
-      tag: "House signature",
-    },
-    {
-      name: "Iced Spanish Latte",
-      desc: "Double shot, cold milk & a whisper of condensed sweetness over ice.",
-      price: "EGP 110",
-      image: img("1495474472287-4d71bcdd2085", 900),
-    },
-    {
-      name: "Honeycomb Pancakes",
-      desc: "Fluffy stack, honeycomb butter, berries & maple drizzle.",
-      price: "EGP 195",
-      image: img("1567620905732-2d1ec7ab7445", 900),
-    },
-    {
-      name: "Midnight Dessert",
-      desc: "Dark chocolate, sea salt & cream — the table always shares one more.",
-      price: "EGP 165",
-      image: img("1551024506-0bccd828d307", 900),
-      tag: "After dinner",
-    },
+  "Café & Bakery": [
+    { name: "Croissants & Lattes for Two", desc: "Flaky butter croissants with two lattes and latte art — the Calypso morning.", price: SEE_MENU, image: photo("croissant-coffee.jpg"), tag: "Morning ritual" },
+    { name: "Cookies, Croissant & Coffee", desc: "Chocolate-chip cookies and a fresh croissant next to your coffee.", price: SEE_MENU, image: photo("cookies-coffee.jpg") },
+    { name: "Penne Arrabbiata & Burger", desc: "Spicy tomato penne with garlic bread, and our burger waiting behind it.", price: SEE_MENU, image: photo("penne-burger.jpg"), tag: "For sharing" },
   ],
-  "Drinks & Shisha": [
-    {
-      name: "Sunset Mocktails",
-      desc: "Fresh citrus, herbs & sparkling botanicals, mixed to order at the bar.",
-      price: "from EGP 120",
-      image: img("1514362545857-3bc16c4c7d1b", 900),
-      tag: "Golden hour",
-    },
-    {
-      name: "Fresh-Brewed Classics",
-      desc: "Mint tea, Turkish coffee & seasonal fresh juices, served the slow way.",
-      price: "from EGP 60",
-      image: img("1546069901-baacef7a0c4d", 900),
-    },
-    {
-      name: "Premium Shisha",
-      desc: "Your favourite blends, prepared tableside — best enjoyed outdoors, unhurried.",
-      price: "Ask your host",
-      image: img("1470337458703-46ad1756a187", 900),
-      tag: "Outdoor terrace",
-    },
-    {
-      name: "Pizza, Fired Fresh",
-      desc: "Blistered crust, fior di latte & toppings straight from the kitchen pass.",
-      price: "from EGP 230",
-      image: img("1513104890138-7c749659a591", 900),
-    },
+  Desserts: [
+    { name: "Chocolate Brownie & Ice Cream", desc: "Warm chocolate brownie, vanilla ice cream and a glossy chocolate pour.", price: SEE_MENU, image: photo("brownie.jpg"), tag: "House signature" },
+    { name: "Berry Cheesecake", desc: "Baked cheesecake drowned in warm berry sauce, poured at the table.", price: SEE_MENU, image: photo("cheesecake.jpg"), tag: "Poured tableside" },
+    { name: "Chocolate-Chip Cookies", desc: "Fresh-baked, loaded with chocolate chips — best with a cappuccino.", price: SEE_MENU, image: photo("cookies-coffee.jpg"), tag: "Fresh from the oven" },
   ],
 }
 
 export const GALLERY = [
-  {
-    src: IMAGES.hero,
-    alt: "Warm café interior with guests relaxing",
-    caption: "The room, as evening settles in",
-  },
-  {
-    src: IMAGES.dining,
-    alt: "Elegant table setting at Calypso",
-    caption: "Dinner, served without hurry",
-  },
-  {
-    src: IMAGES.bar,
-    alt: "Calypso bar at night",
-    caption: "Drinks & conversation at the bar",
-  },
-  {
-    src: IMAGES.interior,
-    alt: "Restaurant interior with warm lighting",
-    caption: "Homey corners, friendly faces",
-  },
-  {
-    src: IMAGES.coffee,
-    alt: "Freshly brewed coffee being poured",
-    caption: "First pour of the day",
-  },
+  { src: photo("storefront-night.jpg"), alt: "Calypso Café & Restaurant at night, fully lit", caption: "Calypso after dark — now opened" },
+  { src: photo("storefront-day.jpg"), alt: "Calypso storefront and sunny terrace by day", caption: "The terrace, in the Cairo sun" },
+  { src: photo("brownie.jpg"), alt: "Chocolate brownie with ice cream and chocolate sauce", caption: "Something sweet to finish" },
+  { src: photo("cheesecake.jpg"), alt: "Berry sauce being poured over cheesecake", caption: "Berry cheesecake, poured live" },
+  { src: photo("croissant-coffee.jpg"), alt: "Croissants and lattes on a wooden table, from above", caption: "Slow mornings, done right" },
+  { src: photo("chicken-mushroom.jpg"), alt: "Chicken Mushroom with fries", caption: "Chicken Mushroom — ordered every day" },
 ]
 
 export const TESTIMONIALS = [
