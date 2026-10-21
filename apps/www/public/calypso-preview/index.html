@@ -21,6 +21,12 @@ a{color:inherit}img{display:block;max-width:100%}
 .btn-gold{background:var(--copper);color:var(--ink)}.btn-gold:hover{background:var(--gold)}
 .btn-ghost{border-color:rgba(246,236,220,.3);color:var(--paper);background:transparent}.btn-ghost:hover{border-color:var(--paper);background:rgba(246,236,220,.1)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.followrow{margin-top:1.75rem;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.followrow .flabel{width:100%;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.fpill{display:inline-flex;align-items:center;gap:.55rem;border:1px solid rgba(246,236,220,.28);background:rgba(18,12,7,.45);backdrop-filter:blur(8px);border-radius:999px;padding:.55rem 1.1rem;font-size:.85rem;font-weight:600;color:var(--paper);text-decoration:none;transition:.3s}
+.fpill:hover{background:var(--copper);border-color:var(--copper);color:var(--ink);transform:translateY(-2px)}
+.fpill small{font-weight:400;opacity:.75}
+
 /* nav */
 header{position:fixed;inset:0 0 auto;z-index:50;transition:.4s}
 header.scrolled{background:rgba(18,12,7,.92);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
@@ -149,6 +155,12 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <h1 id="h1" aria-label="Where Cairo comes to unwind.">Where Cairo <em>comes to unwind.</em></h1>
 <p class="lead">A nice meal, a proper drink and shisha with your friends — in a room that feels homey and friendly from the moment you step in.</p>
 <div class="cta"><a class="btn btn-gold" href="#menu">Explore the menu →</a><a class="btn btn-ghost" href="#full-menu">📖 Full menu (PDF)</a><a class="btn btn-ghost" href="#visit">Visit us</a></div>
+<div class="followrow" aria-label="Follow Calypso on social media">
+<span class="flabel">📲 Follow us — new dishes, daily specials &amp; behind-the-scenes</span>
+<a class="fpill" href="https://www.instagram.com/calypso.egypt" target="_blank" rel="noreferrer" aria-label="Follow Calypso on Instagram">Instagram <small>@calypso.egypt</small></a>
+<a class="fpill" href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer" aria-label="Follow Calypso on Facebook">Facebook <small>Calypso Café and Restaurant</small></a>
+<a class="fpill" href="https://wa.me/201002683835?text=Hello%20Calypso!" target="_blank" rel="noreferrer" aria-label="Message Calypso on WhatsApp">WhatsApp <small>+20 10 0268 3835</small></a>
+</div>
 <div class="meta"><span><b>📍</b> El Kafrawi Axis, Cairo</span><span><b>🕐</b> Dine-in &amp; outdoor seating</span><span><b>★</b> Loved by Cairo's night owls</span></div>
 </div></div>
 

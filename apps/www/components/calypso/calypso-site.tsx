@@ -306,6 +306,31 @@ function Hero() {
           </motion.div>
         </div>
         <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.8, ease }}
+          className="mt-7 flex flex-wrap items-center gap-2.5"
+          aria-label="Follow Calypso on social media"
+        >
+          <span className="w-full text-xs font-semibold tracking-[0.14em] text-[#e9c07a] uppercase">
+            📲 Follow us — new dishes, daily specials &amp; behind-the-scenes
+          </span>
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Follow Calypso on ${s.label} — ${s.handle}`}
+              className="inline-flex items-center gap-2 rounded-full border border-[#f6ecdc]/30 bg-[#120c07]/45 px-4 py-2 text-[13px] font-semibold text-[#f6ecdc] backdrop-blur transition hover:-translate-y-0.5 hover:border-[#c9903f] hover:bg-[#c9903f] hover:text-[#120c07] focus-visible:outline-2 focus-visible:outline-[#e9c07a]"
+            >
+              <SocialIcon icon={s.icon} className="size-4" />
+              {s.label}
+              <span className="font-normal opacity-75">{s.handle}</span>
+            </a>
+          ))}
+        </motion.div>
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
