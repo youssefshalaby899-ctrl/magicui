@@ -145,6 +145,57 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   )
 }
 
+
+function FloatingSocials() {
+  return (
+    <div className="fixed right-4 bottom-4 z-[60] flex flex-col gap-2.5" aria-label="Follow Calypso">
+      <a href={CALYPSO.instagram} target="_blank" rel="noreferrer" aria-label="Follow Calypso on Instagram" title="Instagram" className="flex size-[3.3rem] items-center justify-center rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xl shadow-black/30 transition hover:-translate-y-1 hover:scale-105 focus-visible:outline-2 focus-visible:outline-[#e9c07a]">
+        <Instagram className="size-5" aria-hidden />
+      </a>
+      <a href={CALYPSO.facebook} target="_blank" rel="noreferrer" aria-label="Follow Calypso on Facebook" title="Facebook" className="flex size-[3.3rem] items-center justify-center rounded-full bg-[#1877f2] text-white shadow-xl shadow-black/30 transition hover:-translate-y-1 hover:scale-105 focus-visible:outline-2 focus-visible:outline-[#e9c07a]">
+        <Facebook className="size-5" aria-hidden />
+      </a>
+      <a href={CALYPSO.whatsapp} target="_blank" rel="noreferrer" aria-label="Message Calypso on WhatsApp" title="WhatsApp" className="flex size-[3.3rem] items-center justify-center rounded-full bg-[#25d366] text-white shadow-xl shadow-black/30 transition hover:-translate-y-1 hover:scale-105 focus-visible:outline-2 focus-visible:outline-[#e9c07a]">
+        <MessageCircle className="size-5" aria-hidden />
+      </a>
+    </div>
+  )
+}
+
+function PhotoRibbon() {
+  const imgs = ["/calypso-preview/photos/storefront-day.jpg","/calypso-preview/photos/brownie.jpg","/calypso-preview/photos/croissant-coffee.jpg","/calypso-preview/photos/beef-skillet.jpg","/calypso-preview/photos/cheesecake.jpg","/calypso-preview/photos/penne-chicken.jpg","/calypso-preview/photos/cookies-coffee.jpg","/calypso-preview/photos/storefront-night.jpg"]
+  const row = [...imgs, ...imgs]
+  return (
+    <div className="overflow-hidden bg-[#0d0906] py-4" aria-label="Calypso photo highlights">
+      <div className="calypso-marquee flex w-max gap-4 hover:[animation-play-state:paused]">
+        {row.map((src, i) => (
+          <span key={i} className="relative h-40 w-60 flex-none overflow-hidden rounded-2xl">
+            <Image src={src} alt="" fill sizes="240px" className="object-cover transition duration-500 hover:scale-105" loading="lazy" />
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function FollowBanner() {
+  return (
+    <section className="bg-[#faf5ea] px-5 pb-4 md:px-10" aria-label="Follow Calypso on social media">
+      <Reveal className="mx-auto max-w-7xl">
+        <div className="rounded-[2rem] bg-gradient-to-br from-[#7a4a17] via-[#c9903f] to-[#8a5a1e] px-6 py-12 text-center text-white shadow-2xl shadow-[#a96f2c]/30 md:py-16">
+          <h3 className="font-[family-name:var(--font-calypso-display)] text-3xl leading-tight font-medium md:text-5xl">Your feed deserves<br />better food. 🍰</h3>
+          <p className="mt-3 text-white/85">Follow <strong>@calypso.egypt</strong> for new dishes, daily specials and behind-the-scenes moments.</p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <a href={CALYPSO.instagram} target="_blank" rel="noreferrer" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-[#5b3a10] transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-white">📸 Follow on Instagram</a>
+            <a href={CALYPSO.facebook} target="_blank" rel="noreferrer" className="rounded-full bg-[#120c07] px-6 py-3 text-sm font-bold text-[#f6ecdc] transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-white">Follow on Facebook</a>
+            <a href={CALYPSO.whatsapp} target="_blank" rel="noreferrer" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-[#5b3a10] transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-white">💬 WhatsApp us</a>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  )
+}
+
 /* ————————————— Nav ————————————— */
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -996,11 +1047,14 @@ export function CalypsoSite() {
       <Nav />
       <Hero />
       <Marquee />
+      <PhotoRibbon />
       <Story />
       <MenuSection />
       <FullMenu />
+      <FollowBanner />
       <Moments />
       <Visit />
+      <FloatingSocials />
     </motion.main>
   )
 }

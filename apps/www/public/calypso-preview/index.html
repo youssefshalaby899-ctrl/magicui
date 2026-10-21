@@ -137,6 +137,42 @@ footer.site{border-top:1px solid rgba(246,236,220,.1);padding:2rem 0;font-size:1
 footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
 .reveal.in{opacity:1;transform:none}
+
+/* --- attraction upgrades --- */
+.hero h1{text-shadow:0 4px 40px rgba(0,0,0,.35)}
+.hero .glassrow{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.glass{background:rgba(18,12,7,.48);border:1px solid rgba(246,236,220,.18);backdrop-filter:blur(10px);border-radius:1rem;padding:.8rem 1.1rem;font-size:13px;color:rgba(246,236,220,.85)}
+.glass b{display:block;font-family:Fraunces,serif;font-size:1.25rem;color:#fff;font-weight:500}
+.scrolldown{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:3;color:rgba(246,236,220,.75);font-size:11px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+.ribbon{overflow:hidden;background:#0d0906;padding:1rem 0;border-bottom:1px solid rgba(246,236,220,.08)}
+.ribbon .track{display:flex;gap:1rem;width:max-content;animation:mq 46s linear infinite}
+.ribbon:hover .track{animation-play-state:paused}
+.ribbon img{width:15rem;height:10rem;object-fit:cover;border-radius:1rem;flex:none;transition:transform .5s}
+.ribbon img:hover{transform:scale(1.04) rotate(-1deg)}
+.features{display:grid;gap:1rem;margin-top:2.5rem}
+@media(min-width:768px){.features{grid-template-columns:repeat(3,1fr)}}
+.feature{background:#fff;border:1px solid rgba(33,24,18,.09);border-radius:1.25rem;padding:1.4rem;transition:.4s}
+.feature:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(169,111,44,.15)}
+.feature .ic{font-size:1.7rem}
+.feature h3{font-family:Fraunces,serif;font-weight:500;font-size:1.2rem;margin-top:.6rem}
+.feature p{font-size:.87rem;line-height:1.6;color:rgba(33,24,18,.62);margin-top:.4rem}
+.followbanner{position:relative;overflow:hidden;border-radius:2rem;margin-top:3rem;padding:2.6rem 2rem;text-align:center;color:#fff;background:linear-gradient(120deg,#7a4a17,#c9903f 45%,#8a5a1e);box-shadow:0 30px 60px rgba(169,111,44,.35)}
+.followbanner h3{font-family:Fraunces,serif;font-size:2rem;font-weight:500;line-height:1.15}
+@media(min-width:768px){.followbanner h3{font-size:2.8rem}}
+.followbanner p{opacity:.88;margin-top:.7rem;font-size:.95rem}
+.followbanner .row{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:1.6rem}
+.followbanner a{background:#fff;color:#5b3a10;font-weight:700;border-radius:999px;padding:.8rem 1.5rem;text-decoration:none;font-size:.9rem;transition:.3s}
+.followbanner a:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.25)}
+.followbanner a.dark{background:#120c07;color:#f6ecdc}
+.floaters{position:fixed;right:1rem;bottom:1rem;z-index:60;display:flex;flex-direction:column;gap:.6rem}
+.floaters a{width:3.3rem;height:3.3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.35rem;text-decoration:none;color:#fff;box-shadow:0 12px 28px rgba(0,0,0,.35);transition:.3s}
+.floaters a:hover{transform:translateY(-3px) scale(1.06)}
+.floaters .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.floaters .wa{background:#25d366}
+.floaters .fb{background:#1877f2}
+@media (prefers-reduced-motion: reduce){.ribbon .track,.scrolldown{animation:none!important}}
+
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -161,11 +197,19 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <a class="fpill" href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer" aria-label="Follow Calypso on Facebook">Facebook <small>Calypso Café and Restaurant</small></a>
 <a class="fpill" href="https://wa.me/201002683835?text=Hello%20Calypso!" target="_blank" rel="noreferrer" aria-label="Message Calypso on WhatsApp">WhatsApp <small>+20 10 0268 3835</small></a>
 </div>
+<div class="glassrow" aria-label="Calypso highlights">
+<span class="glass"><b>★ 203+</b>moments shared on Instagram</span>
+<span class="glass"><b>Open daily</b>dine-in &amp; sunny terrace</span>
+<span class="glass"><b>El Kafrawi Axis</b>Chill Out, Cairo</span>
+</div>
 <div class="meta"><span><b>📍</b> El Kafrawi Axis, Cairo</span><span><b>🕐</b> Dine-in &amp; outdoor seating</span><span><b>★</b> Loved by Cairo's night owls</span></div>
-</div></div>
+</div><a class="scrolldown" href="#story">Scroll ↓</a></div>
 
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- PHOTO RIBBON -->
+<div class="ribbon" aria-label="Calypso photo highlights"><div class="track" id="ribbon"></div></div>
 
 <!-- STORY -->
 <section class="light" id="story"><div class="wrap grid2">
@@ -173,6 +217,11 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <p class="body-txt">Calypso began with a simple idea: Cairo needed a room that treats you like a guest in someone's home. Good food, honest drinks, shisha prepared with care — and staff who remember your name by the second visit.</p>
 <p class="body-txt">Find us on El Kafrawi Axis, where the terrace catches the evening breeze and dinner has a way of turning into the whole night.</p>
 <div class="stats"><div><b>203+</b><span>moments shared on Instagram</span></div><div><b>7</b><span>days a week, morning to late</span></div><div><b>2</b><span>ways to sit — dine-in or terrace</span></div><div><b>1</b><span>rule: never rush a guest</span></div></div></div>
+<div class="features">
+<div class="feature"><div class="ic">🍽️</div><h3>Fresh from the kitchen</h3><p>Pastas, grills and our famous Chicken Mushroom — cooked to order, served generous.</p></div>
+<div class="feature"><div class="ic">🌿</div><h3>Terrace state of mind</h3><p>A sunny terrace by day and a softly-lit hangout by night. Choose your mood.</p></div>
+<div class="feature"><div class="ic">☕</div><h3>Coffee, desserts &amp; shisha</h3><p>Latte art, fresh croissants, warm brownies — and shisha prepared with care.</p></div>
+</div>
 <figure class="storyimg reveal"><img src="photos/storefront-day.jpg" alt="Calypso Café & Restaurant storefront and terrace, Cairo" loading="lazy"><figcaption>“Step in — you're among friends.”</figcaption></figure>
 </div></section>
 
@@ -195,6 +244,16 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 <div class="viewer hidden" id="viewer"><iframe src="https://drive.google.com/file/d/1OvX0V3D_4u6cX1gFOc67zONf-nkqI7Cq/preview" title="Calypso Café & Restaurant — full menu (PDF)" loading="lazy" allow="fullscreen"></iframe></div>
 <p style="margin-top:1rem;font-size:13px;color:rgba(246,236,220,.5)">Prices or items may change in-house — <a style="color:var(--gold)" href="https://wa.me/201002683835" target="_blank" rel="noreferrer">message us on WhatsApp</a> for today's specials.</p>
 </div></section>
+
+<!-- FOLLOW BANNER -->
+<div class="wrap"><div class="followbanner reveal">
+<h3>Your feed deserves<br>better food. 🍰</h3>
+<p>Follow <b>@calypso.egypt</b> for new dishes, daily specials and behind-the-scenes moments.</p>
+<div class="row">
+<a href="https://www.instagram.com/calypso.egypt" target="_blank" rel="noreferrer">📸 Follow on Instagram</a>
+<a class="dark" href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer">Follow on Facebook</a>
+<a href="https://wa.me/201002683835?text=Hello%20Calypso!" target="_blank" rel="noreferrer">💬 WhatsApp us</a>
+</div></div></div>
 
 <!-- MOMENTS -->
 <section class="light" id="moments"><div class="wrap">
@@ -232,6 +291,11 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justif
 </div></footer>
 </section>
 </main>
+<div class="floaters" aria-label="Follow Calypso">
+<a class="ig" href="https://www.instagram.com/calypso.egypt" target="_blank" rel="noreferrer" aria-label="Follow Calypso on Instagram" title="Instagram">📸</a>
+<a class="fb" href="https://www.facebook.com/Calypso.egypt/" target="_blank" rel="noreferrer" aria-label="Follow Calypso on Facebook" title="Facebook">f</a>
+<a class="wa" href="https://wa.me/201002683835?text=Hello%20Calypso!" target="_blank" rel="noreferrer" aria-label="Message Calypso on WhatsApp" title="WhatsApp">💬</a>
+</div>
 
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -255,6 +319,7 @@ const cap=document.createElement('figcaption');cap.textContent=G[0][2];gal.appen
 function show(i,manual){gi=i;$$('#gal img').forEach((im,k)=>im.classList.toggle('on',k===i));$$('#thumbs button').forEach((b,k)=>b.setAttribute('aria-selected',k===i));cap.textContent=G[i][2];if(manual){clearInterval(timer);start()}}
 function start(){if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show((gi+1)%G.length),5200)}
 start();
+/* ribbon */ (()=>{const imgs=['photos/storefront-day.jpg','photos/brownie.jpg','photos/croissant-coffee.jpg','photos/beef-skillet.jpg','photos/cheesecake.jpg','photos/penne-chicken.jpg','photos/cookies-coffee.jpg','photos/storefront-night.jpg'];const h=imgs.map(i=>`<img src="${i}" alt="" loading="lazy">`).join('');$('#ribbon').innerHTML=h+h})();
 /* reveals */ const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
